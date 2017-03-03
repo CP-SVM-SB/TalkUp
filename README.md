@@ -1,11 +1,11 @@
 # Group Project 
 
-*** in development ***
+*** Project in development ***
 
 Yet to be named. *Nickname: Sandbox*
 
 
-**Sandbox** is a messaging app for iOS.
+*Bored? Talk to Anyone!* **Sandbox** is a messaging app for iOS. 
 
  by: **Savannah McCoy** and **Shumba Brown**
 
