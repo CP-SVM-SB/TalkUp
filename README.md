@@ -1,17 +1,26 @@
-# Group Project * Yet to be named. Nickname: Sandbox*
+# Group Project 
 
-**Sandbox** is a tip calculator application for iOS.
+*** in development ***
+
+Yet to be named. *Nickname: Sandbox*
+
+
+**Sandbox** is a messaging app for iOS.
 
  by: **Savannah McCoy** and **Shumba Brown**
 
-## User Stories
+## CORE
 
 We expect to implement the following **required** functionality:
 
-* [] User can chat with anyone anonymously
+* [ ] User can chat with anyone anonymously
+* [ ] Gif support/integration
 
-The following **optional** features are implemented:
+## OPTIONALS 
+
 * [ ] Settings page
+* [ ] Various fonts
+
 
 ## Notes
 
