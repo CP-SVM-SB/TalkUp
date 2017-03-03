@@ -15,11 +15,12 @@ We expect to implement the following **required** functionality:
 
 * [ ] User can chat with anyone anonymously
 * [ ] Gif support/integration
+* [ ] Elegant UI Features
+* [ ] Intuitive App structure
 
-## OPTIONALS 
+## OPTIONALS - *more to come*
 
-* [ ] Settings page
-* [ ] Various fonts
+* [ ] Settings page including various fonts
 
 
 ## Notes
