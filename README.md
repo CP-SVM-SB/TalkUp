@@ -13,7 +13,7 @@ Link to WireFrame:
 
 ## Core
 
-We expect to implement the following **required** functionality:
+We expect to implement the following functionality:
 
 * [ ] User can chat with anyone anonymously
 * [ ] Gif support/integration
@@ -21,11 +21,10 @@ We expect to implement the following **required** functionality:
 * [ ] Intuitive App structure
 * [ ] Facebook Messenger Platform
 
-## Optionals - *more to come*
+## Optionals
 
-* [ ] Settings page: 
+* [ ] Settings page for Customizable UI features
 * [ ] Various Fonts
-* [ ] Stickers, Emojis, Gif support
 
 
 ## Notes
