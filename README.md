@@ -1,12 +1,13 @@
-# CodePath University: GROUP PROJECT
+# Group Project: Messaging App
+by: **Savannah McCoy** and **Shumba Brown**
 
 
-** Yet to be named ** *Nickname: Sandbox*
+
+Nickname: Sandbox 
 
 
 Description: *Bored? Talk to Anyone!* **Sandbox** is a messaging app for iOS. 
 
- by: **Savannah McCoy** and **Shumba Brown**
 
 Link to WireFrame: 
 
@@ -29,7 +30,7 @@ We expect to implement the following **required** functionality:
 
 ## Notes
 
-Project Currently in development
+Project is currently in development
 
 ## License
 
