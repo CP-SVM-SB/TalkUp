@@ -1,15 +1,16 @@
-# Group Project 
-
-*** Project in development ***
-
-Yet to be named. *Nickname: Sandbox*
+# CodePath University: GROUP PROJECT
 
 
-*Bored? Talk to Anyone!* **Sandbox** is a messaging app for iOS. 
+** Yet to be named ** *Nickname: Sandbox*
+
+
+Description: *Bored? Talk to Anyone!* **Sandbox** is a messaging app for iOS. 
 
  by: **Savannah McCoy** and **Shumba Brown**
 
-## CORE
+Link to WireFrame: 
+
+## Core
 
 We expect to implement the following **required** functionality:
 
@@ -17,21 +18,22 @@ We expect to implement the following **required** functionality:
 * [ ] Gif support/integration
 * [ ] Elegant UI Features
 * [ ] Intuitive App structure
+* [ ] Facebook Messenger Platform
 
-## OPTIONALS - *more to come*
+## Optionals - *more to come*
 
-* [ ] Settings page including various fonts
+* [ ] Settings page: 
+* [ ] Various Fonts
+* [ ] Stickers, Emojis, Gif support
 
 
 ## Notes
 
-In development
-
-## Credits
+Project Currently in development
 
 ## License
 
-    Copyright [2017] [CP-SVM-SB]
+    Copyright [2017] [CP-SVM-SB Organizaion]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
