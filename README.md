@@ -6,7 +6,7 @@ by: **Savannah McCoy** and **Shumba Brown**
 Nickname: Sandbox 
 
 
-Description: *Bored? Talk to Anyone!* **Sandbox** is a messaging app for iOS. 
+Description: *"Bored? Talk to Anyone!"* - **Sandbox** is a messaging app for iOS. 
 
 
 Link to WireFrame: 
