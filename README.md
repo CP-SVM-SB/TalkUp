@@ -42,9 +42,6 @@ We expect to implement the following functionality:
     - Map Objects > My Location
 
 
-## Model Classes
-
-
 ## Notes
 
 Project is currently in development
@@ -64,3 +61,55 @@ Project is currently in development
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+
+# Backend
+--------
+
+### User 
+
+Name | Datatype |
+--- | --- |
+username | String |
+password | String |
+location | Location |
+
+### Location
+
+Name | Datatype |
+--- | --- |
+latitude | String |
+longitue | String |
+
+### Message
+
+Name | Datatype |
+--- | --- |
+text | String |
+media | Array of Links |
+timeStamp | String |
+
+### UserInChat
+Name | Dataype|
+--- | --- |
+user | User |
+isInApp | Bool |
+
+### Chatroom
+
+Name | Dataype|
+--- | --- |
+members | Array of UserInChat |
+messages | Array of Message |
+
+
+# Locally
+--------
+
+### Theme
+
+Name | Dataype|
+--- | --- |
+description | String |
+primaryColor | String |
+secondaryColor | String |
+
