@@ -30,6 +30,14 @@ We expect to implement the following functionality:
 ## Optionals
 
 * [ ] User can choose from Topics based on location
+* [ ] Recognizing Links, phone numbers, email addresses
+* [ ] Censoring: Private information in messages
+
+
+## API Endpoint
+
+- Google Maps Geolocation API
+    - Map Objects > My Location
 
 
 ## Notes
