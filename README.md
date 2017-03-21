@@ -24,6 +24,7 @@ We expect to implement the following functionality:
 * [ ] Intuitive App structure
 * [ ] Google Maps API
 * [ ] Settings page for Customizable UI features (fonts, themes, etc)
+* [ ] Parse/Firebase Backend
 
 
 ## Optionals
