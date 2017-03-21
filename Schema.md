@@ -1,25 +1,52 @@
-## User 
+# Backend
+
+### User 
 
 Name | Datatype |
 --- | --- |
-Username | String |
-Password | String |
-Location | String |
+username | String |
+password | String |
+location | Location |
 
-## Message
+### Location
 
 Name | Datatype |
 --- | --- |
-Text | String |
-Media | Array of Links |
-TimeStamp | String |
+latitude | String |
+longitue | String |
 
-## Chatroom
+### Message
+
+Name | Datatype |
+--- | --- |
+text | String |
+media | Array of Links |
+timeStamp | String |
+
+### UserInChat
+Name | Dataype|
+--- | --- |
+user | User |
+isInApp | Bool |
+
+### Chatroom
 
 Name | Dataype|
 --- | --- |
-Members | Array of User |
-Messages | Array of Message |
+members | Array of UserInChat |
+messages | Array of Message |
+
+
+# Locally
+
+### Theme
+
+Name | Dataype|
+--- | --- |
+description | String |
+primaryColor | String |
+secondaryColor | String |
+
 
 
 
