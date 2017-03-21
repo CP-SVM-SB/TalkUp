@@ -16,15 +16,19 @@ Link to WireFrame:
 We expect to implement the following functionality:
 
 * [ ] User can chat with anyone anonymously
+* [ ] Random Chatroom Assignment
+* [ ] Online/Offline user tracking
+* [ ] Reassignment to new Chatroom once partner goes offline for > 10s
 * [ ] Gif support/integration
 * [ ] Elegant UI Features
 * [ ] Intuitive App structure
-* [ ] Facebook Messenger Platform
+* [ ] Google Maps API
+* [ ] Settings page for Customizable UI features (fonts, themes, etc)
+
 
 ## Optionals
 
-* [ ] Settings page for Customizable UI features
-* [ ] Various Fonts
+* [ ] User can choose from Topics based on location
 
 
 ## Notes
