@@ -1,5 +1,5 @@
 # Group Project: Messaging App
-by: **Savannah McCoy** and **Shumba Brown**
+by: **Savannah McCoy**, **Shumba Brown** and **Ayotunde Odejayi**
 
 
 
