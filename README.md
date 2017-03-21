@@ -30,14 +30,19 @@ We expect to implement the following functionality:
 ## Optionals
 
 * [ ] User can choose from Topics based on location
+        - Allow more than one person in chatroom
 * [ ] Recognizing Links, phone numbers, email addresses
 * [ ] Censoring: Private information in messages
+* [ ] Waiting Game for users to play while waiting to join chat
 
 
-## API Endpoint
+## API Endpoints
 
 - Google Maps Geolocation API
     - Map Objects > My Location
+
+
+## Model Classes
 
 
 ## Notes
