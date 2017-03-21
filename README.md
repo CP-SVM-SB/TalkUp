@@ -3,10 +3,10 @@ by: **Savannah McCoy** and **Shumba Brown**
 
 
 
-Nickname: Sandbox 
+Name: Talk Up! 
 
 
-Description: *"Bored? Talk to Anyone!"* - **Sandbox** is a messaging app for iOS. 
+Description: *"Bored? Talk to Anyone!"* - **Talk Up!** is a messaging app for iOS. 
 
 
 Link to WireFrame: 
