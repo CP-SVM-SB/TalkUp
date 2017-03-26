@@ -20,6 +20,8 @@
 		849B53F61E81EE2D008B1FE0 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B53F51E81EE2D008B1FE0 /* Location.swift */; };
 		849B53F81E81EF16008B1FE0 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B53F71E81EF16008B1FE0 /* Message.swift */; };
 		849B53FA1E81EF7F008B1FE0 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B53F91E81EF7E008B1FE0 /* ChatRoom.swift */; };
+		84BE64311E8837AF00665425 /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE64301E8837AF00665425 /* ParseClient.swift */; };
+		84BE64331E8837D800665425 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE64321E8837D800665425 /* ChatCell.swift */; };
 		D64F1442D03BCCC8AC214782 /* Pods_TalkUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86D3D49AEF03FD8385BFC4DA /* Pods_TalkUp.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +42,8 @@
 		849B53F51E81EE2D008B1FE0 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		849B53F71E81EF16008B1FE0 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		849B53F91E81EF7E008B1FE0 /* ChatRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
+		84BE64301E8837AF00665425 /* ParseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseClient.swift; sourceTree = "<group>"; };
+		84BE64321E8837D800665425 /* ChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		86D3D49AEF03FD8385BFC4DA /* Pods_TalkUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TalkUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A43625F97998E12C29E2CAB0 /* Pods-TalkUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TalkUp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TalkUp/Pods-TalkUp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,6 +90,7 @@
 		849B53D61E81EC04008B1FE0 /* TalkUp */ = {
 			isa = PBXGroup;
 			children = (
+				84BE642F1E88377F00665425 /* Client */,
 				849B53F21E81EDDF008B1FE0 /* Models */,
 				849B53E91E81ED89008B1FE0 /* ViewControllers */,
 				849B53D71E81EC04008B1FE0 /* AppDelegate.swift */,
@@ -116,8 +121,17 @@
 				849B53F51E81EE2D008B1FE0 /* Location.swift */,
 				849B53F71E81EF16008B1FE0 /* Message.swift */,
 				849B53F91E81EF7E008B1FE0 /* ChatRoom.swift */,
+				84BE64321E8837D800665425 /* ChatCell.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		84BE642F1E88377F00665425 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				84BE64301E8837AF00665425 /* ParseClient.swift */,
+			);
+			name = Client;
 			sourceTree = "<group>";
 		};
 		A92AC42ABBDEDE9F7C246986 /* Frameworks */ = {
@@ -257,11 +271,13 @@
 				849B53F81E81EF16008B1FE0 /* Message.swift in Sources */,
 				849B53EF1E81EDCF008B1FE0 /* ChatRoomViewController.swift in Sources */,
 				849B53D81E81EC04008B1FE0 /* AppDelegate.swift in Sources */,
+				84BE64331E8837D800665425 /* ChatCell.swift in Sources */,
 				849B53F11E81EDDA008B1FE0 /* SettingsViewController.swift in Sources */,
 				13E007BE1E87441E00693F69 /* SignUpViewController.swift in Sources */,
 				849B53FA1E81EF7F008B1FE0 /* ChatRoom.swift in Sources */,
 				13E007C01E8744E800693F69 /* TopicsViewController.swift in Sources */,
 				849B53F41E81EE15008B1FE0 /* User.swift in Sources */,
+				84BE64311E8837AF00665425 /* ParseClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
