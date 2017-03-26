@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13E007BE1E87441E00693F69 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E007BD1E87441E00693F69 /* SignUpViewController.swift */; };
+		13E007C01E8744E800693F69 /* TopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E007BF1E8744E800693F69 /* TopicsViewController.swift */; };
 		849B53D81E81EC04008B1FE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B53D71E81EC04008B1FE0 /* AppDelegate.swift */; };
-		849B53DA1E81EC04008B1FE0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B53D91E81EC04008B1FE0 /* ViewController.swift */; };
 		849B53DD1E81EC04008B1FE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849B53DB1E81EC04008B1FE0 /* Main.storyboard */; };
 		849B53DF1E81EC04008B1FE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849B53DE1E81EC04008B1FE0 /* Assets.xcassets */; };
 		849B53E21E81EC04008B1FE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849B53E01E81EC04008B1FE0 /* LaunchScreen.storyboard */; };
-		849B53EB1E81EDAA008B1FE0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B53EA1E81EDAA008B1FE0 /* SignUpViewController.swift */; };
 		849B53ED1E81EDB9008B1FE0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B53EC1E81EDB9008B1FE0 /* LoginViewController.swift */; };
 		849B53EF1E81EDCF008B1FE0 /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B53EE1E81EDCF008B1FE0 /* ChatRoomViewController.swift */; };
 		849B53F11E81EDDA008B1FE0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B53F01E81EDDA008B1FE0 /* SettingsViewController.swift */; };
@@ -20,17 +20,19 @@
 		849B53F61E81EE2D008B1FE0 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B53F51E81EE2D008B1FE0 /* Location.swift */; };
 		849B53F81E81EF16008B1FE0 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B53F71E81EF16008B1FE0 /* Message.swift */; };
 		849B53FA1E81EF7F008B1FE0 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B53F91E81EF7E008B1FE0 /* ChatRoom.swift */; };
+		D64F1442D03BCCC8AC214782 /* Pods_TalkUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86D3D49AEF03FD8385BFC4DA /* Pods_TalkUp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		13E007BD1E87441E00693F69 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		13E007BF1E8744E800693F69 /* TopicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsViewController.swift; sourceTree = "<group>"; };
+		67FC73FE6B129877CEEBE7D2 /* Pods-TalkUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TalkUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TalkUp/Pods-TalkUp.release.xcconfig"; sourceTree = "<group>"; };
 		849B53D41E81EC04008B1FE0 /* TalkUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TalkUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		849B53D71E81EC04008B1FE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		849B53D91E81EC04008B1FE0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		849B53DC1E81EC04008B1FE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		849B53DE1E81EC04008B1FE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		849B53E11E81EC04008B1FE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		849B53E31E81EC04008B1FE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		849B53EA1E81EDAA008B1FE0 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		849B53EC1E81EDB9008B1FE0 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		849B53EE1E81EDCF008B1FE0 /* ChatRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoomViewController.swift; sourceTree = "<group>"; };
 		849B53F01E81EDDA008B1FE0 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -38,6 +40,8 @@
 		849B53F51E81EE2D008B1FE0 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		849B53F71E81EF16008B1FE0 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		849B53F91E81EF7E008B1FE0 /* ChatRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
+		86D3D49AEF03FD8385BFC4DA /* Pods_TalkUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TalkUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A43625F97998E12C29E2CAB0 /* Pods-TalkUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TalkUp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TalkUp/Pods-TalkUp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,17 +49,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D64F1442D03BCCC8AC214782 /* Pods_TalkUp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1943CA3DB48AE00EE35E1993 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A43625F97998E12C29E2CAB0 /* Pods-TalkUp.debug.xcconfig */,
+				67FC73FE6B129877CEEBE7D2 /* Pods-TalkUp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		849B53CB1E81EC03008B1FE0 = {
 			isa = PBXGroup;
 			children = (
 				849B53D61E81EC04008B1FE0 /* TalkUp */,
 				849B53D51E81EC04008B1FE0 /* Products */,
+				1943CA3DB48AE00EE35E1993 /* Pods */,
+				A92AC42ABBDEDE9F7C246986 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -73,7 +89,6 @@
 				849B53F21E81EDDF008B1FE0 /* Models */,
 				849B53E91E81ED89008B1FE0 /* ViewControllers */,
 				849B53D71E81EC04008B1FE0 /* AppDelegate.swift */,
-				849B53D91E81EC04008B1FE0 /* ViewController.swift */,
 				849B53DB1E81EC04008B1FE0 /* Main.storyboard */,
 				849B53DE1E81EC04008B1FE0 /* Assets.xcassets */,
 				849B53E01E81EC04008B1FE0 /* LaunchScreen.storyboard */,
@@ -85,10 +100,11 @@
 		849B53E91E81ED89008B1FE0 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				849B53EA1E81EDAA008B1FE0 /* SignUpViewController.swift */,
 				849B53EC1E81EDB9008B1FE0 /* LoginViewController.swift */,
 				849B53EE1E81EDCF008B1FE0 /* ChatRoomViewController.swift */,
 				849B53F01E81EDDA008B1FE0 /* SettingsViewController.swift */,
+				13E007BD1E87441E00693F69 /* SignUpViewController.swift */,
+				13E007BF1E8744E800693F69 /* TopicsViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -104,6 +120,14 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		A92AC42ABBDEDE9F7C246986 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				86D3D49AEF03FD8385BFC4DA /* Pods_TalkUp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -111,9 +135,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 849B53E61E81EC04008B1FE0 /* Build configuration list for PBXNativeTarget "TalkUp" */;
 			buildPhases = (
+				179A7C337AB51FAA62621D19 /* [CP] Check Pods Manifest.lock */,
 				849B53D01E81EC03008B1FE0 /* Sources */,
 				849B53D11E81EC03008B1FE0 /* Frameworks */,
 				849B53D21E81EC03008B1FE0 /* Resources */,
+				1200B9C2BC182D8BA4BEC499 /* [CP] Embed Pods Frameworks */,
+				E034CAF5A7582CC5CAFDFDC3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -172,20 +199,68 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1200B9C2BC182D8BA4BEC499 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TalkUp/Pods-TalkUp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		179A7C337AB51FAA62621D19 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E034CAF5A7582CC5CAFDFDC3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TalkUp/Pods-TalkUp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		849B53D01E81EC03008B1FE0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				849B53ED1E81EDB9008B1FE0 /* LoginViewController.swift in Sources */,
-				849B53EB1E81EDAA008B1FE0 /* SignUpViewController.swift in Sources */,
 				849B53F61E81EE2D008B1FE0 /* Location.swift in Sources */,
 				849B53F81E81EF16008B1FE0 /* Message.swift in Sources */,
 				849B53EF1E81EDCF008B1FE0 /* ChatRoomViewController.swift in Sources */,
-				849B53DA1E81EC04008B1FE0 /* ViewController.swift in Sources */,
 				849B53D81E81EC04008B1FE0 /* AppDelegate.swift in Sources */,
 				849B53F11E81EDDA008B1FE0 /* SettingsViewController.swift in Sources */,
+				13E007BE1E87441E00693F69 /* SignUpViewController.swift in Sources */,
 				849B53FA1E81EF7F008B1FE0 /* ChatRoom.swift in Sources */,
+				13E007C01E8744E800693F69 /* TopicsViewController.swift in Sources */,
 				849B53F41E81EE15008B1FE0 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,8 +382,8 @@
 		};
 		849B53E71E81EC04008B1FE0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A43625F97998E12C29E2CAB0 /* Pods-TalkUp.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = C5WL2PP3U3;
 				INFOPLIST_FILE = TalkUp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -320,8 +395,8 @@
 		};
 		849B53E81E81EC04008B1FE0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67FC73FE6B129877CEEBE7D2 /* Pods-TalkUp.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = C5WL2PP3U3;
 				INFOPLIST_FILE = TalkUp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -350,6 +425,7 @@
 				849B53E81E81EC04008B1FE0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,29 +7,57 @@
 //
 
 import UIKit
+import Parse
 
 class LoginViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+  
+  @IBOutlet weak var usernameField: UITextField!
+  @IBOutlet weak var passwordField: UITextField!
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    self.passwordField.isSecureTextEntry = true
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    self.usernameField.becomeFirstResponder()
+    self.hideKeyboardWhenTappedAround()
+    
+    self.view.backgroundColor = UIColor(patternImage: UIImage(named: "HomeImage.png")!)
+    
+    // placeholder text
+    let placeholderColor = UIColor.lightGray
+    self.usernameField.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSForegroundColorAttributeName : placeholderColor] )
+    self.passwordField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSForegroundColorAttributeName : placeholderColor])
+  }
+  
+  
+  @IBAction func onSignIn(_ sender: UIButton) {
+    PFUser.logInWithUsername(inBackground: usernameField.text!, password: passwordField.text!) {
+      (user: PFUser?, error: Error?) -> Void in
+      if user != nil {
+        print("Successful login!")
+        self.performSegue(withIdentifier: "loginToTopicsSegue", sender: nil)
+        
+      } else {
+        let alert = UIAlertController(title: "Sorry!", message: error?.localizedDescription, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {(UIAlertAction)in})
+        
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
+      }
     }
-    */
+  }
+  
+}
 
+
+extension UIViewController {
+  func hideKeyboardWhenTappedAround() {
+    let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+    tap.cancelsTouchesInView = false
+    view.addGestureRecognizer(tap)
+  }
+  
+  func dismissKeyboard() {
+    view.endEditing(true)
+  }
 }
