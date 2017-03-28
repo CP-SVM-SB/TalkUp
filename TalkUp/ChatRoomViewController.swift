@@ -17,6 +17,7 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet var tableView: UITableView!
     var messages: [Message] = []
     var Client = ParseClient()
+    var flag = false
     
     
     
@@ -94,21 +95,30 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func keyboardWillShow(sender: NSNotification) {
-        let userInfo:NSDictionary = sender.userInfo! as NSDictionary
-        let keyboardFrame:NSValue = userInfo.value(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue
-        let keyboardRectangle = keyboardFrame.cgRectValue
-        let keyboardHeight = keyboardRectangle.height
+        if self.flag == false {
+            let userInfo:NSDictionary = sender.userInfo! as NSDictionary
+            let keyboardFrame:NSValue = userInfo.value(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRectangle.height
+            
+            self.view.frame.origin.y -= keyboardHeight
+            
+            self.flag = true
+        }
         
-        self.view.frame.origin.y -= keyboardHeight
     }
     
     func keyboardWillHide(sender: NSNotification) {
-        let userInfo:NSDictionary = sender.userInfo! as NSDictionary
-        let keyboardFrame:NSValue = userInfo.value(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue
-        let keyboardRectangle = keyboardFrame.cgRectValue
-        let keyboardHeight = keyboardRectangle.height
-        
-        self.view.frame.origin.y += keyboardHeight
+        if self.flag == true {
+            let userInfo:NSDictionary = sender.userInfo! as NSDictionary
+            let keyboardFrame:NSValue = userInfo.value(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRectangle.height
+            
+            self.view.frame.origin.y += keyboardHeight
+            
+            self.flag = false
+        }
     }
     
     
