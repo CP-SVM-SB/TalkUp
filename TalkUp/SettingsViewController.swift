@@ -9,10 +9,16 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
+    
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        navigationController?.title = "Settings"
+        self.tableView.separatorInset = UIEdgeInsets.zero
         // Do any additional setup after loading the view.
     }
 
@@ -21,7 +27,39 @@ class SettingsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
+    @IBAction func didTapSave(_ sender: Any) {
+        
+        performSegue(withIdentifier: "unwindToMenu", sender: self)
+        print("going back")
+        
+    }
 
+    
+    @IBAction func didPressCancel(_ sender: Any) {
+        performSegue(withIdentifier: "unwindToMenu", sender: self)
+        print("going back")
+        
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as UITableViewCell
+
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //return data.count
+        return 3
+    }
+    
+    
     /*
     // MARK: - Navigation
 
