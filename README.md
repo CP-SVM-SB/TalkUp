@@ -13,7 +13,12 @@ Link to WireFrame:
 
 ## Core
 
-We expect to implement the following functionality:
+Required (core) user stories your app:
+
+- test
+- test 2
+- test 3
+
 
 * [ ] User can chat with anyone anonymously
 * [ ] Random Chatroom Assignment
@@ -24,10 +29,11 @@ We expect to implement the following functionality:
 * [ ] Intuitive App structure
 * [ ] Google Maps API
 * [ ] Settings page for Customizable UI features (fonts, themes, etc)
-* [ ] Parse/Firebase Backend
 
 
 ## Optionals
+
+Optional (nice to have) user stories listed separately
 
 * [ ] User can choose from Topics based on location
         - Allow more than one person in chatroom
