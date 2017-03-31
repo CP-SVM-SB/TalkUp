@@ -8,8 +8,7 @@ Name: Talk Up!
 
 Description: *"Bored? Talk to Anyone!"* - **Talk Up!** is a messaging app for iOS. 
 
-
-Link to WireFrame: 
+Wire Frames in Repo Files
 
 ## Core
 
@@ -31,7 +30,7 @@ Required (core) user stories:
 Optional (nice to have) user stories:
 
 - User can choose from Topics based on location
-  - Allow more than one person in chatroom
+- Allow more than one person in chatroom
 - Recognizing Links, phone numbers, email addresses
 - Censoring: Private information in messages
 - Waiting Game for users to play while waiting to join chat
