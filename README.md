@@ -19,9 +19,8 @@ Required (core) user stories:
 - Online/Offline user tracking
 - Reassignment to new Chatroom once partner goes offline for > 10s
 - Gif support/integration
-- Elegant UI Features
 - Intuitive App structure
-- Google Maps API
+- IBM Watson API
 - Settings page for Customizable UI features (fonts, themes, etc)
 
 
@@ -32,8 +31,9 @@ Optional (nice to have) user stories:
 - User can choose from Topics based on location
 - Allow more than one person in chatroom
 - Recognizing Links, phone numbers, email addresses
-- Censoring: Private information in messages
+- Censoring: Private information in messages, explitives
 - Waiting Game for users to play while waiting to join chat
+- Elegant UI Features
 
 
 ## API Endpoints
