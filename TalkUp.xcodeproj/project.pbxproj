@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13100FB31E90171A0017638A /* KeywordClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13100FB21E90171A0017638A /* KeywordClient.swift */; };
 		13E007BE1E87441E00693F69 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E007BD1E87441E00693F69 /* SignUpViewController.swift */; };
 		13E007C01E8744E800693F69 /* TopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E007BF1E8744E800693F69 /* TopicsViewController.swift */; };
 		849B53D81E81EC04008B1FE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B53D71E81EC04008B1FE0 /* AppDelegate.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		13100FB21E90171A0017638A /* KeywordClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordClient.swift; sourceTree = "<group>"; };
 		13E007BD1E87441E00693F69 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		13E007BF1E8744E800693F69 /* TopicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsViewController.swift; sourceTree = "<group>"; };
 		67FC73FE6B129877CEEBE7D2 /* Pods-TalkUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TalkUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TalkUp/Pods-TalkUp.release.xcconfig"; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				84BE64301E8837AF00665425 /* ParseClient.swift */,
+				13100FB21E90171A0017638A /* KeywordClient.swift */,
 			);
 			name = Client;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				849B53ED1E81EDB9008B1FE0 /* LoginViewController.swift in Sources */,
+				13100FB31E90171A0017638A /* KeywordClient.swift in Sources */,
 				849B53F61E81EE2D008B1FE0 /* Location.swift in Sources */,
 				849B53F81E81EF16008B1FE0 /* Message.swift in Sources */,
 				849B53EF1E81EDCF008B1FE0 /* ChatRoomViewController.swift in Sources */,

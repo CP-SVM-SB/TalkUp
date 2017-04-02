@@ -7,4 +7,5 @@ target 'TalkUp' do
 
   # Pods for TalkUp
   pod 'Parse'
+  pod 'AFNetworking'
 end

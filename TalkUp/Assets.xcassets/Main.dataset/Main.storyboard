@@ -159,12 +159,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Talk Up!" id="zAo-GK-8LE">
-                        <barButtonItem key="leftBarButtonItem" image="trendIcon" id="jJd-cr-ynK">
-                            <color key="tintColor" red="0.1368328738" green="0.070900592200000001" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <segue destination="fd9-6W-YU3" kind="presentation" id="HyQ-dx-ql6"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" id="jJd-cr-ynK"/>
                         <barButtonItem key="rightBarButtonItem" image="noun_716641_cc" id="tdK-31-Zra">
                             <color key="tintColor" red="0.30129420757293701" green="0.11854104697704315" blue="0.55305725336074829" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
@@ -307,10 +302,10 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="864.91754122938539"/>
         </scene>
-        <!--Topics View Controller-->
+        <!--View Controller-->
         <scene sceneID="xhh-61-hrD">
             <objects>
-                <viewController id="fd9-6W-YU3" customClass="TopicsViewController" customModule="TalkUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fd9-6W-YU3" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="I43-4M-1Ul"/>
                         <viewControllerLayoutGuide type="bottom" id="tPq-8P-Mn9"/>
@@ -329,7 +324,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSR-aO-p3M">
                                 <rect key="frame" x="65" y="502" width="245" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Click here to Chat"/>
+                                <state key="normal" title="Click to Chat"/>
                                 <connections>
                                     <segue destination="3fW-TE-Zg0" kind="presentation" identifier="topicsToChatsSegue" id="7JS-OY-Yrs"/>
                                 </connections>
@@ -364,9 +359,8 @@
     <resources>
         <image name="chatIcon" width="222" height="220"/>
         <image name="noun_716641_cc" width="32" height="34"/>
-        <image name="trendIcon" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="HyQ-dx-ql6"/>
+        <segue reference="PuT-Tb-tiN"/>
     </inferredMetricsTieBreakers>
 </document>
