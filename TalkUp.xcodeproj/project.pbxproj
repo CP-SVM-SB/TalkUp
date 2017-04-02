@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		13100FB31E90171A0017638A /* KeywordClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13100FB21E90171A0017638A /* KeywordClient.swift */; };
+		13100FB31E90171A0017638A /* WatsonClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13100FB21E90171A0017638A /* WatsonClient.swift */; };
+		133548FB1E90C2AA00D370EB /* TrendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133548FA1E90C2AA00D370EB /* TrendCell.swift */; };
 		13E007BE1E87441E00693F69 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E007BD1E87441E00693F69 /* SignUpViewController.swift */; };
 		13E007C01E8744E800693F69 /* TopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E007BF1E8744E800693F69 /* TopicsViewController.swift */; };
 		762461C51E903624007741EA /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762461C41E903624007741EA /* SettingsTableViewController.swift */; };
@@ -35,7 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		13100FB21E90171A0017638A /* KeywordClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeywordClient.swift; sourceTree = "<group>"; };
+		13100FB21E90171A0017638A /* WatsonClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatsonClient.swift; sourceTree = "<group>"; };
+		133548FA1E90C2AA00D370EB /* TrendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendCell.swift; sourceTree = "<group>"; };
 		13E007BD1E87441E00693F69 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		13E007BF1E8744E800693F69 /* TopicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsViewController.swift; sourceTree = "<group>"; };
 		67FC73FE6B129877CEEBE7D2 /* Pods-TalkUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TalkUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TalkUp/Pods-TalkUp.release.xcconfig"; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				762461D51E90718E007741EA /* ThemeCollectionViewCell.swift */,
+				133548FA1E90C2AA00D370EB /* TrendCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -172,7 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				84BE64301E8837AF00665425 /* ParseClient.swift */,
-				13100FB21E90171A0017638A /* KeywordClient.swift */,
+				13100FB21E90171A0017638A /* WatsonClient.swift */,
 			);
 			name = Client;
 			sourceTree = "<group>";
@@ -315,13 +318,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				849B53ED1E81EDB9008B1FE0 /* LoginViewController.swift in Sources */,
-				13100FB31E90171A0017638A /* KeywordClient.swift in Sources */,
+				13100FB31E90171A0017638A /* WatsonClient.swift in Sources */,
 				849B53F61E81EE2D008B1FE0 /* Location.swift in Sources */,
 				849B53F81E81EF16008B1FE0 /* Message.swift in Sources */,
 				849B53EF1E81EDCF008B1FE0 /* ChatRoomViewController.swift in Sources */,
 				849B53D81E81EC04008B1FE0 /* AppDelegate.swift in Sources */,
 				762461CD1E906468007741EA /* SettingsViewControllerExtension.swift in Sources */,
 				84BE64331E8837D800665425 /* ChatCell.swift in Sources */,
+				133548FB1E90C2AA00D370EB /* TrendCell.swift in Sources */,
 				13E007BE1E87441E00693F69 /* SignUpViewController.swift in Sources */,
 				849B53FA1E81EF7F008B1FE0 /* ChatRoom.swift in Sources */,
 				13E007C01E8744E800693F69 /* TopicsViewController.swift in Sources */,
