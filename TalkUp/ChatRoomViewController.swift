@@ -46,10 +46,14 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
         self.tableView.dataSource = self
         
         self.loadTable()
-        
         // Do any additional setup after loading the view.
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        self.scrollToBottom()
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -75,6 +79,11 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
         
     }
     
+    // ---------- SCROLL TO BOTTOM FUNCTION: Added By SVM ---------
+    func scrollToBottom() {
+        tableView.contentOffset = CGPoint(x: CGFloat(0), y: CGFloat(tableView.contentSize.height - tableView.frame.size.height))
+    }
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.messages.count
@@ -94,6 +103,7 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
         Client.getMessages(onSuccess: { (listOfMessages: [Message]) in
             self.messages = listOfMessages
             self.tableView.reloadData()
+            self.scrollToBottom()
         }) { (error: Error) in
             print(error.localizedDescription)
         }
