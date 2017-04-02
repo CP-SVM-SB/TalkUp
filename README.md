@@ -8,32 +8,32 @@ Name: Talk Up!
 
 Description: *"Bored? Talk to Anyone!"* - **Talk Up!** is a messaging app for iOS. 
 
-
-Link to WireFrame: 
+Wire Frames in Repo Files
 
 ## Core
 
-We expect to implement the following functionality:
+Required (core) user stories:
 
-* [ ] User can chat with anyone anonymously
-* [ ] Random Chatroom Assignment
-* [ ] Online/Offline user tracking
-* [ ] Reassignment to new Chatroom once partner goes offline for > 10s
-* [ ] Gif support/integration
-* [ ] Elegant UI Features
-* [ ] Intuitive App structure
-* [ ] Google Maps API
-* [ ] Settings page for Customizable UI features (fonts, themes, etc)
-* [ ] Parse/Firebase Backend
+- User can chat with anyone anonymously
+- Random Chatroom Assignment
+- Online/Offline user tracking
+- Reassignment to new Chatroom once partner goes offline for > 10s
+- Gif support/integration
+- Elegant UI Features
+- Intuitive App structure
+- Google Maps API
+- Settings page for Customizable UI features (fonts, themes, etc)
 
 
 ## Optionals
 
-* [ ] User can choose from Topics based on location
-        - Allow more than one person in chatroom
-* [ ] Recognizing Links, phone numbers, email addresses
-* [ ] Censoring: Private information in messages
-* [ ] Waiting Game for users to play while waiting to join chat
+Optional (nice to have) user stories:
+
+- User can choose from Topics based on location
+- Allow more than one person in chatroom
+- Recognizing Links, phone numbers, email addresses
+- Censoring: Private information in messages
+- Waiting Game for users to play while waiting to join chat
 
 
 ## API Endpoints
