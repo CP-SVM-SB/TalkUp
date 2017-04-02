@@ -13,6 +13,7 @@ class LoginViewController: UIViewController {
   
   @IBOutlet weak var usernameField: UITextField!
   @IBOutlet weak var passwordField: UITextField!
+  @IBOutlet weak var signInButton: UIButton!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -31,6 +32,8 @@ class LoginViewController: UIViewController {
   
   
   @IBAction func onSignIn(_ sender: UIButton) {
+    signInButton.alpha = 0.5  // subtle alert to user network call is being made
+    
     PFUser.logInWithUsername(inBackground: usernameField.text!, password: passwordField.text!) {
       (user: PFUser?, error: Error?) -> Void in
       if user != nil {
@@ -45,6 +48,7 @@ class LoginViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
       }
     }
+    signInButton.alpha = 1
   }
   
 }

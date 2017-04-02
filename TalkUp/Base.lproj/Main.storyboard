@@ -68,6 +68,7 @@
                     </view>
                     <connections>
                         <outlet property="passwordField" destination="7fz-fw-aAA" id="Rcd-X6-Xbo"/>
+                        <outlet property="signInButton" destination="vKS-Ba-KlN" id="ZDQ-Ub-ZYx"/>
                         <outlet property="usernameField" destination="iDo-bh-grw" id="Oj8-m6-AQg"/>
                         <segue destination="fd9-6W-YU3" kind="presentation" identifier="loginToTopicsSegue" id="PuT-Tb-tiN"/>
                     </connections>
@@ -99,7 +100,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hey! How are you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSR-Sa-nbx">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSR-Sa-nbx">
                                                     <rect key="frame" x="29" y="11" width="135" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
@@ -591,6 +592,6 @@
         <image name="trendIcon" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="HyQ-dx-ql6"/>
+        <segue reference="PuT-Tb-tiN"/>
     </inferredMetricsTieBreakers>
 </document>

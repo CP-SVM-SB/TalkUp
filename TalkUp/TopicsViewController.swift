@@ -19,14 +19,18 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   var keywords = [String]()
   var noTrendsMax = 7    //set max. number of trends you wish to see
   
-  //TODO: Set how far back trends should go (time-elapsed or no. of msgs to evaluate)
-  
+  /*TODO:
+  - Set how far back trends should go (time-elapsed or no. of msgs to evaluate)
+  - Make trends clickable and display a preview of a couple chats w/ keyword (interferes w/ anonymity?)
+  */
   
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.delegate = self
     tableView.dataSource = self
+    
     self.tableView.separatorStyle = .none
+    self.tableView.allowsSelection = false
     
     getKeywords()
     
