@@ -25,6 +25,8 @@ class LoginViewController: UIViewController {
     
     // placeholder text
     let placeholderColor = UIColor.lightGray
+    
+    
     self.usernameField.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSForegroundColorAttributeName : placeholderColor] )
     self.passwordField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSForegroundColorAttributeName : placeholderColor])
   }
