@@ -12,10 +12,6 @@ class SettingsTableViewController: UITableViewController {
 
     
 // ----------------------- VARIABLES --------------------------
-
-    @IBOutlet weak var saveButton: UIButton!
-    @IBOutlet weak var cancelButton: UIButton!
-    @IBOutlet var myView: UIView!
     
     @IBOutlet weak var collectionView: UICollectionView!
    
@@ -26,12 +22,14 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var notificationStateLabel: UILabel!
     @IBOutlet weak var notificationSwitch: UISwitch!
 
+    @IBOutlet weak var logOutButton: UIButton!
+    
     @IBOutlet weak var fontSizeLabel1: UIButton!
     @IBOutlet weak var fontSizeLabel2: UIButton!
     @IBOutlet weak var fontSizeLabel3: UIButton!
     
     var testInfo = ["Email","Phone", "Notifications"]
-    var testHeaders = ["Account", "Theme", "Font"]
+    var testHeaders = ["Account", "Appearance", " "]
     var themeImages = ["Theme1.png","Theme2.png", "Theme3.png", "Theme4.png", "Theme5.png"]
 
    
@@ -41,8 +39,14 @@ class SettingsTableViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.delegate = self
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+//        self.tableView.separatorInset.bottom = 0.0
+//        self.tableView.layoutMargins.bottom = 0.0
+//        self.tableView.preservesSuperviewLayoutMargins = false
+        
         collectionView.delegate = self
         collectionView.dataSource = self
+        
         self.navigationItem.title = "Settings"
         
         
@@ -64,6 +68,10 @@ class SettingsTableViewController: UITableViewController {
         fontSizeLabel3.layer.cornerRadius = 6
         fontSizeLabel3.layer.borderColor = UIColor.purple.cgColor
         
+        logOutButton.layer.cornerRadius = 27
+        
+    
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -83,7 +91,9 @@ class SettingsTableViewController: UITableViewController {
         
         if section == 0 {
             return 3
-        } else {
+        } else if section == 1 {
+            return 2
+        }else {
             return 1
         }
     
