@@ -36,10 +36,17 @@ Optional (nice to have) user stories:
 - Elegant UI Features
 
 
+## Ideas
+
+- Let users choose if more than 2 in chat
+- click topic for preview of messages on that topic
+
+
 ## API Endpoints
 
-- Google Maps Geolocation API
-    - Map Objects > My Location
+- IBM Watson -- (Watson Developer Cloud)
+    - Alchemy Language 
+    - TextGetRankedKeyWord
 
 
 ## Notes
