@@ -17,7 +17,7 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   // -- Settable Vars --
   var noTopicsMax = 7               // max. number of topics you wish to see
   var topicsRollbackLength: Int = 20   // no of messages you wish to use in topics/keywords [NB]: if 0, ALL messages are used
-
+  
   var rawMessages: String?
   var chatmsg: String?
   var keywords = [String]()
@@ -39,16 +39,21 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   
   func getKeywords() {
     myParseClient.getMessages(onSuccess: { (rawMsgs: [Message]) in
+      let revRawMsgs = rawMsgs.reversed()  // rollback purposes
       var index = 0
-
+      
       if (self.topicsRollbackLength == 0) {
         for msg in rawMsgs {
           self.rawMessages = (self.rawMessages == nil) ? msg.text! : self.rawMessages!+", "+msg.text!
         }
       } else {
-        while (index < self.topicsRollbackLength && index < rawMsgs.count) {
-          self.rawMessages = (self.rawMessages == nil) ? rawMsgs[index].text! : self.rawMessages!+", "+rawMsgs[index].text!
-          index += 1
+          for i in revRawMsgs.indices {
+            if (index > self.topicsRollbackLength || index > revRawMsgs.count) {
+              break
+            }
+            print(revRawMsgs[i].text!)
+            self.rawMessages = (self.rawMessages == nil) ? revRawMsgs[i].text! : self.rawMessages!+", "+revRawMsgs[i].text!
+            index += 1
         }
       }
       
