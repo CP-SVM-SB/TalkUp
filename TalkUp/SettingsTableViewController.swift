@@ -40,9 +40,6 @@ class SettingsTableViewController: UITableViewController {
         
         tableView.delegate = self
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
-//        self.tableView.separatorInset.bottom = 0.0
-//        self.tableView.layoutMargins.bottom = 0.0
-//        self.tableView.preservesSuperviewLayoutMargins = false
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -68,7 +65,9 @@ class SettingsTableViewController: UITableViewController {
         fontSizeLabel3.layer.cornerRadius = 6
         fontSizeLabel3.layer.borderColor = UIColor.purple.cgColor
         
-        logOutButton.layer.cornerRadius = 27
+        logOutButton.layer.cornerRadius = 24
+        //logOutButton.layer.borderWidth = 5
+        logOutButton.layer.borderColor = UIColor.lightGray.cgColor
         
     
     
