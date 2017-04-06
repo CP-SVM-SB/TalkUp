@@ -21,7 +21,7 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   
   /*TODO:
   - Set how far back trends should go (time-elapsed or no. of msgs to evaluate)
-  - Make trends clickable and display a preview of a couple chats w/ keyword (interferes w/ anonymity?)
+  - Make trends clickable and display a preview of a couple chats w/ keyword
   */
   
   override func viewDidLoad() {
@@ -56,6 +56,10 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }) { (error: Error) in
       print(error.localizedDescription)
     }
+  }
+  
+  @IBAction func unwindToTopics (segue: UIStoryboardSegue) {
+    
   }
   
   
