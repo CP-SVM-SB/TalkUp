@@ -13,16 +13,16 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   @IBOutlet weak var tableView: UITableView!
   let myParseClient = ParseClient()
   let keywordApi = WatsonClient()
+  
+  // -- Settable Vars --
+  var noTopicsMax = 7               // max. number of topics you wish to see
+  var topicsRollbackLength: Int = 20   // no of messages you wish to use in topics/keywords [NB]: if 0, ALL messages are used
 
   var rawMessages: String?
   var chatmsg: String?
   var keywords = [String]()
-  var noTrendsMax = 7    //set max. number of trends you wish to see
   
-  /*TODO:
-  - Set how far back trends should go (time-elapsed or no. of msgs to evaluate)
-  - Make trends clickable and display a preview of a couple chats w/ keyword
-  */
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -39,9 +39,17 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   
   func getKeywords() {
     myParseClient.getMessages(onSuccess: { (rawMsgs: [Message]) in
-      
-      for msg in rawMsgs {
-        self.rawMessages = (self.rawMessages == nil) ? msg.text! : self.rawMessages!+", "+msg.text!
+      var index = 0
+
+      if (self.topicsRollbackLength == 0) {
+        for msg in rawMsgs {
+          self.rawMessages = (self.rawMessages == nil) ? msg.text! : self.rawMessages!+", "+msg.text!
+        }
+      } else {
+        while (index < self.topicsRollbackLength && index < rawMsgs.count) {
+          self.rawMessages = (self.rawMessages == nil) ? rawMsgs[index].text! : self.rawMessages!+", "+rawMsgs[index].text!
+          index += 1
+        }
       }
       
       // watson API call
@@ -64,16 +72,16 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return (self.keywords.count > self.noTrendsMax) ? self.noTrendsMax : self.keywords.count
+    return (self.keywords.count > self.noTopicsMax) ? self.noTopicsMax : self.keywords.count
   }
   
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "TrendCell", for: indexPath) as! TrendCell
     cell.trendLabel.text = self.keywords[indexPath.row]
-
+    
     return cell
   }
-
-
+  
+  
 }
