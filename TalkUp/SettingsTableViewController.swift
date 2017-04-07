@@ -30,7 +30,7 @@ class SettingsTableViewController: UITableViewController {
     
     var testInfo = ["Email","Phone", "Notifications"]
     var testHeaders = ["Account", "Appearance", " "]
-    var themeImages = ["Theme1.png","Theme2.png", "Theme3.png", "Theme4.png", "Theme5.png"]
+    var themeImages = ["Theme1.png","Theme2.png", "Theme3.png", "Theme4.png", "Theme5.png", "Theme1.png","Theme2.png"]
 
    
 // ----------------------- LOAD METHODS --------------------------
@@ -39,7 +39,7 @@ class SettingsTableViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.delegate = self
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        //self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -47,24 +47,13 @@ class SettingsTableViewController: UITableViewController {
         self.navigationItem.title = "Settings"
         
         
-        if notificationSwitch.isOn == true {
-            notificationStateLabel.text = "ON"
-        }else{
-            notificationStateLabel.text = "OFF"
-        }
+//        if notificationSwitch.isOn == true {
+//            notificationStateLabel.text = "ON"
+//        }else{
+//            notificationStateLabel.text = "OFF"
+//        }
         
-        fontSizeLabel1.layer.borderWidth = 1
-        fontSizeLabel1.layer.cornerRadius = 6
-        fontSizeLabel1.layer.borderColor = UIColor.purple.cgColor
-        
-        fontSizeLabel2.layer.borderWidth = 1
-        fontSizeLabel2.layer.cornerRadius = 6
-        fontSizeLabel2.layer.borderColor = UIColor.purple.cgColor
-        
-        fontSizeLabel3.layer.borderWidth = 1
-        fontSizeLabel3.layer.cornerRadius = 6
-        fontSizeLabel3.layer.borderColor = UIColor.purple.cgColor
-        
+
         logOutButton.layer.cornerRadius = 24
         //logOutButton.layer.borderWidth = 5
         logOutButton.layer.borderColor = UIColor.lightGray.cgColor

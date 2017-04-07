@@ -40,11 +40,11 @@ extension SettingsTableViewController: UICollectionViewDelegate, UICollectionVie
         
         print("switch changed")
         
-        if notificationSwitch.isOn == true {
-            notificationStateLabel.text = "ON"
-        }else{
-            notificationStateLabel.text = "OFF"
-        }
+//        if notificationSwitch.isOn == true {
+//            notificationStateLabel.text = "ON"
+//        }else{
+//            notificationStateLabel.text = "OFF"
+//        }
 
         
         
@@ -68,6 +68,9 @@ extension SettingsTableViewController: UICollectionViewDelegate, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "themeCell", for: indexPath) as! ThemeCollectionViewCell
         cell.backgroundColor = UIColor.gray
+        cell.layer.cornerRadius = cell.frame.size.width / 2;
+        cell.clipsToBounds = true
+        //cell.layer.cornerRadius = 90
         cell.themeImageView.image = UIImage(named: themeImages[indexPath.row])
         
         return cell

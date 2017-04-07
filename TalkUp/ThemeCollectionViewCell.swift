@@ -10,10 +10,12 @@ import UIKit
 
 class ThemeCollectionViewCell: UICollectionViewCell {
     
+   
     
     @IBOutlet weak var themeImageView: UIImageView!
     
     @IBOutlet weak var themeButton: UIButton!
+    
     
     @IBAction func didTapCell(_ sender: UIButton) {
         
