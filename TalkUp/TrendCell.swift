@@ -9,14 +9,24 @@
 import UIKit
 
 class TrendCell: UITableViewCell {
-
   
-  @IBOutlet weak var trendLabel: UILabel!
   
-    override func awakeFromNib() {
-        super.awakeFromNib()
-
+  @IBOutlet weak var topicBTN: UIButton!
+  @IBOutlet weak var noChatsAboutThisLabel: UILabel!
+  
+  var noChatsforTopic: Int?
+  
+  var buttonTitle: String! {
+    didSet {
+      topicBTN.setTitle(buttonTitle, for:.normal)
+      noChatsAboutThisLabel.text = (noChatsforTopic! > 1) ? "\(noChatsforTopic!) chats" : "\(noChatsforTopic!) chat"
     }
-
+  }
+  
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    
+  }
+  
   
 }
