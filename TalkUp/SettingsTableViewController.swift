@@ -28,9 +28,9 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var fontSizeLabel2: UIButton!
     @IBOutlet weak var fontSizeLabel3: UIButton!
     
-    var testInfo = ["Email","Phone", "Notifications"]
-    var testHeaders = ["Account", "Appearance", " "]
-    var themeImages = ["Theme1.png","Theme2.png", "Theme3.png", "Theme4.png", "Theme5.png", "Theme1.png","Theme2.png"]
+    //var testInfo = ["Email","Phone", "Notifications"]
+    var testHeaders = ["Account", "Appearance", "Legal", " "]
+    var themeImages = ["Theme1.png","Theme2.png", "Theme3.png", "Theme4.png", "Theme5.png", "Theme1.png","Theme2.png", "Theme3.png"]
 
    
 // ----------------------- LOAD METHODS --------------------------
@@ -78,10 +78,12 @@ class SettingsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if section == 0 {
-            return 3
+            return 4
         } else if section == 1 {
+            return 3
+        }else if section == 2{
             return 2
-        }else {
+        }else{
             return 1
         }
     

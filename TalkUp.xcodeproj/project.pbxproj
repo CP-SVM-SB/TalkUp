@@ -20,6 +20,7 @@
 		762461D81E9077DB007741EA /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762461D71E9077DB007741EA /* Themes.swift */; };
 		762461DB1E9083B6007741EA /* Theme4.png in Resources */ = {isa = PBXBuildFile; fileRef = 762461D91E9083B6007741EA /* Theme4.png */; };
 		762461DC1E9083B7007741EA /* Theme5.png in Resources */ = {isa = PBXBuildFile; fileRef = 762461DA1E9083B6007741EA /* Theme5.png */; };
+		76F7DC911E985EAB00D8363A /* SecondarySettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F7DC901E985EAB00D8363A /* SecondarySettingsViewController.swift */; };
 		849B53D81E81EC04008B1FE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B53D71E81EC04008B1FE0 /* AppDelegate.swift */; };
 		849B53DD1E81EC04008B1FE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849B53DB1E81EC04008B1FE0 /* Main.storyboard */; };
 		849B53DF1E81EC04008B1FE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849B53DE1E81EC04008B1FE0 /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 		762461D71E9077DB007741EA /* Themes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
 		762461D91E9083B6007741EA /* Theme4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Theme4.png; path = Assets.xcassets/Theme4.png; sourceTree = "<group>"; };
 		762461DA1E9083B6007741EA /* Theme5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Theme5.png; path = Assets.xcassets/Theme5.png; sourceTree = "<group>"; };
+		76F7DC901E985EAB00D8363A /* SecondarySettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondarySettingsViewController.swift; sourceTree = "<group>"; };
 		849B53D41E81EC04008B1FE0 /* TalkUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TalkUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		849B53D71E81EC04008B1FE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		849B53DC1E81EC04008B1FE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			children = (
 				762461C41E903624007741EA /* SettingsTableViewController.swift */,
 				762461CC1E906468007741EA /* SettingsViewControllerExtension.swift */,
+				76F7DC901E985EAB00D8363A /* SecondarySettingsViewController.swift */,
 				849B53EC1E81EDB9008B1FE0 /* LoginViewController.swift */,
 				849B53EE1E81EDCF008B1FE0 /* ChatRoomViewController.swift */,
 				13E007BD1E87441E00693F69 /* SignUpViewController.swift */,
@@ -331,6 +334,7 @@
 				13E007C01E8744E800693F69 /* TopicsViewController.swift in Sources */,
 				762461C51E903624007741EA /* SettingsTableViewController.swift in Sources */,
 				849B53F41E81EE15008B1FE0 /* User.swift in Sources */,
+				76F7DC911E985EAB00D8363A /* SecondarySettingsViewController.swift in Sources */,
 				762461D61E90718E007741EA /* ThemeCollectionViewCell.swift in Sources */,
 				762461D81E9077DB007741EA /* Themes.swift in Sources */,
 				84BE64311E8837AF00665425 /* ParseClient.swift in Sources */,
