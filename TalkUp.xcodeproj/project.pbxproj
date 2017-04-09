@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		13100FB31E90171A0017638A /* WatsonClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13100FB21E90171A0017638A /* WatsonClient.swift */; };
 		133548FB1E90C2AA00D370EB /* TrendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133548FA1E90C2AA00D370EB /* TrendCell.swift */; };
+		135508F51E9A20FD005B6BA9 /* TopicsExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135508F41E9A20FD005B6BA9 /* TopicsExtensionViewController.swift */; };
+		135508F71E9A2182005B6BA9 /* PreviewChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135508F61E9A2182005B6BA9 /* PreviewChatsViewController.swift */; };
+		135508F91E9A21D4005B6BA9 /* PreviewChatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135508F81E9A21D4005B6BA9 /* PreviewChatsCell.swift */; };
+		135508FB1E9A2221005B6BA9 /* ChatsPopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135508FA1E9A2221005B6BA9 /* ChatsPopCell.swift */; };
+		135508FD1E9A228D005B6BA9 /* ChatsPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135508FC1E9A228D005B6BA9 /* ChatsPopViewController.swift */; };
 		13E007BE1E87441E00693F69 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E007BD1E87441E00693F69 /* SignUpViewController.swift */; };
 		13E007C01E8744E800693F69 /* TopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E007BF1E8744E800693F69 /* TopicsViewController.swift */; };
 		762461C51E903624007741EA /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762461C41E903624007741EA /* SettingsTableViewController.swift */; };
@@ -43,6 +48,11 @@
 /* Begin PBXFileReference section */
 		13100FB21E90171A0017638A /* WatsonClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatsonClient.swift; sourceTree = "<group>"; };
 		133548FA1E90C2AA00D370EB /* TrendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrendCell.swift; sourceTree = "<group>"; };
+		135508F41E9A20FD005B6BA9 /* TopicsExtensionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsExtensionViewController.swift; sourceTree = "<group>"; };
+		135508F61E9A2182005B6BA9 /* PreviewChatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewChatsViewController.swift; sourceTree = "<group>"; };
+		135508F81E9A21D4005B6BA9 /* PreviewChatsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewChatsCell.swift; sourceTree = "<group>"; };
+		135508FA1E9A2221005B6BA9 /* ChatsPopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsPopCell.swift; sourceTree = "<group>"; };
+		135508FC1E9A228D005B6BA9 /* ChatsPopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsPopViewController.swift; sourceTree = "<group>"; };
 		13E007BD1E87441E00693F69 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		13E007BF1E8744E800693F69 /* TopicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsViewController.swift; sourceTree = "<group>"; };
 		67FC73FE6B129877CEEBE7D2 /* Pods-TalkUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TalkUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TalkUp/Pods-TalkUp.release.xcconfig"; sourceTree = "<group>"; };
@@ -104,6 +114,8 @@
 			children = (
 				762461D51E90718E007741EA /* ThemeCollectionViewCell.swift */,
 				133548FA1E90C2AA00D370EB /* TrendCell.swift */,
+				135508F81E9A21D4005B6BA9 /* PreviewChatsCell.swift */,
+				135508FA1E9A2221005B6BA9 /* ChatsPopCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -176,6 +188,9 @@
 				849B53EE1E81EDCF008B1FE0 /* ChatRoomViewController.swift */,
 				13E007BD1E87441E00693F69 /* SignUpViewController.swift */,
 				13E007BF1E8744E800693F69 /* TopicsViewController.swift */,
+				135508F41E9A20FD005B6BA9 /* TopicsExtensionViewController.swift */,
+				135508F61E9A2182005B6BA9 /* PreviewChatsViewController.swift */,
+				135508FC1E9A228D005B6BA9 /* ChatsPopViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -343,8 +358,12 @@
 			files = (
 				849B53ED1E81EDB9008B1FE0 /* LoginViewController.swift in Sources */,
 				13100FB31E90171A0017638A /* WatsonClient.swift in Sources */,
+				135508F51E9A20FD005B6BA9 /* TopicsExtensionViewController.swift in Sources */,
 				849B53F61E81EE2D008B1FE0 /* Location.swift in Sources */,
+				135508FD1E9A228D005B6BA9 /* ChatsPopViewController.swift in Sources */,
 				849B53F81E81EF16008B1FE0 /* Message.swift in Sources */,
+				135508F71E9A2182005B6BA9 /* PreviewChatsViewController.swift in Sources */,
+				135508F91E9A21D4005B6BA9 /* PreviewChatsCell.swift in Sources */,
 				849B53EF1E81EDCF008B1FE0 /* ChatRoomViewController.swift in Sources */,
 				849B53D81E81EC04008B1FE0 /* AppDelegate.swift in Sources */,
 				762461CD1E906468007741EA /* SettingsViewControllerExtension.swift in Sources */,
@@ -358,6 +377,7 @@
 				13E007C01E8744E800693F69 /* TopicsViewController.swift in Sources */,
 				762461C51E903624007741EA /* SettingsTableViewController.swift in Sources */,
 				849B53F41E81EE15008B1FE0 /* User.swift in Sources */,
+				135508FB1E9A2221005B6BA9 /* ChatsPopCell.swift in Sources */,
 				76F7DC911E985EAB00D8363A /* SecondarySettingsViewController.swift in Sources */,
 				762461D61E90718E007741EA /* ThemeCollectionViewCell.swift in Sources */,
 				762461D81E9077DB007741EA /* Themes.swift in Sources */,
