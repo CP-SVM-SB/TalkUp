@@ -116,6 +116,7 @@
 			children = (
 				762461D51E90718E007741EA /* ThemeCollectionViewCell.swift */,
 				133548FA1E90C2AA00D370EB /* TrendCell.swift */,
+				84BE64321E8837D800665425 /* ChatCell.swift */,
 				135508F81E9A21D4005B6BA9 /* PreviewChatsCell.swift */,
 				135508FA1E9A2221005B6BA9 /* ChatsPopCell.swift */,
 			);
@@ -206,7 +207,6 @@
 				849B53F51E81EE2D008B1FE0 /* Location.swift */,
 				849B53F71E81EF16008B1FE0 /* Message.swift */,
 				849B53F91E81EF7E008B1FE0 /* ChatRoom.swift */,
-				84BE64321E8837D800665425 /* ChatCell.swift */,
 				76F7DC941E995A1700D8363A /* UserSettings.swift */,
 			);
 			name = Models;
