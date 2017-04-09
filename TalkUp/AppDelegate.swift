@@ -14,47 +14,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.applicationDidTimout), name: NSNotification.Name(rawValue: TimerUIApplication.ApplicationDidTimoutNotification), object: nil)
-        
-        return true
-    }
-    
-    
-    // The callback for when the timeout was fired.
     func applicationDidTimout(notification: NSNotification) {
-        if let vc = self.window?.rootViewController as? UINavigationController {
-            
-            
-            if let chatRoomVC = vc.visibleViewController as? ChatRoomViewController {
-            
-                // Call a function defined in your view controller.
-            
-                chatRoomVC.userActive()
-            
-            } else {
-                // We are not on the main view controller. Here, you could segue to the desired class.
-                let storyboard = UIStoryboard(name: "MyStoryboard", bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: "chatVC")
-                
-            
-            }
-        }
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "chatVC") as! ChatRoomViewController
+        vc.userInactive()
+        
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.applicationDidTimout), name: NSNotification.Name(rawValue: TimerUIApplication.ApplicationDidTimoutNotification), object: nil)
       
-      Parse.initialize(
+        Parse.initialize(
         with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) -> Void in
           configuration.applicationId = "talkupapp"
           configuration.clientKey = "svmcbao"
           configuration.server = "https://talkupapp.herokuapp.com/parse"
         })
-      )
+      
+        )
       
       return true
     }
+    
+  
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

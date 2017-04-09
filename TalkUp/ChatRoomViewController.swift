@@ -66,7 +66,7 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
   }
   
   @IBAction func onSendButton(_ sender: Any) {
-    var message = Message()
+    let message = Message()
     message.from = user!
     message.text = messageTextField.text
     messageTextField.text = ""
@@ -81,7 +81,7 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
     
   }
   
-  func userActive(){
+  func userInactive(){
         print("-------- USER INACTIVE --------")
   }
   
