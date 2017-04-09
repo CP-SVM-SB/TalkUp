@@ -16,7 +16,7 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   let keywordApi = WatsonClient()
   
   // -- Settable Vars --
-  var noTopicsMax = 8               // max. number of topics you wish to see
+  var noTopicsMax = 7               // max. number of topics you wish to see
   var topicsRollbackLength: Int = 50   // no of recent msgs you wish to use in getting topics [NB]: if 0, ALL messages are used
   
   var rawMessages: String?

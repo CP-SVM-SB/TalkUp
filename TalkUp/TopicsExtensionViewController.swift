@@ -26,9 +26,17 @@ extension TopicsViewController: UIViewControllerPreviewingDelegate {
     previewChatsVC.topic = key
     previewChatsVC.chatsWithKeyWord = previewChats
     
-    
     // VC settings
-    previewChatsVC.preferredContentSize = CGSize(width: 0, height: 450)
+    if (previewChats?.count)! == 1 {
+      previewChatsVC.preferredContentSize = CGSize(width: 0, height: 110)
+
+    } else if (previewChats?.count)! < 7 {
+      previewChatsVC.preferredContentSize = CGSize(width: 0, height: (previewChats?.count)! * 90)
+      
+    } else {
+      previewChatsVC.preferredContentSize = CGSize(width: 0, height: 420)
+    }
+
     previewingContext.sourceRect = cell.frame
     
     return previewChatsVC
