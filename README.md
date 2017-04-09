@@ -27,13 +27,23 @@ Required (core) user stories:
 ## Optionals
 
 Optional (nice to have) user stories:
-
-- User can choose from Topics based on location
-- Allow more than one person in chatroom
+- Random username/profile pic assignment based on theme
+- User can choose from Topics based
+- Allow more than one person in chatroom (option controlled by user)
 - Recognizing Links, phone numbers, email addresses
-- Censoring: Private information in messages, explitives
-- Waiting Game for users to play while waiting to join chat
-- Elegant UI Features
+    - Censoring: Private information in messages, explitives
+- Message Reactions
+- Preset replies
+- 3D touch features
+- Message Likes
+- Stickers
+- Splashscreen with animation
+- Swipe guesture animations
+- Typing indicator
+- Onboarding app tour
+- App intro on Login screen
+- Milestones/Award system for frequent chatters
+
 
 
 ## Ideas
@@ -47,6 +57,9 @@ Optional (nice to have) user stories:
 - IBM Watson -- (Watson Developer Cloud)
     - Alchemy Language 
     - TextGetRankedKeyWord
+- Giphy
+    - Search
+    - Random
 
 
 ## Notes
