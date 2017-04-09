@@ -8,6 +8,13 @@
 
 import UIKit
 
+
+protocol SettingsTableViewControllerDelegate {
+    func loadNewSelection()
+    func selectCell(index: Int)
+    func resetSelection()
+}
+
 class SettingsTableViewController: UITableViewController {
 
     
@@ -18,7 +25,7 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var notificationSwitch: UISwitch!
     @IBOutlet weak var logOutButton: UIButton!
     
-
+    var collectionCellSelected = [Bool]()
     var testHeaders = ["Legal", "Account", "Appearance", " "]
     var themeImages = ["Theme1.png","Theme2.png", "Theme3.png", "Theme4.png", "Theme5.png"]
 
@@ -38,6 +45,8 @@ class SettingsTableViewController: UITableViewController {
         logOutButton.layer.cornerRadius = 24
         logOutButton.layer.borderColor = UIColor.lightGray.cgColor
         
+        collectionCellSelected = [false, false, false, false, false]
+        print("CCS Count: ", collectionCellSelected.count)
     
     }
 

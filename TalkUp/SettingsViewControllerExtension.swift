@@ -14,9 +14,9 @@ import Foundation
 import UIKit
 import Parse
 
-extension SettingsTableViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension SettingsTableViewController: UICollectionViewDelegate, UICollectionViewDataSource, SettingsTableViewControllerDelegate {
     
-    
+
     
 // ----------------------- ACTION FUNCTIONS --------------------------
     
@@ -33,6 +33,20 @@ extension SettingsTableViewController: UICollectionViewDelegate, UICollectionVie
         print("switch changed")
     }
     
+    func resetSelection(){
+        collectionCellSelected = [false, false, false, false, false]
+    }
+    
+    
+    func selectCell(index: Int){
+        collectionCellSelected[index] = true
+    }
+    
+    
+    func loadNewSelection(){
+        collectionView.reloadData()
+    }
+    
 // ------------------ COLLECTION VIEW DATASOURCE ----------------------
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -46,12 +60,16 @@ extension SettingsTableViewController: UICollectionViewDelegate, UICollectionVie
         
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "themeCell", for: indexPath) as! ThemeCollectionViewCell
+        
         cell.backgroundColor = UIColor.gray
         cell.layer.cornerRadius = cell.frame.size.width / 2;
         cell.clipsToBounds = true
-        //cell.layer.cornerRadius = 90
+        cell.delegate = self
+        cell.themeButton.tag = indexPath.row
+        cell.themeButton.isSelected = collectionCellSelected[cell.themeButton.tag]
         cell.themeImageView.image = UIImage(named: themeImages[indexPath.row])
         
         return cell
