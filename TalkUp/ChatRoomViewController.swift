@@ -8,9 +8,13 @@
 
 import UIKit
 import Parse
+import MapKit
+import CoreLocation
 
-class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
   
+    let locationManager = CLLocationManager()
+    
     @IBOutlet var chatView: UIView!
     @IBOutlet var messageTextField: UITextField!
     @IBOutlet var sendButton: UIButton!
@@ -18,17 +22,62 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
     var messages: [Message] = []
     var Client = ParseClient()
     var flag = false
-    var user: String?
+    var user = User()
+    
+    var chat = ChatRoom()
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Get user's location
+        self.locationManager.requestAlwaysAuthorization()
+        self.locationManager.requestWhenInUseAuthorization()
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
+        
+        // Get chatroom info -> members, messages and info stuff
+        Client.findChat { (chatID: Int, chatAlreadyExists: Bool) in
+            if chatAlreadyExists {
+                self.Client.joinChatWithId(id: chatID, onSuccess: { (chatInfo: ChatRoom) in
+                    self.chat = chatInfo
+                    print("joined chat")
+                    self.loadTable()
+                })
+            }
+            else {
+                self.Client.createAndJoinChatWithId(id: chatID, onSuccess: { (chatInfo: ChatRoom) in
+                    self.chat = chatInfo
+                    print("created and joined new chat")
+                    self.loadTable()
+                })
+            }
+        }
+        
+        
+        // add the current user to the chat room
+        //chat.members.append(user!)
+        
+        // push the new chatroom
+        
+        
+        
+        
+        
         let currentUser = PFUser.current()!
         if let uname = currentUser["username"] as? String {
-          user = uname
+          user.username = uname
         } else {
-          user = "unidentified user"
+          user.username = "unidentified user"
         }
+        
+        
+        
+        
+        
+        
         // Adjust User Interface
 
         sendButton.layer.cornerRadius = 5.0
@@ -44,12 +93,14 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
         self.chatView.addGestureRecognizer(tapGesture)
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.loadTable()
         self.tableView.estimatedRowHeight = 100
         self.tableView.rowHeight = UITableViewAutomaticDimension
+        //self.loadTable()
 
     }
 
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         self.scrollToBottom()
     }
@@ -60,19 +111,28 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
     // Dispose of any resources that can be recreated.
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        Client.exitChatWithId(id: self.chat.count) { 
+            print("exited chat and ready to segue")
+        }
+    }
+    
+    
     @IBAction func onSendButton(_ sender: Any) {
         
         let message = Message()
-        message.from = user!
+        message.from = user.username!
         message.text = messageTextField.text
         messageTextField.text = ""
-
-        Client.sendMessage(message: message, onSuccess: {
+        if message.text != "" {
+            self.Client.sendMessageToChatWithId(message: message, id: self.chat.count, onSuccess: {
                 self.loadTable()
                 self.scrollToBottom()
-        }) { (error: Error) in
-              print(error.localizedDescription)
+            }) { (error: Error) in
+                print(error.localizedDescription)
+            }
         }
+            
         
     }
     
@@ -105,12 +165,16 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell", for: indexPath) as! ChatCell
         cell.messageLabel.text = (messages[indexPath.row].text!)
+        if messages[indexPath.row].from == user.username {
+            cell.messageLabel.textAlignment = NSTextAlignment.right
+        }
+        
         return cell
 
     }
 
     func loadTable() {
-        Client.getMessages(onSuccess: { (listOfMessages: [Message]) in
+        Client.getMessagesFromChatWithId(id: self.chat.count, onSuccess: { (listOfMessages:[Message]) in
             self.messages = listOfMessages
             self.tableView.reloadData()
             self.scrollToBottom()
@@ -151,8 +215,12 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        var locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        //print("LOCATION = \(locValue.latitude) \(locValue.longitude)")
+    }
 
+    
   
   /*
    // MARK: - Navigation

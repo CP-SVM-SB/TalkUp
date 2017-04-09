@@ -10,11 +10,13 @@ import UIKit
 
 class User: NSObject {
     var username: String?
-    //var location: Location
+    var location: Location?
+    var active: Bool
     
     override init() {
         username = nil
-        
+        location = nil
+        active = true
     }
     
 

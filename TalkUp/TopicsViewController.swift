@@ -9,7 +9,7 @@
 import UIKit
 
 class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
-  
+    
   @IBOutlet weak var tableView: UITableView!
   
   let myParseClient = ParseClient()
@@ -41,6 +41,8 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     self.tableView.allowsSelection = false
     
     getKeywords()
+    
+    
     
   }
   
