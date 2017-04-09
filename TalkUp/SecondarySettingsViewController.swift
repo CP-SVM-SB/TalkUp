@@ -12,6 +12,8 @@ class SecondarySettingsViewController: UIViewController {
 
     @IBOutlet weak var passwordView: UIView!
     @IBOutlet weak var enableVMView: UIView!
+    @IBOutlet weak var fontSizeView: UIView!
+    @IBOutlet weak var encryptMessagesView: UIView!
     
     var whichView = String()
     
@@ -19,12 +21,14 @@ class SecondarySettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if whichView == "password" { // ITS WORKING YAAAAAAAYY!!
+        if whichView == "password" {
             passwordView.isHidden = false
         }else if whichView == "enableVM" {
             enableVMView.isHidden = false
         }else if whichView == "font" {
-        }else if whichView == "encrypt"{
+            fontSizeView.isHidden = false
+        }else if whichView == "encrypt" {
+            encryptMessagesView.isHidden = false
         }
         
         

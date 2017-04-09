@@ -11,10 +11,10 @@ import UIKit
 class ChatCell: UITableViewCell {
 
     @IBOutlet var messageLabel: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+       messageLabel.sizeToFit()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

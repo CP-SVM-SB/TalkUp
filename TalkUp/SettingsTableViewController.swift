@@ -14,8 +14,6 @@ class SettingsTableViewController: UITableViewController {
 // ----------------------- VARIABLES --------------------------
     
     @IBOutlet weak var collectionView: UICollectionView!
-   
-    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var notificationSwitch: UISwitch!
     @IBOutlet weak var logOutButton: UIButton!
@@ -47,6 +45,7 @@ class SettingsTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
     }
 
+    
 // --------------------- TABLE VIEW DATA SOURCE -----------------------
 
 
