@@ -95,7 +95,6 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
     func scrollToBottom() {
         tableView.reloadData()
         tableView.contentOffset = CGPoint(x: CGFloat(0), y: CGFloat(tableView.contentSize.height - tableView.frame.size.height))
-        print("scrolling to bottom")
     }
 
 

@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+class UserSettings {
+    
+    init() {
+        
+        // Font size
+        // Theme
+        // Notifications
+    }
+    
+    
+}

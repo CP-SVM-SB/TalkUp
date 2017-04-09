@@ -20,7 +20,7 @@ class SettingsTableViewController: UITableViewController {
     
 
     var testHeaders = ["Legal", "Account", "Appearance", " "]
-    var themeImages = ["Theme1.png","Theme2.png", "Theme3.png", "Theme4.png", "Theme5.png", "Theme1.png","Theme2.png", "Theme3.png"]
+    var themeImages = ["Theme1.png","Theme2.png", "Theme3.png", "Theme4.png", "Theme5.png"]
 
    
 // ----------------------- LOAD METHODS --------------------------

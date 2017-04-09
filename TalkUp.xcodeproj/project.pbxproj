@@ -25,6 +25,7 @@
 		762461D81E9077DB007741EA /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762461D71E9077DB007741EA /* Themes.swift */; };
 		762461DB1E9083B6007741EA /* Theme4.png in Resources */ = {isa = PBXBuildFile; fileRef = 762461D91E9083B6007741EA /* Theme4.png */; };
 		762461DC1E9083B7007741EA /* Theme5.png in Resources */ = {isa = PBXBuildFile; fileRef = 762461DA1E9083B6007741EA /* Theme5.png */; };
+		76BCAE1A1E9A577900FD9018 /* GifsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BCAE191E9A577900FD9018 /* GifsViewController.swift */; };
 		76F7DC911E985EAB00D8363A /* SecondarySettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F7DC901E985EAB00D8363A /* SecondarySettingsViewController.swift */; };
 		76F7DC931E9871F500D8363A /* loginBackground.gif in Resources */ = {isa = PBXBuildFile; fileRef = 76F7DC921E9871F500D8363A /* loginBackground.gif */; };
 		76F7DC951E995A1700D8363A /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F7DC941E995A1700D8363A /* UserSettings.swift */; };
@@ -65,6 +66,7 @@
 		762461D71E9077DB007741EA /* Themes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
 		762461D91E9083B6007741EA /* Theme4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Theme4.png; path = Assets.xcassets/Theme4.png; sourceTree = "<group>"; };
 		762461DA1E9083B6007741EA /* Theme5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Theme5.png; path = Assets.xcassets/Theme5.png; sourceTree = "<group>"; };
+		76BCAE191E9A577900FD9018 /* GifsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifsViewController.swift; sourceTree = "<group>"; };
 		76F7DC901E985EAB00D8363A /* SecondarySettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondarySettingsViewController.swift; sourceTree = "<group>"; };
 		76F7DC921E9871F500D8363A /* loginBackground.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = loginBackground.gif; path = Assets.xcassets/loginBackground.gif; sourceTree = "<group>"; };
 		76F7DC941E995A1700D8363A /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 			children = (
 				762461C41E903624007741EA /* SettingsTableViewController.swift */,
 				762461CC1E906468007741EA /* SettingsViewControllerExtension.swift */,
+				76BCAE191E9A577900FD9018 /* GifsViewController.swift */,
 				76F7DC901E985EAB00D8363A /* SecondarySettingsViewController.swift */,
 				849B53EC1E81EDB9008B1FE0 /* LoginViewController.swift */,
 				849B53EE1E81EDCF008B1FE0 /* ChatRoomViewController.swift */,
@@ -362,6 +365,7 @@
 				849B53F61E81EE2D008B1FE0 /* Location.swift in Sources */,
 				135508FD1E9A228D005B6BA9 /* ChatsPopViewController.swift in Sources */,
 				849B53F81E81EF16008B1FE0 /* Message.swift in Sources */,
+				76BCAE1A1E9A577900FD9018 /* GifsViewController.swift in Sources */,
 				135508F71E9A2182005B6BA9 /* PreviewChatsViewController.swift in Sources */,
 				135508F91E9A21D4005B6BA9 /* PreviewChatsCell.swift in Sources */,
 				849B53EF1E81EDCF008B1FE0 /* ChatRoomViewController.swift in Sources */,
