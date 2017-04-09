@@ -14,13 +14,12 @@ class TimerUIApplication: UIApplication {
     static let ApplicationDidTimoutNotification = "AppTimout"
     
     // The timeout in seconds for when to fire the idle timer.
-    let timeoutInSeconds: TimeInterval = 10
+    let timeoutInSeconds: TimeInterval = 30
     
     var idleTimer: Timer?
     
     // Reset the timer because there was user interaction.
     func resetIdleTimer() {
-
         if let idleTimer = idleTimer {
             idleTimer.invalidate()
         }
@@ -43,7 +42,11 @@ class TimerUIApplication: UIApplication {
         if let touches = event.allTouches {
             for touch in touches {
                 if touch.phase == UITouchPhase.began {
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let vc = storyboard.instantiateViewController(withIdentifier: "chatVC") as! ChatRoomViewController
+                    vc.userActive()
                     self.resetIdleTimer()
+
                 }
             }
         }

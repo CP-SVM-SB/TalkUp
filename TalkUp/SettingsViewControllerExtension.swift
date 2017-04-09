@@ -12,6 +12,7 @@
 
 import Foundation
 import UIKit
+import Parse
 
 extension SettingsTableViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -19,43 +20,23 @@ extension SettingsTableViewController: UICollectionViewDelegate, UICollectionVie
     
 // ----------------------- ACTION FUNCTIONS --------------------------
     
-    
-    
-    @IBAction func didTapSave(_ sender: Any) {
-        
-        performSegue(withIdentifier: "unwindToMenu", sender: self)
-        print("going back - Save")
-        
-    }
-    
-    
-    @IBAction func didTapCancel(_ sender: Any) {
-        
-        performSegue(withIdentifier: "unwindToMenu", sender: self)
-        print("going back - Cancel")
+    @IBAction func didTapLogOut(_ sender: UIButton) {
+        print("loging out")
+        PFUser.logOut()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let loginVC = storyboard.instantiateViewController(withIdentifier: "loginVC") as! LoginViewController
+        present(loginVC, animated: true, completion: nil)
         
     }
 
     @IBAction func notificationSwitchChanged(_ sender: Any) {
-        
         print("switch changed")
-        
-//        if notificationSwitch.isOn == true {
-//            notificationStateLabel.text = "ON"
-//        }else{
-//            notificationStateLabel.text = "OFF"
-//        }
-
-        
-        
     }
     
 // ------------------ COLLECTION VIEW DATASOURCE ----------------------
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        
         return 1
-        
     }
     
     

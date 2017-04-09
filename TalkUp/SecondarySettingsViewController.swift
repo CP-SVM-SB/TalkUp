@@ -19,9 +19,12 @@ class SecondarySettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         if whichView == "password" { // ITS WORKING YAAAAAAAYY!!
             passwordView.isHidden = false
+        }else if whichView == "enableVM" {
+            enableVMView.isHidden = false
+        }else if whichView == "font" {
+        }else if whichView == "encrypt"{
         }
         
         

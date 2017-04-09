@@ -17,18 +17,10 @@ class SettingsTableViewController: UITableViewController {
    
     
     @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    
-    @IBOutlet weak var notificationStateLabel: UILabel!
     @IBOutlet weak var notificationSwitch: UISwitch!
-
     @IBOutlet weak var logOutButton: UIButton!
     
-    @IBOutlet weak var fontSizeLabel1: UIButton!
-    @IBOutlet weak var fontSizeLabel2: UIButton!
-    @IBOutlet weak var fontSizeLabel3: UIButton!
-    
-    //var testInfo = ["Email","Phone", "Notifications"]
+
     var testHeaders = ["Legal", "Account", "Appearance", " "]
     var themeImages = ["Theme1.png","Theme2.png", "Theme3.png", "Theme4.png", "Theme5.png", "Theme1.png","Theme2.png", "Theme3.png"]
 
@@ -39,26 +31,15 @@ class SettingsTableViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.delegate = self
-        //self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
-        
+
         collectionView.delegate = self
         collectionView.dataSource = self
         
         self.navigationItem.title = "Settings"
-        
-        
-//        if notificationSwitch.isOn == true {
-//            notificationStateLabel.text = "ON"
-//        }else{
-//            notificationStateLabel.text = "OFF"
-//        }
-        
 
         logOutButton.layer.cornerRadius = 24
-        //logOutButton.layer.borderWidth = 5
         logOutButton.layer.borderColor = UIColor.lightGray.cgColor
         
-    
     
     }
 
@@ -89,16 +70,19 @@ class SettingsTableViewController: UITableViewController {
     
     }
 
-    
    
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let secondarySettingsVC = segue.destination as! SecondarySettingsViewController
         
         if segue.identifier == "fromPassword" {
-            
             secondarySettingsVC.whichView = "password"
-
+        } else if segue.identifier == "fromVM"{
+            secondarySettingsVC.whichView = "enableVM"
+        } else if segue.identifier == "fromFont" {
+            secondarySettingsVC.whichView = "font"
+        } else if segue.identifier == "fromEM" {
+            secondarySettingsVC.whichView = "encrypt"
         }
     }
  
