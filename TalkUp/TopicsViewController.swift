@@ -8,26 +8,27 @@
 
 import UIKit
 
-class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
   
   @IBOutlet weak var tableView: UITableView!
-  @IBOutlet weak var chatPreviewView: UIView!
   
   let myParseClient = ParseClient()
   let keywordApi = WatsonClient()
   
   // -- Settable Vars --
-  var noTopicsMax = 7               // max. number of topics you wish to see
-  var topicsRollbackLength: Int = 0   // no of recent msgs you wish to use in getting topics [NB]: if 0, ALL messages are used
+  var noTopicsMax = 8               // max. number of topics you wish to see
+  var topicsRollbackLength: Int = 50   // no of recent msgs you wish to use in getting topics [NB]: if 0, ALL messages are used
   
   var rawMessages: String?
   var chatmsg: String?
   
   var keywords = [String]()
-  var keywordCount = [Int]()
-  var previewChats = [String]()
+  var noChatsWithKeyword = [Int]()
   
+  var keywordDict = Dictionary<String, NSMutableArray>()
   var previewVisible = false
+  
+  var previewChats : NSMutableArray?
   
   
   
@@ -44,15 +45,22 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   }
   
   
+  override func viewDidLayoutSubviews() {
+    if traitCollection.forceTouchCapability == .available {
+      registerForPreviewing(with: self, sourceView: tableView)
+    }
+  }
   
-  // *** might have to break up function, getting too bulky
+  
+  
+  // *** quite bulky
   func getKeywords() {
     myParseClient.getMessages(onSuccess: { (rawMsgs: [Message]) in
       let revRawMsgs = rawMsgs.reversed()  // rollback purposes
       var index = 0
       
       if (self.topicsRollbackLength == 0) {
-        for msg in rawMsgs {
+        for msg in revRawMsgs {
           self.rawMessages = (self.rawMessages == nil) ? msg.text! : self.rawMessages!+", "+msg.text!
         }
       } else {
@@ -71,18 +79,25 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         for keyW in keys {
           var count = 0
+          self.keywordDict[keyW] = [""]    // initialize dict. of nsmutableArr for appending
+          
           for msg in revRawMsgs {
             // case-insensitive search
             if msg.text!.lowercased().range(of:keyW.lowercased()) != nil {
-              // *** cache chat locally (dict?)
+              if count > 0 {
+                self.keywordDict[keyW]!.add(msg.text!)
+              } else {
+                self.keywordDict[keyW]?[0] = msg.text!
+              }
               count += 1
             }
           }
-          self.keywordCount.append(count)
+          
+          self.noChatsWithKeyword.append(count)
         }
         
         self.tableView.reloadData()
-
+        
       }, failure: { (error: Error) in
         print (error.localizedDescription)
       })
@@ -98,18 +113,14 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    if (tableView == self.tableView) {
-      return (self.keywords.count > self.noTopicsMax) ? self.noTopicsMax : self.keywords.count
-    }
-    return (self.keywords.count > self.noTopicsMax) ? self.noTopicsMax : self.keywords.count   // *** To be fixed
-    
+    return (self.keywords.count > self.noTopicsMax) ? self.noTopicsMax : self.keywords.count
   }
   
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "TrendCell", for: indexPath) as! TrendCell
     
-    cell.noChatsforTopic = self.keywordCount[indexPath.row]
+    cell.noChatsforTopic = self.noChatsWithKeyword[indexPath.row]
     cell.buttonTitle = self.keywords[indexPath.row]
     
     return cell
