@@ -21,6 +21,10 @@
 		762461DB1E9083B6007741EA /* Theme4.png in Resources */ = {isa = PBXBuildFile; fileRef = 762461D91E9083B6007741EA /* Theme4.png */; };
 		762461DC1E9083B7007741EA /* Theme5.png in Resources */ = {isa = PBXBuildFile; fileRef = 762461DA1E9083B6007741EA /* Theme5.png */; };
 		76F7DC911E985EAB00D8363A /* SecondarySettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F7DC901E985EAB00D8363A /* SecondarySettingsViewController.swift */; };
+		76F7DC931E9871F500D8363A /* loginBackground.gif in Resources */ = {isa = PBXBuildFile; fileRef = 76F7DC921E9871F500D8363A /* loginBackground.gif */; };
+		76F7DC951E995A1700D8363A /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F7DC941E995A1700D8363A /* UserSettings.swift */; };
+		76F7DC971E99780D00D8363A /* TimerUIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F7DC961E99780D00D8363A /* TimerUIApplication.swift */; };
+		76F7DC9A1E99785400D8363A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F7DC991E99785400D8363A /* main.swift */; };
 		849B53D81E81EC04008B1FE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B53D71E81EC04008B1FE0 /* AppDelegate.swift */; };
 		849B53DD1E81EC04008B1FE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849B53DB1E81EC04008B1FE0 /* Main.storyboard */; };
 		849B53DF1E81EC04008B1FE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849B53DE1E81EC04008B1FE0 /* Assets.xcassets */; };
@@ -52,6 +56,10 @@
 		762461D91E9083B6007741EA /* Theme4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Theme4.png; path = Assets.xcassets/Theme4.png; sourceTree = "<group>"; };
 		762461DA1E9083B6007741EA /* Theme5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Theme5.png; path = Assets.xcassets/Theme5.png; sourceTree = "<group>"; };
 		76F7DC901E985EAB00D8363A /* SecondarySettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondarySettingsViewController.swift; sourceTree = "<group>"; };
+		76F7DC921E9871F500D8363A /* loginBackground.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = loginBackground.gif; path = Assets.xcassets/loginBackground.gif; sourceTree = "<group>"; };
+		76F7DC941E995A1700D8363A /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		76F7DC961E99780D00D8363A /* TimerUIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerUIApplication.swift; sourceTree = "<group>"; };
+		76F7DC991E99785400D8363A /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		849B53D41E81EC04008B1FE0 /* TalkUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TalkUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		849B53D71E81EC04008B1FE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		849B53DC1E81EC04008B1FE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -103,6 +111,7 @@
 		762461CE1E906F3F007741EA /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				76F7DC921E9871F500D8363A /* loginBackground.gif */,
 				762461CF1E906F89007741EA /* Theme1.png */,
 				762461D01E906F89007741EA /* Theme2.png */,
 				762461D11E906F89007741EA /* Theme3.png */,
@@ -110,6 +119,16 @@
 				762461DA1E9083B6007741EA /* Theme5.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		76F7DC981E99783600D8363A /* Timer Files */ = {
+			isa = PBXGroup;
+			children = (
+				76F7DC961E99780D00D8363A /* TimerUIApplication.swift */,
+				76F7DC991E99785400D8363A /* main.swift */,
+				849B53D71E81EC04008B1FE0 /* AppDelegate.swift */,
+			);
+			name = "Timer Files";
 			sourceTree = "<group>";
 		};
 		849B53CB1E81EC03008B1FE0 = {
@@ -133,14 +152,14 @@
 		849B53D61E81EC04008B1FE0 /* TalkUp */ = {
 			isa = PBXGroup;
 			children = (
+				76F7DC981E99783600D8363A /* Timer Files */,
 				762461811E8F0460007741EA /* Views */,
 				84BE642F1E88377F00665425 /* Client */,
 				849B53F21E81EDDF008B1FE0 /* Models */,
 				849B53E91E81ED89008B1FE0 /* ViewControllers */,
-				849B53D71E81EC04008B1FE0 /* AppDelegate.swift */,
 				849B53DB1E81EC04008B1FE0 /* Main.storyboard */,
-				849B53DE1E81EC04008B1FE0 /* Assets.xcassets */,
 				849B53E01E81EC04008B1FE0 /* LaunchScreen.storyboard */,
+				849B53DE1E81EC04008B1FE0 /* Assets.xcassets */,
 				849B53E31E81EC04008B1FE0 /* Info.plist */,
 				762461CE1E906F3F007741EA /* Images */,
 			);
@@ -170,6 +189,7 @@
 				849B53F71E81EF16008B1FE0 /* Message.swift */,
 				849B53F91E81EF7E008B1FE0 /* ChatRoom.swift */,
 				84BE64321E8837D800665425 /* ChatCell.swift */,
+				76F7DC941E995A1700D8363A /* UserSettings.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -260,6 +280,7 @@
 				849B53DF1E81EC04008B1FE0 /* Assets.xcassets in Resources */,
 				762461D31E906F89007741EA /* Theme2.png in Resources */,
 				762461DC1E9083B7007741EA /* Theme5.png in Resources */,
+				76F7DC931E9871F500D8363A /* loginBackground.gif in Resources */,
 				849B53DD1E81EC04008B1FE0 /* Main.storyboard in Resources */,
 				762461DB1E9083B6007741EA /* Theme4.png in Resources */,
 			);
@@ -328,7 +349,10 @@
 				849B53D81E81EC04008B1FE0 /* AppDelegate.swift in Sources */,
 				762461CD1E906468007741EA /* SettingsViewControllerExtension.swift in Sources */,
 				84BE64331E8837D800665425 /* ChatCell.swift in Sources */,
+				76F7DC9A1E99785400D8363A /* main.swift in Sources */,
 				133548FB1E90C2AA00D370EB /* TrendCell.swift in Sources */,
+				76F7DC951E995A1700D8363A /* UserSettings.swift in Sources */,
+				76F7DC971E99780D00D8363A /* TimerUIApplication.swift in Sources */,
 				13E007BE1E87441E00693F69 /* SignUpViewController.swift in Sources */,
 				849B53FA1E81EF7F008B1FE0 /* ChatRoom.swift in Sources */,
 				13E007C01E8744E800693F69 /* TopicsViewController.swift in Sources */,

@@ -29,7 +29,7 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var fontSizeLabel3: UIButton!
     
     //var testInfo = ["Email","Phone", "Notifications"]
-    var testHeaders = ["Account", "Appearance", "Legal", " "]
+    var testHeaders = ["Legal", "Account", "Appearance", " "]
     var themeImages = ["Theme1.png","Theme2.png", "Theme3.png", "Theme4.png", "Theme5.png", "Theme1.png","Theme2.png", "Theme3.png"]
 
    
@@ -89,6 +89,20 @@ class SettingsTableViewController: UITableViewController {
     
     }
 
+    
+   
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let secondarySettingsVC = segue.destination as! SecondarySettingsViewController
+        
+        if segue.identifier == "fromPassword" {
+            
+            secondarySettingsVC.whichView = "password"
+
+        }
+    }
+ 
+    
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "accountCell", for: indexPath) //as! AccountTableViewCell
@@ -134,14 +148,5 @@ class SettingsTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

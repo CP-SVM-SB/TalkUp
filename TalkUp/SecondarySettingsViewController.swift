@@ -10,10 +10,21 @@ import UIKit
 
 class SecondarySettingsViewController: UIViewController {
 
+    @IBOutlet weak var passwordView: UIView!
+    @IBOutlet weak var enableVMView: UIView!
+    
+    var whichView = String()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
+        if whichView == "password" { // ITS WORKING YAAAAAAAYY!!
+            passwordView.isHidden = false
+        }
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

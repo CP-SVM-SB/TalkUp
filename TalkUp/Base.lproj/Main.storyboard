@@ -488,12 +488,12 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wE5-9L-pwf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="XHp-xD-c3S" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2238" y="139"/>
+            <point key="canvasLocation" x="2311" y="139"/>
         </scene>
         <!--Secondary Settings View Controller-->
         <scene sceneID="TWg-Rw-Clw">
             <objects>
-                <viewController id="WEL-QK-EGI" customClass="SecondarySettingsViewController" customModule="TalkUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="secondarySettingsVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WEL-QK-EGI" customClass="SecondarySettingsViewController" customModule="TalkUp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="k08-dS-OVO"/>
                         <viewControllerLayoutGuide type="bottom" id="zJa-Pz-1nG"/>
@@ -502,8 +502,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MuD-l1-1VX">
-                                <rect key="frame" x="0.0" y="64" width="375" height="165"/>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="pwView" translatesAutoresizingMaskIntoConstraints="NO" id="MuD-l1-1VX">
+                                <rect key="frame" x="0.0" y="66" width="375" height="165"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2A9-Oo-vf9">
@@ -550,15 +550,30 @@
                                     </textField>
                                 </subviews>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="enableVMView" translatesAutoresizingMaskIntoConstraints="NO" id="afZ-TB-qW1">
+                                <rect key="frame" x="0.0" y="68" width="375" height="165"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wre-Xl-SgL">
+                                        <rect key="frame" x="251" y="35" width="51" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </switch>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.96674107139999998" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="enableVMView" destination="afZ-TB-qW1" id="Vfh-hF-JOh"/>
+                        <outlet property="passwordView" destination="MuD-l1-1VX" id="bNs-fa-dFB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ph-I0-27G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2983.1999999999998" y="138.98050974512745"/>
+            <point key="canvasLocation" x="3024.8000000000002" y="138.98050974512745"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="SBq-lN-NTs">

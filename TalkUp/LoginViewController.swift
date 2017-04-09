@@ -17,15 +17,15 @@ class LoginViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     self.passwordField.isSecureTextEntry = true
-     
     self.usernameField.becomeFirstResponder()
+    
     self.hideKeyboardWhenTappedAround()
     
     self.view.backgroundColor = UIColor(patternImage: UIImage(named: "HomeImage.png")!)
     
-    // placeholder text
-    let placeholderColor = UIColor.lightGray
+    let placeholderColor = UIColor.lightGray    // placeholder text
     
     
     self.usernameField.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSForegroundColorAttributeName : placeholderColor] )

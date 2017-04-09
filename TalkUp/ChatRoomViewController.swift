@@ -81,6 +81,9 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
     
   }
   
+  func userActive(){
+        print("-------- USER INACTIVE --------")
+  }
   
   @IBAction func unwindToMenu(segue: UIStoryboardSegue) {
     

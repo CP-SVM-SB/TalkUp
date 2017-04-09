@@ -9,12 +9,39 @@
 import UIKit
 import Parse
 
-@UIApplicationMain
+//@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.applicationDidTimout), name: NSNotification.Name(rawValue: TimerUIApplication.ApplicationDidTimoutNotification), object: nil)
+        
+        return true
+    }
+    
+    
+    // The callback for when the timeout was fired.
+    func applicationDidTimout(notification: NSNotification) {
+        if let vc = self.window?.rootViewController as? UINavigationController {
+            
+            
+            if let chatRoomVC = vc.visibleViewController as? ChatRoomViewController {
+            
+                // Call a function defined in your view controller.
+            
+                chatRoomVC.userActive()
+            
+            } else {
+                // We are not on the main view controller. Here, you could segue to the desired class.
+                let storyboard = UIStoryboard(name: "MyStoryboard", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "chatVC")
+                
+            
+            }
+        }
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
       
