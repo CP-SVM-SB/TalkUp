@@ -22,7 +22,7 @@ class AnimationsViewController: UIViewController {
         super.viewDidLoad()
       
       let backgroundColour = UIColor.init(red: 29, green: 143, blue: 241, alpha: 1)
-      let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "launchChatIcon")!,iconInitialSize: CGSize(width: 70, height: 70), backgroundColor: backgroundColour)
+      let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "animationChatIcon")!,iconInitialSize: CGSize(width: 45, height: 45), backgroundColor: backgroundColour)
       
       
       self.view.addSubview(revealingSplashView)
@@ -38,12 +38,11 @@ class AnimationsViewController: UIViewController {
         self.revealingLoaded = true
         self.setNeedsStatusBarAppearanceUpdate()
       }
-
+      
+      //segueToTopics
+      perform(#selector(AnimationsViewController.segueToTopics), with: nil, afterDelay: 1.5)
     }
-  
-  override func viewDidLayoutSubviews() {
-    segueToTopics()
-  }
+
   
   func segueToTopics() {
     self.performSegue(withIdentifier: "animationsToTopicsSegue", sender: self)
