@@ -10,42 +10,37 @@ import UIKit
 import RevealingSplashView
 
 class AnimationsViewController: UIViewController {
-
+  
   private var revealingLoaded = false
+  let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "animationChatIcon")!,iconInitialSize: CGSize(width: 30, height: 30), backgroundColor: UIColor.init(red: 29, green: 143, blue: 241, alpha: 1))
+  
   
   override var shouldAutorotate: Bool {
     return revealingLoaded
   }
   
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    self.view.addSubview(revealingSplashView)
+    revealingSplashView.duration = 2.0
+    
+    revealingSplashView.animationType = SplashAnimationType.popAndZoomOut
+  }
   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-      
-      let backgroundColour = UIColor.init(red: 29, green: 143, blue: 241, alpha: 1)
-      let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "animationChatIcon")!,iconInitialSize: CGSize(width: 45, height: 45), backgroundColor: backgroundColour)
-      
-      
-      self.view.addSubview(revealingSplashView)
-      
-      revealingSplashView.duration = 0.9
-      
-      revealingSplashView.iconColor = UIColor.red
-      revealingSplashView.useCustomIconColor = false
-      
-      revealingSplashView.animationType = SplashAnimationType.popAndZoomOut
-      
-      revealingSplashView.startAnimation(){
-        self.revealingLoaded = true
-        self.setNeedsStatusBarAppearanceUpdate()
-      }
-      
-      //segueToTopics
-      perform(#selector(AnimationsViewController.segueToTopics), with: nil, afterDelay: 1.5)
+  
+  override func viewDidLayoutSubviews() {
+    revealingSplashView.startAnimation(){
+      self.revealingLoaded = true
+      self.setNeedsStatusBarAppearanceUpdate()
     }
-
+    
+    perform(#selector(AnimationsViewController.segueToTopics), with: nil, afterDelay: 2.8)
+  }
+  
   
   func segueToTopics() {
     self.performSegue(withIdentifier: "animationsToTopicsSegue", sender: self)
   }
-
+  
 }
