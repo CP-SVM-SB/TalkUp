@@ -13,6 +13,7 @@ protocol SettingsTableViewControllerDelegate {
     func loadNewSelection()
     func selectCell(index: Int)
     func resetSelection()
+    func reloadView()
 }
 
 class SettingsTableViewController: UITableViewController {
@@ -25,6 +26,22 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var notificationSwitch: UISwitch!
     @IBOutlet weak var logOutButton: UIButton!
     
+    
+    //cells
+    @IBOutlet weak var cell1: UITableViewCell!
+    @IBOutlet weak var cell2: UITableViewCell!
+    @IBOutlet weak var cell3: UITableViewCell!
+    @IBOutlet weak var cell4: UITableViewCell!
+    @IBOutlet weak var cell5: UITableViewCell!
+    @IBOutlet weak var cell6: UITableViewCell!
+    @IBOutlet weak var cell7: UITableViewCell!
+    @IBOutlet weak var cell8: UITableViewCell!
+    @IBOutlet weak var cell9: UITableViewCell!
+    @IBOutlet weak var cell10: UITableViewCell!
+    
+    
+    
+    var theme: Theme?
     var collectionCellSelected = [Bool]()
     var testHeaders = ["Legal", "Account", "Appearance", " "]
     var themeImages = ["Theme1.png","Theme2.png", "Theme3.png", "Theme4.png", "Theme5.png"]

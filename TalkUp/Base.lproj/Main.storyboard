@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="X2X-yE-1yW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -336,7 +336,7 @@
                                             <segue destination="WEL-QK-EGI" kind="show" identifier="fromVM" id="8zl-om-vIN"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="notificationCell" rowHeight="94" id="Von-eC-For">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="notificationCell" rowHeight="94" id="Von-eC-For">
                                         <rect key="frame" x="0.0" y="307" width="375" height="94"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Von-eC-For" id="EDL-ld-ty6">
@@ -491,6 +491,16 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
+                        <outlet property="cell1" destination="Xr3-I7-EO5" id="G3r-FB-cgt"/>
+                        <outlet property="cell10" destination="Bdq-bi-z8x" id="22j-Au-5cP"/>
+                        <outlet property="cell2" destination="dV4-8P-Y5Y" id="wDZ-LH-asY"/>
+                        <outlet property="cell3" destination="7FR-2a-kKd" id="WBW-BU-ekz"/>
+                        <outlet property="cell4" destination="LRc-DP-bny" id="qg3-Co-q1y"/>
+                        <outlet property="cell5" destination="Qbm-rX-A2O" id="Z5M-ss-wFn"/>
+                        <outlet property="cell6" destination="he1-Ed-AEF" id="SoP-s0-EFD"/>
+                        <outlet property="cell7" destination="Von-eC-For" id="NAF-cu-qj5"/>
+                        <outlet property="cell8" destination="plI-Te-c6V" id="dZu-Ha-Ka4"/>
+                        <outlet property="cell9" destination="dbt-OB-Zfv" id="nJv-Ec-thy"/>
                         <outlet property="collectionView" destination="PKO-5j-s7s" id="8Wh-9t-TuV"/>
                         <outlet property="emailTextField" destination="2A9-Oo-vf9" id="H6s-cS-0i4"/>
                         <outlet property="logOutButton" destination="h4l-rV-qjq" id="9Ob-7l-BkA"/>

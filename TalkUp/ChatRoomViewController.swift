@@ -78,12 +78,11 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
     
 
     func userInactive(){
-        print(" USER INACTIVE ")
+        print("------ USER INACTIVE -------- ")
         // here is where we will send user activity status to the backend
     }
     
     func userActive(){
-        print(" USER ACTIVE ")
         // here too
     }
 

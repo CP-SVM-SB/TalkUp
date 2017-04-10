@@ -22,7 +22,7 @@
 		762461D31E906F89007741EA /* Theme2.png in Resources */ = {isa = PBXBuildFile; fileRef = 762461D01E906F89007741EA /* Theme2.png */; };
 		762461D41E906F89007741EA /* Theme3.png in Resources */ = {isa = PBXBuildFile; fileRef = 762461D11E906F89007741EA /* Theme3.png */; };
 		762461D61E90718E007741EA /* ThemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762461D51E90718E007741EA /* ThemeCollectionViewCell.swift */; };
-		762461D81E9077DB007741EA /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762461D71E9077DB007741EA /* Themes.swift */; };
+		762461D81E9077DB007741EA /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762461D71E9077DB007741EA /* Theme.swift */; };
 		762461DB1E9083B6007741EA /* Theme4.png in Resources */ = {isa = PBXBuildFile; fileRef = 762461D91E9083B6007741EA /* Theme4.png */; };
 		762461DC1E9083B7007741EA /* Theme5.png in Resources */ = {isa = PBXBuildFile; fileRef = 762461DA1E9083B6007741EA /* Theme5.png */; };
 		76BCAE1A1E9A577900FD9018 /* GifsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BCAE191E9A577900FD9018 /* GifsViewController.swift */; };
@@ -63,7 +63,7 @@
 		762461D01E906F89007741EA /* Theme2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Theme2.png; path = Assets.xcassets/Theme2.png; sourceTree = "<group>"; };
 		762461D11E906F89007741EA /* Theme3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Theme3.png; path = Assets.xcassets/Theme3.png; sourceTree = "<group>"; };
 		762461D51E90718E007741EA /* ThemeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeCollectionViewCell.swift; sourceTree = "<group>"; };
-		762461D71E9077DB007741EA /* Themes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
+		762461D71E9077DB007741EA /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		762461D91E9083B6007741EA /* Theme4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Theme4.png; path = Assets.xcassets/Theme4.png; sourceTree = "<group>"; };
 		762461DA1E9083B6007741EA /* Theme5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Theme5.png; path = Assets.xcassets/Theme5.png; sourceTree = "<group>"; };
 		76BCAE191E9A577900FD9018 /* GifsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifsViewController.swift; sourceTree = "<group>"; };
@@ -202,7 +202,7 @@
 		849B53F21E81EDDF008B1FE0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				762461D71E9077DB007741EA /* Themes.swift */,
+				762461D71E9077DB007741EA /* Theme.swift */,
 				849B53F31E81EE15008B1FE0 /* User.swift */,
 				849B53F51E81EE2D008B1FE0 /* Location.swift */,
 				849B53F71E81EF16008B1FE0 /* Message.swift */,
@@ -384,7 +384,7 @@
 				135508FB1E9A2221005B6BA9 /* ChatsPopCell.swift in Sources */,
 				76F7DC911E985EAB00D8363A /* SecondarySettingsViewController.swift in Sources */,
 				762461D61E90718E007741EA /* ThemeCollectionViewCell.swift in Sources */,
-				762461D81E9077DB007741EA /* Themes.swift in Sources */,
+				762461D81E9077DB007741EA /* Theme.swift in Sources */,
 				84BE64311E8837AF00665425 /* ParseClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

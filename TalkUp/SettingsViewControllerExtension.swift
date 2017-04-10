@@ -47,6 +47,20 @@ extension SettingsTableViewController: UICollectionViewDelegate, UICollectionVie
         collectionView.reloadData()
     }
     
+    func reloadView() {
+        tableView.backgroundColor = theme?.primaryColor
+        cell1.backgroundColor = theme?.secondaryColor
+        cell2.backgroundColor = theme?.secondaryColor
+        cell3.backgroundColor = theme?.secondaryColor
+        cell4.backgroundColor = theme?.secondaryColor
+        cell5.backgroundColor = theme?.secondaryColor
+        cell6.backgroundColor = theme?.secondaryColor
+        cell7.backgroundColor = theme?.secondaryColor
+        cell8.backgroundColor = theme?.secondaryColor
+        cell9.backgroundColor = theme?.secondaryColor
+        cell10.backgroundColor = theme?.secondaryColor
+    }
+    
 // ------------------ COLLECTION VIEW DATASOURCE ----------------------
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -63,8 +77,6 @@ extension SettingsTableViewController: UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "themeCell", for: indexPath) as! ThemeCollectionViewCell
-        
-        cell.backgroundColor = UIColor.gray
         cell.layer.cornerRadius = cell.frame.size.width / 2;
         cell.clipsToBounds = true
         cell.delegate = self
