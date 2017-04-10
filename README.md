@@ -19,8 +19,6 @@ Required (core) user stories:
 - Online/Offline user tracking
 - Reassignment to new Chatroom once partner goes offline for > 10s
 - Gif support/integration
-- Intuitive App structure
-- IBM Watson API
 - Settings page for Customizable UI features (fonts, themes, etc)
 
 
@@ -29,12 +27,12 @@ Required (core) user stories:
 Optional (nice to have) user stories:
 - Random username/profile pic assignment based on theme
 - User can choose from Topics based
-- Allow more than one person in chatroom (option controlled by user)
+- 3D touch topic for preview of messages on that topic
+- Allow more than two people in chatroom (option controlled by user)
 - Recognizing Links, phone numbers, email addresses
     - Censoring: Private information in messages, explitives
 - Message Reactions
 - Preset replies
-- 3D touch features
 - Message Likes
 - Stickers
 - Splashscreen with animation
@@ -46,12 +44,6 @@ Optional (nice to have) user stories:
 
 
 
-## Ideas
-
-- Let users choose if more than 2 in chat
-- click topic for preview of messages on that topic
-
-
 ## API Endpoints
 
 - IBM Watson -- (Watson Developer Cloud)
@@ -60,6 +52,77 @@ Optional (nice to have) user stories:
 - Giphy
     - Search
     - Random
+
+
+# Backend
+--------
+
+### User 
+
+Name | Datatype |
+--- | --- |
+username | String |
+password | String |
+location | Location |
+activityStatus | String |
+
+### Location
+
+Name | Datatype |
+--- | --- |
+latitude | String |
+longitue | String |
+
+### Message
+
+Name | DataType |
+--- | --- |
+text | String |
+media | Array of Links |
+timeStamp | String |
+
+### UserInChat
+Name | DataType|
+--- | --- |
+user | User |
+isInApp | Bool |
+
+### Chatroom
+
+Name | DataType|
+--- | --- |
+members | Array of UserInChat |
+messages | Array of Message |
+
+
+# Locally
+--------
+
+### Theme
+
+Name | DataType|
+--- | --- |
+CharacterType | String |
+primaryColor | UIColor |
+secondaryColor | UIColor |
+tertiaryColor | UIColor |
+quarternaryColor | UIColor |
+chatBackgroundImage | UIImage |
+font | String |
+
+
+
+### Settings
+
+Name | DataType|
+--- | --- |
+notifications | Bool |
+encryptMessages | Bool |
+enableVoiceMessaging | Bool |
+fontSize | Int |
+Theme | Theme.type |
+anonymousUserName | String |
+anonymousProfileImage | UIImage |
 
 
 ## Notes
@@ -82,54 +145,5 @@ Project is currently in development
     See the License for the specific language governing permissions and
     limitations under the License.
 
-# Backend
---------
 
-### User 
-
-Name | Datatype |
---- | --- |
-username | String |
-password | String |
-location | Location |
-
-### Location
-
-Name | Datatype |
---- | --- |
-latitude | String |
-longitue | String |
-
-### Message
-
-Name | Datatype |
---- | --- |
-text | String |
-media | Array of Links |
-timeStamp | String |
-
-### UserInChat
-Name | Dataype|
---- | --- |
-user | User |
-isInApp | Bool |
-
-### Chatroom
-
-Name | Dataype|
---- | --- |
-members | Array of UserInChat |
-messages | Array of Message |
-
-
-# Locally
---------
-
-### Theme
-
-Name | Dataype|
---- | --- |
-description | String |
-primaryColor | String |
-secondaryColor | String |
 
