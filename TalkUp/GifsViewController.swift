@@ -12,6 +12,8 @@ class GifsViewController: UIViewController {
 
     @IBOutlet weak var doneButton: UIButton!
     
+    var userSettings: UserSettings?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         doneButton.setTitle("Done", for: .normal)

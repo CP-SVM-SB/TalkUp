@@ -15,8 +15,11 @@ class SecondarySettingsViewController: UIViewController {
     @IBOutlet weak var fontSizeView: UIView!
     @IBOutlet weak var encryptMessagesView: UIView!
     
-    var whichView = String()
+    @IBOutlet weak var fontSizeLabel: UILabel!
+    @IBOutlet weak var fontSlider: UISlider!
     
+    var whichView = String()
+    var userSettings: UserSettings?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +34,10 @@ class SecondarySettingsViewController: UIViewController {
             encryptMessagesView.isHidden = false
         }
         
+        fontSlider.maximumValue = 20
+        fontSlider.minimumValue = 10
+        
+        fontSlider.value = 15
         
     }
 
@@ -39,6 +46,11 @@ class SecondarySettingsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func fontSliderDidChange(_ sender: UISlider) {
+        
+        fontSizeLabel.font = fontSizeLabel.font.withSize(CGFloat(sender.value))
+    
+    }
 
     /*
     // MARK: - Navigation

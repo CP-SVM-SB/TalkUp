@@ -21,15 +21,13 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   
   var rawMessages: String?
   var chatmsg: String?
-  
   var keywords = [String]()
   var noChatsWithKeyword = [Int]()
-  
   var keywordDict = Dictionary<String, NSMutableArray>()
   var previewVisible = false
-  
   var previewChats : NSMutableArray?
   
+    var userSettings: UserSettings?
   
   
   override func viewDidLoad() {

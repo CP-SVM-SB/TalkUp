@@ -19,13 +19,14 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet var messageTextField: UITextField!
     @IBOutlet var sendButton: UIButton!
     @IBOutlet var tableView: UITableView!
+    
     var messages: [Message] = []
     var Client = ParseClient()
     var flag = false
     var user = User()
-    
     var chat = ChatRoom()
 
+    var userSettings: UserSettings?
 
     override func viewDidLoad() {
         super.viewDidLoad()

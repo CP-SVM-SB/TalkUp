@@ -6,8 +6,8 @@
 //  Copyright © 2017 Shumba Brown. All rights reserved.
 //
 //
-// There are 5 Different Themes
-// A Theme Object Contains:
+//  There are 5 Different Themes
+//  A Theme Object Contains:
 //  - Name
 //  - Primary Color
 //  - Secondary Color
@@ -45,7 +45,18 @@ class Theme: AnyObject {
     }
 
   
-    
+    func setDefaultTheme() -> Theme {
+        
+        primaryColor = UIColor.white
+        secondaryColor = UIColor.black
+        tertiaryColor = UIColor.gray
+        quaternaryColor = UIColor.lightGray
+        characterType = "Robots"
+        backgroundImage = UIImage(named: "Selected.png")
+        font = "gillSans.ttf"
+        
+        return Theme.init(primaryColor: primaryColor!, secondaryColor: secondaryColor!, tertiaryColor: tertiaryColor!, quaternaryColor: quaternaryColor!, characterType: characterType!, backgroundImage: backgroundImage!, font: font!)
+    }
     
     
 }

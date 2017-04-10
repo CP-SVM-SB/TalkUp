@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import Foundation
+
+
 
 class ThemeCollectionViewCell: UICollectionViewCell {
     
-    
     @IBOutlet weak var themeImageView: UIImageView!
     @IBOutlet weak var themeButton: UIButton!
+    
     var delegate: SettingsTableViewController?
     
     var didSelect = Bool()
@@ -24,6 +27,7 @@ class ThemeCollectionViewCell: UICollectionViewCell {
     var backgroundImage = UIImage()
     var font = String()
     var theme: Theme?
+    
     
     // CAN'T BELIEVE I GOT THIS WORKING NOW BUT IT WOOOOOORRKSSS: YOU CAN NOW SELECT A THEME WHICH UPDATES LOCAL THEME OBJECT - SVM
     @IBAction func didTapCell(_ sender: UIButton) {

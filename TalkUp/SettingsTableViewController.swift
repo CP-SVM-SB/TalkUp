@@ -26,6 +26,7 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var notificationSwitch: UISwitch!
     @IBOutlet weak var logOutButton: UIButton!
     
+
     
     //cells
     @IBOutlet weak var cell1: UITableViewCell!
@@ -42,6 +43,8 @@ class SettingsTableViewController: UITableViewController {
     
     
     var theme: Theme?
+    var userSettings: UserSettings?
+    
     var collectionCellSelected = [Bool]()
     var testHeaders = ["Legal", "Account", "Appearance", " "]
     var themeImages = ["Theme1.png","Theme2.png", "Theme3.png", "Theme4.png", "Theme5.png"]
@@ -53,22 +56,44 @@ class SettingsTableViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.delegate = self
-
+    
         collectionView.delegate = self
         collectionView.dataSource = self
         
         self.navigationItem.title = "Settings"
 
-        logOutButton.layer.cornerRadius = 24
-        logOutButton.layer.borderColor = UIColor.lightGray.cgColor
+        logOutButton.layer.cornerRadius = 28
         
         collectionCellSelected = [false, false, false, false, false]
-        print("CCS Count: ", collectionCellSelected.count)
-    
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+
+    
+
+    func hexStringToUIColor (hex:String) -> UIColor {
+        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        
+        if (cString.hasPrefix("#")) {
+            cString.remove(at: cString.startIndex)
+        }
+        
+        if ((cString.characters.count) != 6) {
+            return UIColor.gray
+        }
+        
+        var rgbValue:UInt32 = 0
+        Scanner(string: cString).scanHexInt32(&rgbValue)
+        
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
     }
 
     

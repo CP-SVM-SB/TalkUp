@@ -205,11 +205,11 @@
 		849B53F21E81EDDF008B1FE0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				762461D71E9077DB007741EA /* Theme.swift */,
 				849B53F31E81EE15008B1FE0 /* User.swift */,
 				849B53F51E81EE2D008B1FE0 /* Location.swift */,
 				849B53F71E81EF16008B1FE0 /* Message.swift */,
 				849B53F91E81EF7E008B1FE0 /* ChatRoom.swift */,
+				762461D71E9077DB007741EA /* Theme.swift */,
 				76F7DC941E995A1700D8363A /* UserSettings.swift */,
 			);
 			name = Models;
