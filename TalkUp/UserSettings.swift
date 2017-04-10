@@ -41,16 +41,4 @@ class UserSettings {
      
     }
     
-    
-    func setDefaultSettings() -> UserSettings{
-        notificationsOn = false
-        encryptMessages = false
-        enableVoiceMessaging = false
-        fontSize = 15
-        username = "empty"
-        profileImage = UIImage(named: "Selected.png")
-        
-        return UserSettings.init(notificationsOn: notificationsOn!, encryptMessages: encryptMessages!, enableVM: enableVoiceMessaging!, fontSize: fontSize!, theme: (theme?.setDefaultTheme())!, username: username!, profileImage: profileImage!)
-    }
-    
 }

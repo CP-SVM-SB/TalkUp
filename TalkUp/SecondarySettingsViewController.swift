@@ -46,12 +46,28 @@ class SecondarySettingsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
     @IBAction func fontSliderDidChange(_ sender: UISlider) {
         
         fontSizeLabel.font = fontSizeLabel.font.withSize(CGFloat(sender.value))
     
     }
 
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let navVC = segue.destination as? UINavigationController
+        
+        let settingsVC = navVC?.viewControllers.first as! SettingsTableViewController
+        
+        settingsVC.userStr = "YOOOOOO"
+        
+        print("going back")
+    }
+    
+    
     /*
     // MARK: - Navigation
 

@@ -44,7 +44,7 @@ class SettingsTableViewController: UITableViewController {
     
     var theme: Theme?
     var userSettings: UserSettings?
-    
+    var userStr = String()
     var collectionCellSelected = [Bool]()
     var testHeaders = ["Legal", "Account", "Appearance", " "]
     var themeImages = ["Theme1.png","Theme2.png", "Theme3.png", "Theme4.png", "Theme5.png"]

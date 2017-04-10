@@ -13,7 +13,8 @@
 //  - Secondary Color
 //  - Tertiary Color
 //  - Quaternary Color
-//  - Character Type (robots, animals, etc)
+//  - Quinary Color
+//  - Character Type (robots, animals, planets, fruits, etc)
 //  - Chat Background Image
 //  - Font
 //
@@ -28,35 +29,22 @@ class Theme: AnyObject {
     var secondaryColor: UIColor?
     var tertiaryColor: UIColor?
     var quaternaryColor: UIColor?
+    var quinaryColor: UIColor?
     var characterType: String?
     var backgroundImage: UIImage?
     var font: String?
    
-    init(primaryColor: UIColor, secondaryColor: UIColor, tertiaryColor: UIColor, quaternaryColor: UIColor, characterType: String, backgroundImage: UIImage, font: String){
+    init(primaryColor: UIColor, secondaryColor: UIColor, tertiaryColor: UIColor, quaternaryColor: UIColor, quinaryColor: UIColor, characterType: String, backgroundImage: UIImage, font: String){
         
         self.primaryColor = primaryColor
         self.secondaryColor = secondaryColor
         self.tertiaryColor = tertiaryColor
         self.quaternaryColor = quaternaryColor
+        self.quinaryColor = quinaryColor
         self.characterType = characterType
         self.backgroundImage = backgroundImage
         self.font = font
 
     }
-
-  
-    func setDefaultTheme() -> Theme {
-        
-        primaryColor = UIColor.white
-        secondaryColor = UIColor.black
-        tertiaryColor = UIColor.gray
-        quaternaryColor = UIColor.lightGray
-        characterType = "Robots"
-        backgroundImage = UIImage(named: "Selected.png")
-        font = "gillSans.ttf"
-        
-        return Theme.init(primaryColor: primaryColor!, secondaryColor: secondaryColor!, tertiaryColor: tertiaryColor!, quaternaryColor: quaternaryColor!, characterType: characterType!, backgroundImage: backgroundImage!, font: font!)
-    }
-    
     
 }

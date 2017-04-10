@@ -23,6 +23,7 @@ class ThemeCollectionViewCell: UICollectionViewCell {
     var secondaryColor = UIColor()
     var tertiaryColor = UIColor()
     var quaternaryColor = UIColor()
+    var quinaryColor = UIColor()
     var characterType = String()
     var backgroundImage = UIImage()
     var font = String()
@@ -44,7 +45,6 @@ class ThemeCollectionViewCell: UICollectionViewCell {
             self.updateCellView()
             self.delegate?.reloadView()
             
-            
         }
     
     }
@@ -57,11 +57,12 @@ class ThemeCollectionViewCell: UICollectionViewCell {
     
     func setTheme(choosenTheme: Int) -> Theme {
         switch (choosenTheme){
-        case 0:                 //TESTING FUNCTIONALITY
+        case 0:                                                 //DEFAULT THEME
             primaryColor = hexStringToUIColor(hex: "F0EFF5")
             secondaryColor = hexStringToUIColor(hex: "ffffff")
             tertiaryColor =  hexStringToUIColor(hex: "ffffff")
             quaternaryColor = hexStringToUIColor(hex: "000000")
+            quinaryColor = hexStringToUIColor(hex: "000000")
             characterType = "Robots"
             backgroundImage = UIImage(named: "HomeImage.png")!
             font = "gillSans.ttf"
@@ -71,6 +72,7 @@ class ThemeCollectionViewCell: UICollectionViewCell {
             secondaryColor = hexStringToUIColor(hex: "b8b8b8")
             tertiaryColor =  hexStringToUIColor(hex: "ffffff")
             quaternaryColor = hexStringToUIColor(hex: "000000")
+            quinaryColor = hexStringToUIColor(hex: "000000")
             characterType = "Robots"
             backgroundImage = UIImage(named: "HomeImage.png")!
             font = "gillSans.ttf"
@@ -79,6 +81,7 @@ class ThemeCollectionViewCell: UICollectionViewCell {
             secondaryColor = hexStringToUIColor(hex: "e0e0e0")
             tertiaryColor =  hexStringToUIColor(hex: "ffffff")
             quaternaryColor = hexStringToUIColor(hex: "000000")
+            quinaryColor = hexStringToUIColor(hex: "000000")
             characterType = "Robots"
             backgroundImage = UIImage(named: "HomeImage.png")!
             font = "gillSans.ttf"
@@ -87,6 +90,7 @@ class ThemeCollectionViewCell: UICollectionViewCell {
             secondaryColor = hexStringToUIColor(hex: "d3d3d3")
             tertiaryColor =  hexStringToUIColor(hex: "ffffff")
             quaternaryColor = hexStringToUIColor(hex: "000000")
+            quinaryColor = hexStringToUIColor(hex: "000000")
             characterType = "Robots"
             backgroundImage = UIImage(named: "HomeImage.png")!
             font = "gillSans.ttf"
@@ -95,6 +99,7 @@ class ThemeCollectionViewCell: UICollectionViewCell {
             secondaryColor = hexStringToUIColor(hex: "a2b5cd")
             tertiaryColor =  hexStringToUIColor(hex: "ffffff")
             quaternaryColor = hexStringToUIColor(hex: "000000")
+            quinaryColor = hexStringToUIColor(hex: "000000")
             characterType = "Robots"
             backgroundImage = UIImage(named: "HomeImage.png")!
             font = "gillSans.ttf"
@@ -102,7 +107,7 @@ class ThemeCollectionViewCell: UICollectionViewCell {
             print("no theme")
         }
         
-        return Theme.init(primaryColor: primaryColor, secondaryColor: secondaryColor, tertiaryColor: tertiaryColor, quaternaryColor: quaternaryColor, characterType: characterType, backgroundImage: backgroundImage, font: font)
+        return Theme.init(primaryColor: primaryColor, secondaryColor: secondaryColor, tertiaryColor: tertiaryColor, quaternaryColor: quaternaryColor,quinaryColor: quinaryColor, characterType: characterType, backgroundImage: backgroundImage, font: font)
         
         
     }

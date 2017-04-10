@@ -14,7 +14,9 @@ class LoginViewController: UIViewController {
   @IBOutlet weak var usernameField: UITextField!
   @IBOutlet weak var passwordField: UITextField!
   @IBOutlet weak var signInButton: UIButton!
-  
+    
+    var theme: Theme?
+    var userSettings: UserSettings?
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -23,6 +25,8 @@ class LoginViewController: UIViewController {
     self.usernameField.becomeFirstResponder()
     
     self.hideKeyboardWhenTappedAround()
+    
+    userSettings = setDefaultSettings()
     
     self.view.backgroundColor = UIColor(patternImage: UIImage(named: "HomeImage.png")!)
     
@@ -41,6 +45,7 @@ class LoginViewController: UIViewController {
       (user: PFUser?, error: Error?) -> Void in
       if user != nil {
         print("Successful login!")
+        print(self.userSettings)
         self.performSegue(withIdentifier: "loginToAnimationsSegue", sender: nil)
         
       } else {
@@ -53,6 +58,51 @@ class LoginViewController: UIViewController {
     }
     signInButton.alpha = 1
   }
+    
+
+    
+    func setDefaultSettings() -> UserSettings {
+        
+        var notificationsOn = Bool()
+        var encryptMessages = Bool()
+        var enableVoiceMessaging = Bool()
+        var fontSize = Int()
+        var username = String()
+        var profileImage = UIImage()
+        
+        notificationsOn = false
+        encryptMessages = false
+        enableVoiceMessaging = false
+        fontSize = 15
+        username = "empty"
+        profileImage = UIImage(named: "Selected.png")!
+        
+        return UserSettings.init(notificationsOn: notificationsOn, encryptMessages: encryptMessages, enableVM: enableVoiceMessaging, fontSize: fontSize, theme: setDefaultTheme(), username: username, profileImage: profileImage)
+    }
+
+    func setDefaultTheme() -> Theme {
+        
+        var primaryColor = UIColor()
+        var secondaryColor = UIColor()
+        var tertiaryColor = UIColor()
+        var quaternaryColor = UIColor()
+        var quinaryColor = UIColor()
+        var characterType = String()
+        var backgroundImage = UIImage()
+        var font = String()
+        
+        
+        primaryColor = UIColor.white
+        secondaryColor = UIColor.black
+        tertiaryColor = UIColor.gray
+        quaternaryColor = UIColor.lightGray
+        quinaryColor = UIColor.darkGray
+        characterType = "Robots"
+        backgroundImage = UIImage(named: "Selected.png")!
+        font = "gillSans.ttf"
+        
+        return Theme.init(primaryColor: primaryColor, secondaryColor: secondaryColor, tertiaryColor: tertiaryColor, quaternaryColor: quaternaryColor, quinaryColor: quinaryColor, characterType: characterType, backgroundImage: backgroundImage, font: font)
+    }
   
 }
 
