@@ -114,6 +114,8 @@ font | String |
 
 ### Settings
 
+Name | DataType|
+--- | --- |
 notifications | Bool |
 encryptMessages | Bool |
 enableVoiceMessaging | Bool |
