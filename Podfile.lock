@@ -15,18 +15,24 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - Bolts/Tasks (1.8.4)
-  - Parse (1.14.2):
+  - lottie-ios (1.5.1)
+  - Parse (1.14.4):
     - Bolts/Tasks (~> 1.8)
+  - RevealingSplashView (0.1.0)
 
 DEPENDENCIES:
   - AFNetworking
+  - lottie-ios
   - Parse
+  - RevealingSplashView
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
-  Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
+  lottie-ios: f680a7c4cb7a567ecf258fde0f967913aff111b8
+  Parse: b0aa91d2c435e53d4a9af26e741e014c9b35c42e
+  RevealingSplashView: 501dd03d975ba2c4165dd463ea1c7c407fb9d13e
 
-PODFILE CHECKSUM: 9d17871512ea2793987daf347d3d5246ce0d38f2
+PODFILE CHECKSUM: 33504f1d1e9a4f806ef574e271c81dc4dab31f58
 
 COCOAPODS: 1.2.0

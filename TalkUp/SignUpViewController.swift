@@ -36,7 +36,7 @@ class SignUpViewController: UIViewController {
     
     newUser.signUpInBackground { (success: Bool, error: Error?) in
       if success {
-        self.performSegue(withIdentifier: "signUpToTopicsSegue", sender: nil)
+        self.performSegue(withIdentifier: "signUpToAnimationsSegue", sender: nil)
         print ("Succesfully created new user")
         
       } else {
