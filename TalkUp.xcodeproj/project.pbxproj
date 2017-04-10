@@ -14,6 +14,7 @@
 		135508F91E9A21D4005B6BA9 /* PreviewChatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135508F81E9A21D4005B6BA9 /* PreviewChatsCell.swift */; };
 		135508FB1E9A2221005B6BA9 /* ChatsPopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135508FA1E9A2221005B6BA9 /* ChatsPopCell.swift */; };
 		135508FD1E9A228D005B6BA9 /* ChatsPopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135508FC1E9A228D005B6BA9 /* ChatsPopViewController.swift */; };
+		135509011E9B0692005B6BA9 /* AnimationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135509001E9B0692005B6BA9 /* AnimationsViewController.swift */; };
 		13E007BE1E87441E00693F69 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E007BD1E87441E00693F69 /* SignUpViewController.swift */; };
 		13E007C01E8744E800693F69 /* TopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E007BF1E8744E800693F69 /* TopicsViewController.swift */; };
 		762461C51E903624007741EA /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762461C41E903624007741EA /* SettingsTableViewController.swift */; };
@@ -54,6 +55,7 @@
 		135508F81E9A21D4005B6BA9 /* PreviewChatsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewChatsCell.swift; sourceTree = "<group>"; };
 		135508FA1E9A2221005B6BA9 /* ChatsPopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsPopCell.swift; sourceTree = "<group>"; };
 		135508FC1E9A228D005B6BA9 /* ChatsPopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsPopViewController.swift; sourceTree = "<group>"; };
+		135509001E9B0692005B6BA9 /* AnimationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationsViewController.swift; sourceTree = "<group>"; };
 		13E007BD1E87441E00693F69 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		13E007BF1E8744E800693F69 /* TopicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsViewController.swift; sourceTree = "<group>"; };
 		67FC73FE6B129877CEEBE7D2 /* Pods-TalkUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TalkUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TalkUp/Pods-TalkUp.release.xcconfig"; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				135508F41E9A20FD005B6BA9 /* TopicsExtensionViewController.swift */,
 				135508F61E9A2182005B6BA9 /* PreviewChatsViewController.swift */,
 				135508FC1E9A228D005B6BA9 /* ChatsPopViewController.swift */,
+				135509001E9B0692005B6BA9 /* AnimationsViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 				135508FD1E9A228D005B6BA9 /* ChatsPopViewController.swift in Sources */,
 				849B53F81E81EF16008B1FE0 /* Message.swift in Sources */,
 				76BCAE1A1E9A577900FD9018 /* GifsViewController.swift in Sources */,
+				135509011E9B0692005B6BA9 /* AnimationsViewController.swift in Sources */,
 				135508F71E9A2182005B6BA9 /* PreviewChatsViewController.swift in Sources */,
 				135508F91E9A21D4005B6BA9 /* PreviewChatsCell.swift in Sources */,
 				849B53EF1E81EDCF008B1FE0 /* ChatRoomViewController.swift in Sources */,

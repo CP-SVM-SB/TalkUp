@@ -8,4 +8,6 @@ target 'TalkUp' do
   # Pods for TalkUp
   pod 'Parse'
   pod 'AFNetworking'
+  pod 'RevealingSplashView'
+  pod 'lottie-ios'
 end

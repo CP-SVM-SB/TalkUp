@@ -18,6 +18,8 @@ class LoginViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    
+        
     self.passwordField.isSecureTextEntry = true
     self.usernameField.becomeFirstResponder()
     
@@ -40,7 +42,7 @@ class LoginViewController: UIViewController {
       (user: PFUser?, error: Error?) -> Void in
       if user != nil {
         print("Successful login!")
-        self.performSegue(withIdentifier: "loginToTopicsSegue", sender: nil)
+        self.performSegue(withIdentifier: "loginToAnimationsSegue", sender: nil)
         
       } else {
         let alert = UIAlertController(title: "Sorry!", message: error?.localizedDescription, preferredStyle: .alert)
