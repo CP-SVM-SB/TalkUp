@@ -42,9 +42,9 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     self.tableView.separatorStyle = .none
     self.tableView.allowsSelection = false
     
-    getParticularChatMsgs()
+    //getParticularChatMsgs()
     
-    //getKeywords()
+    getKeywords()
     
     
     
@@ -61,16 +61,16 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   
   func getParticularChatMsgs() {
     myParseClient.getChatCount (onSuccess: { (chatCount: Int) in
-      print("No. of chats: \(chatCount)")
+      //print("No. of chats: \(chatCount)")
       for index in 1 ... chatCount {
         self.myParseClient.getMessagesFromChatWithId(id: index, onSuccess: { (rawChatMsgs: [Message]) in
-          print("Chat:\(index)")
+         // print("Chat:\(index)")
           
           if rawChatMsgs.isEmpty {} else {
             for chatmsg in rawChatMsgs {
-              print(chatmsg.text!)
+             // print(chatmsg.text!)
             }
-            print("")
+            //print("")
             // Extract keywords
           }
           
