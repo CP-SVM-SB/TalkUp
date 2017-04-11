@@ -59,7 +59,15 @@ class LoginViewController: UIViewController {
     signInButton.alpha = 1
   }
     
-
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let topicsVC = segue.destination as! TopicsViewController
+//        
+//        topicsVC.userSettings = self.userSettings
+//        
+//        print(topicsVC.userSettings)
+//        
+//        
+//    }
     
     func setDefaultSettings() -> UserSettings {
         
