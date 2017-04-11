@@ -20,7 +20,7 @@ class LoginViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    UIApplication.shared.statusBarStyle = .lightContent
     self.passwordField.isSecureTextEntry = true
     self.usernameField.becomeFirstResponder()
     
@@ -59,15 +59,17 @@ class LoginViewController: UIViewController {
     signInButton.alpha = 1
   }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let topicsVC = segue.destination as! TopicsViewController
-//        
-//        topicsVC.userSettings = self.userSettings
-//        
-//        print(topicsVC.userSettings)
-//        
-//        
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let animsVC = segue.destination as! AnimationsViewController
+        
+        if segue.identifier == "loginToAnimationsSegue"{
+            animsVC.userSettings = self.userSettings
+        }
+        print(animsVC.userSettings)
+        
+        
+    }
     
     func setDefaultSettings() -> UserSettings {
         
@@ -100,17 +102,44 @@ class LoginViewController: UIViewController {
         var font = String()
         
         
-        primaryColor = UIColor.white
-        secondaryColor = UIColor.black
-        tertiaryColor = UIColor.gray
-        quaternaryColor = UIColor.lightGray
-        quinaryColor = UIColor.darkGray
+        primaryColor = hexStringToUIColor(hex: "F0EFF5")
+        secondaryColor = hexStringToUIColor(hex: "ffffff")
+        tertiaryColor =  hexStringToUIColor(hex: "ffffff")
+        quaternaryColor = hexStringToUIColor(hex: "000000")
+        quinaryColor = hexStringToUIColor(hex: "000000")
         characterType = "Robots"
-        backgroundImage = UIImage(named: "Selected.png")!
+        backgroundImage = UIImage(named: "HomeImage.png")!
         font = "gillSans.ttf"
+
         
         return Theme.init(primaryColor: primaryColor, secondaryColor: secondaryColor, tertiaryColor: tertiaryColor, quaternaryColor: quaternaryColor, quinaryColor: quinaryColor, characterType: characterType, backgroundImage: backgroundImage, font: font)
     }
+    
+    
+    
+    func hexStringToUIColor (hex:String) -> UIColor {
+        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        
+        if (cString.hasPrefix("#")) {
+            cString.remove(at: cString.startIndex)
+        }
+        
+        if ((cString.characters.count) != 6) {
+            return UIColor.gray
+        }
+        
+        var rgbValue:UInt32 = 0
+        Scanner(string: cString).scanHexInt32(&rgbValue)
+        
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
+
+    
   
 }
 

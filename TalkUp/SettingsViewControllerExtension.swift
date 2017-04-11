@@ -59,6 +59,7 @@ extension SettingsTableViewController: UICollectionViewDelegate, UICollectionVie
         cell8.backgroundColor = theme?.secondaryColor
         cell9.backgroundColor = theme?.secondaryColor
         cell10.backgroundColor = theme?.secondaryColor
+        self.userSettings?.theme? = self.theme!
     }
     
 // ------------------ COLLECTION VIEW DATASOURCE ----------------------

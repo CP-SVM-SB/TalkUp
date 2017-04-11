@@ -188,8 +188,8 @@
 			children = (
 				762461C41E903624007741EA /* SettingsTableViewController.swift */,
 				762461CC1E906468007741EA /* SettingsViewControllerExtension.swift */,
-				76BCAE191E9A577900FD9018 /* GifsViewController.swift */,
 				76F7DC901E985EAB00D8363A /* SecondarySettingsViewController.swift */,
+				76BCAE191E9A577900FD9018 /* GifsViewController.swift */,
 				849B53EC1E81EDB9008B1FE0 /* LoginViewController.swift */,
 				849B53EE1E81EDCF008B1FE0 /* ChatRoomViewController.swift */,
 				13E007BD1E87441E00693F69 /* SignUpViewController.swift */,

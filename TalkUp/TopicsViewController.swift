@@ -138,8 +138,29 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   
   @IBAction func unwindToTopics (segue: UIStoryboardSegue) {
     
+    print("UNWINDING TO TOPICS")
+    
   }
   
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toSettings"{
+            let settingsVC = segue.destination as! SettingsTableViewController
+            settingsVC.userSettings = self.userSettings
+            print("TO SETTINGS:", settingsVC.userSettings)
+        }
+        
+        if segue.identifier == "topicsToChatsSegue"{
+            let navC = segue.destination as! UINavigationController
+            let chatVC = navC.viewControllers.first as! ChatRoomViewController
+            chatVC.userSettings = self.userSettings
+            print("TO CHAT", chatVC.userSettings?.theme?.primaryColor)
+        }
+        
+        
+        
+    }
+    
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return (self.keywords.count > self.noTopicsMax) ? self.noTopicsMax : self.keywords.count

@@ -65,6 +65,10 @@ class SettingsTableViewController: UITableViewController {
         logOutButton.layer.cornerRadius = 28
         
         collectionCellSelected = [false, false, false, false, false]
+        
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(SettingsTableViewController.back(sender:)))
+        self.navigationItem.leftBarButtonItem = newBackButton
 
     }
 
@@ -72,6 +76,13 @@ class SettingsTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
     }
 
+    
+    func back(sender: UIBarButtonItem) {
+        let prevVC = TopicsViewController()
+        prevVC.userSettings = self.userSettings
+        print("GOING GOING BACK BACK", prevVC.userSettings?.theme?.primaryColor)
+        _ = navigationController?.popViewController(animated: true)
+    }
     
 
     func hexStringToUIColor (hex:String) -> UIColor {
@@ -134,6 +145,11 @@ class SettingsTableViewController: UITableViewController {
         } else if segue.identifier == "fromEM" {
             secondarySettingsVC.whichView = "encrypt"
         }
+        
+        secondarySettingsVC.userSettings = self.userSettings
+        
+        print("TO SETTINGS DETAIL: ", secondarySettingsVC.userSettings)
+        
     }
  
     
