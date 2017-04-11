@@ -9,7 +9,7 @@
 import UIKit
 
 class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
-    
+  
   @IBOutlet weak var tableView: UITableView!
   
   let myParseClient = ParseClient()
@@ -19,15 +19,19 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   var noTopicsMax = 7               // max. number of topics you wish to see
   var topicsRollbackLength: Int = 50   // no of recent msgs you wish to use in getting topics [NB]: if 0, ALL messages are used
   
+  var noCurrentlyAvailableChats: Int?
   var rawMessages: String?
   var chatmsg: String?
+  
   var keywords = [String]()
   var noChatsWithKeyword = [Int]()
+  
   var keywordDict = Dictionary<String, NSMutableArray>()
-  var previewVisible = false
   var previewChats : NSMutableArray?
   
-    var userSettings: UserSettings?
+  
+  
+  var userSettings: UserSettings?
   
   
   override func viewDidLoad() {
@@ -37,6 +41,8 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     self.tableView.separatorStyle = .none
     self.tableView.allowsSelection = false
+    
+    //getParticularChatMsgs()
     
     getKeywords()
     
@@ -53,7 +59,30 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   
   
   
-  // *** quite bulky
+  func getParticularChatMsgs() {
+    myParseClient.getChatCount (onSuccess: { (chatCount: Int) in
+      //print("No. of chats: \(chatCount)")
+      for index in 1 ... chatCount {
+        self.myParseClient.getMessagesFromChatWithId(id: index, onSuccess: { (rawChatMsgs: [Message]) in
+         // print("Chat:\(index)")
+          
+          if rawChatMsgs.isEmpty {} else {
+            for chatmsg in rawChatMsgs {
+             // print(chatmsg.text!)
+            }
+            //print("")
+            // Extract keywords
+          }
+          
+        }, onFailure: { (error: Error) in
+          print(error.localizedDescription)
+        })
+      }
+      
+    })
+  }
+  
+  // *** To be DEPRECATED soon! ***
   func getKeywords() {
     myParseClient.getMessages(onSuccess: { (rawMsgs: [Message]) in
       let revRawMsgs = rawMsgs.reversed()  // rollback purposes
