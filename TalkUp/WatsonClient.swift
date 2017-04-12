@@ -12,16 +12,19 @@ import AFNetworking
 
 class WatsonClient: NSObject {
   // Watson Developer Cloud, Alchemy Language API
+  // Endpoint: https://gateway-a.watsonplatform.net/calls/text/TextGetRankedKeywords
+  
   let baseUrl = "https://gateway-a.watsonplatform.net/calls/text/TextGetRankedKeywords"
   let apiKey = "a2ee7347bc4e404e4edf850025ae6e619eed7dc9"
   
   var keyWords = [String]()
   var encodedStr: String?
   var keyword: String?
+  var relevance: String?
+  var keyDict = Dictionary <String, Double>()
   
   
-  
-  func performKeywordSearch(textBody: String, success: @escaping ([String])->(), failure: @escaping (Error)->()) {
+  func performKeywordSearch(textBody: String, success: @escaping ([String : Double])->(), failure: @escaping (Error)->()) {
     self.encodedStr = textBody.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)  // text needs to be UTF-8
     
     let url = URL(string: baseUrl + "?apikey=\(apiKey)&outputMode=json&text=\(encodedStr!)")
@@ -33,7 +36,7 @@ class WatsonClient: NSObject {
     let task = session.dataTask(with: request) { (data, response, error) in
       if let data = data {
         if let watsonResponse = try! JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary {
-          let returnedKeyWords = self.keywordsArray(dict: watsonResponse)
+          let returnedKeyWords = self.getKeyWordsAndRelevance(dict: watsonResponse)
           success(returnedKeyWords)
           
         }
@@ -44,24 +47,26 @@ class WatsonClient: NSObject {
   
   
   
-  func keywordsArray(dict: NSDictionary) -> [String] {
+  func getKeyWordsAndRelevance(dict: NSDictionary) -> [String : Double] {
     
     if let status = dict["status"] as? String {
       if status == "OK" {
-        print (dict["usage"] ?? "Well, no T&C!")
+        //print (dict["usage"] ?? "Well, no T&C!")
         
         if let keyArr = dict["keywords"] as? NSArray {
-          for (_, keyDict) in keyArr.enumerated() {
-            if let keyDict = keyDict as? NSDictionary {
-              keyword = keyDict["text"] as? String
-              self.keyWords.append(keyword!)
+          for (_, returnedDict) in keyArr.enumerated() {
+            if let returnedDict = returnedDict as? NSDictionary {
+              keyword = returnedDict["text"] as? String
+              relevance = returnedDict["relevance"] as? String
+
+              self.keyDict[keyword!] = Double(relevance!)
             }
           }
         }
         
       }
     }
-   return self.keyWords
+    return self.keyDict
   }
   
 }

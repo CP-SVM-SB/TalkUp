@@ -20,8 +20,8 @@ extension TopicsViewController: UIViewControllerPreviewingDelegate {
     
     
     // data
-    let key = self.keywords[indexPath.row]
-    previewChats = self.keywordDict[key]
+    let key = self.keywordsArr[indexPath.row]
+    previewChats = self.keywordsWithChats[key]
     
     previewChatsVC.topic = key
     previewChatsVC.chatsWithKeyWord = previewChats

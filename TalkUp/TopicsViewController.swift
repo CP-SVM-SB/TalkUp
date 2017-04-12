@@ -9,6 +9,20 @@
 import UIKit
 
 class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+  typealias CompletionHandler = (_ onSuccess:Bool) -> Void
+  
+  /*func queryWatson (textBody: String, querySuccess: (), completionHandler: CompletionHandler) {
+    var flag: Bool?
+   
+    if querySuccess {
+      flag = true
+    } else {
+      flag = false
+    }
+    
+    completionHandler(flag!)
+  }
+*/
   
   @IBOutlet weak var tableView: UITableView!
   
@@ -22,16 +36,26 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   var noCurrentlyAvailableChats: Int?
   var rawMessages: String?
   var chatmsg: String?
+  var chatRawMsgs = [String]()
   
-  var keywords = [String]()
+  var keywordsWithRelevance = Dictionary <String, Double>()
+  var keywordsWithChats = Dictionary<String, NSMutableArray>()
+  var keywordsArr = [String]()
+  var previewChats : NSMutableArray?
   var noChatsWithKeyword = [Int]()
   
-  var keywordDict = Dictionary<String, NSMutableArray>()
-  var previewChats : NSMutableArray?
+  var chatTopicWithRelevance = Dictionary<String, Double>()
+  var chatTopicsArr = [String]()
+  var chatIDs = [Int]()
+  var nonEmptyChatId = 0
+  var keywordID = 0
   
-  
-  
+  var firstValSet = false
   var userSettings: UserSettings?
+  
+  let myDispatchGroup = DispatchGroup()
+  
+  
   
   
   override func viewDidLoad() {
@@ -42,11 +66,9 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     self.tableView.separatorStyle = .none
     self.tableView.allowsSelection = false
     
-    //getParticularChatMsgs()
+    getParticularChatMsgs()
     
-    getKeywords()
-    
-    
+    //getKeywords()
     
   }
   
@@ -58,20 +80,78 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   }
   
   
-  
   func getParticularChatMsgs() {
     myParseClient.getChatCount (onSuccess: { (chatCount: Int) in
-      //print("No. of chats: \(chatCount)")
+      print("No. of available chats: \(chatCount)")
+      
       for index in 1 ... chatCount {
+        //self.myDispatchGroup.enter()
+        var msg: String?
         self.myParseClient.getMessagesFromChatWithId(id: index, onSuccess: { (rawChatMsgs: [Message]) in
-         // print("Chat:\(index)")
           
-          if rawChatMsgs.isEmpty {} else {
-            for chatmsg in rawChatMsgs {
-             // print(chatmsg.text!)
+          if rawChatMsgs.isEmpty {} else {  // TODO: check for limited no. of msgs to qualify for keyword search
+            print ("Chat:\(index) Non-empty chat found!")
+            self.chatIDs.append(index)
+            
+
+            // rollback?
+            let revMsgs = rawChatMsgs.reversed()
+            var ind = 0
+            if (self.topicsRollbackLength == 0) {
+              for msg in revMsgs { self.chatRawMsgs[self.nonEmptyChatId] = (self.chatRawMsgs[self.nonEmptyChatId] == "") ? msg.text! : self.chatRawMsgs[self.nonEmptyChatId]+", "+msg.text!}
+            } else {
+              for i in revMsgs.indices {
+                if (ind > self.topicsRollbackLength) {break}
+                msg = (!self.firstValSet) ? revMsgs[i].text! : msg!+", "+revMsgs[i].text!
+                ind += 1
+                self.firstValSet = true
+              }
+              self.chatRawMsgs.append(msg!)
+              print(self.chatRawMsgs[self.nonEmptyChatId])
             }
-            //print("")
-            // Extract keywords
+            
+            // extract keywords
+            self.keywordApi.performKeywordSearch(textBody: self.chatRawMsgs[self.keywordID], success: { (keys: [String : Double]) in
+              print(self.keywordID)
+              self.chatTopicWithRelevance = keys
+              var chatIndex = 0
+
+              // not elegant! extracts element "0" of dictionary keys
+              for key in keys.keys {
+                self.chatTopicsArr.append(key)
+                break
+              }
+              let chatTopic = self.chatTopicsArr[chatIndex]
+              self.keywordsArr.append(chatTopic)
+              
+              var count = 0
+              self.keywordsWithChats[chatTopic] = [""]  // initialize dict. of NSMutable Arr for appending
+              
+              for msg in revMsgs {
+                // case-insensitive search
+                if msg.text!.lowercased().range(of: chatTopic.lowercased()) != nil {
+                  //print(msg.text!)
+                  if count > 0 {
+                    self.keywordsWithChats[chatTopic]!.add(msg.text!)
+                  } else {
+                    self.keywordsWithChats[chatTopic]!.add(msg.text!)
+                  }
+                  count += 1
+                }
+                self.noChatsWithKeyword.append(count)
+              }
+              
+              self.tableView.reloadData()   // show no. of chats when available
+              chatIndex += 1
+              
+              print("Chat(\(index)) keyWord Request Complete!")
+              //self.myDispatchGroup.leave()
+              
+            }, failure: { (error: Error) in
+              print (error.localizedDescription)
+            })
+            self.keywordID += 1
+            self.firstValSet = false
           }
           
         }, onFailure: { (error: Error) in
@@ -81,6 +161,8 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
       
     })
   }
+
+  
   
   // *** To be DEPRECATED soon! ***
   func getKeywords() {
@@ -102,30 +184,32 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
       }
       
+      
       // watson API call
-      self.keywordApi.performKeywordSearch(textBody: self.rawMessages!, success: { (keys: [String]) in
-        self.keywords = keys
+      self.keywordApi.performKeywordSearch(textBody: self.rawMessages!, success: { (keys: [String : Double]) in
+        self.keywordsWithRelevance = keys
+        self.keywordsArr = [String](self.keywordsWithRelevance.keys)
+        self.tableView.reloadData()   // show keywords right away!
         
-        for keyW in keys {
+        for (keyW, _) in keys {
           var count = 0
-          self.keywordDict[keyW] = [""]    // initialize dict. of nsmutableArr for appending
+          self.keywordsWithChats[keyW] = [""]  // initialize dict. of NSMutable Arr for appending
           
           for msg in revRawMsgs {
             // case-insensitive search
-            if msg.text!.lowercased().range(of:keyW.lowercased()) != nil {
+            if msg.text!.lowercased().range(of: keyW.lowercased()) != nil {
               if count > 0 {
-                self.keywordDict[keyW]!.add(msg.text!)
+                self.keywordsWithChats[keyW]!.add(msg.text!)
               } else {
-                self.keywordDict[keyW]?[0] = msg.text!
+                self.keywordsWithChats[keyW]!.add(msg.text!)
               }
               count += 1
             }
           }
-          
           self.noChatsWithKeyword.append(count)
         }
         
-        self.tableView.reloadData()
+        self.tableView.reloadData()   // show no. of chats when processing is complete
         
       }, failure: { (error: Error) in
         print (error.localizedDescription)
@@ -142,7 +226,7 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return (self.keywords.count > self.noTopicsMax) ? self.noTopicsMax : self.keywords.count
+    return (self.keywordsArr.count > self.noTopicsMax) ? self.noTopicsMax : self.keywordsArr.count
   }
   
   
@@ -150,7 +234,7 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     let cell = tableView.dequeueReusableCell(withIdentifier: "TrendCell", for: indexPath) as! TrendCell
     
     cell.noChatsforTopic = self.noChatsWithKeyword[indexPath.row]
-    cell.buttonTitle = self.keywords[indexPath.row]
+    cell.buttonTitle = self.keywordsArr[indexPath.row]
     
     return cell
   }
