@@ -14,7 +14,8 @@ class AnimationsViewController: UIViewController {
   private var revealingLoaded = false
   let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "animationChatIcon")!,iconInitialSize: CGSize(width: 30, height: 30), backgroundColor: UIColor.init(red: 29, green: 143, blue: 241, alpha: 1))
   
-  
+    var userSettings: UserSettings?
+    
   override var shouldAutorotate: Bool {
     return revealingLoaded
   }
@@ -42,5 +43,18 @@ class AnimationsViewController: UIViewController {
   func segueToTopics() {
     self.performSegue(withIdentifier: "animationsToTopicsSegue", sender: self)
   }
+    
+// ------------------------ PREPARE FOR SEGUE --------------------------
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let navC = segue.destination as! UINavigationController
+        let topicsVC = navC.viewControllers.first as! TopicsViewController
+        
+        if segue.identifier == "animationsToTopicsSegue"{
+            topicsVC.userSettings = self.userSettings
+        }
+
+    }
   
 }

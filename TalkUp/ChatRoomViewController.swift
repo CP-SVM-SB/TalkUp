@@ -63,8 +63,7 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
         
         // push the new chatroom
         
-        
-        
+
         
         
         let currentUser = PFUser.current()!
@@ -75,9 +74,7 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
         }
         
         
-        
-        
-        
+
         
         // Adjust User Interface
 
@@ -106,16 +103,36 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
         self.scrollToBottom()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        
+        view.backgroundColor = userSettings?.theme?.primaryColor
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
     }
 
+    
+ // ------------------------ PREPARE FOR SEGUE --------------------------
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        Client.exitChatWithId(id: self.chat.count) { 
-            print("exited chat and ready to segue")
+        
+        if (segue.identifier == "unwindToTopics") {
+            Client.exitChatWithId(id: self.chat.count) {
+                print("exited chat")
+            }
         }
+        
+        if (segue.identifier == "toGifs"){
+            
+            let gifsVC = segue.destination as! GifsViewController
+            gifsVC.userSettings = self.userSettings
+
+        }
+    
+        
     }
     
     

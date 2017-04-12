@@ -44,7 +44,6 @@ class SettingsTableViewController: UITableViewController {
     
     var theme: Theme?
     var userSettings: UserSettings?
-    var userStr = String()
     var collectionCellSelected = [Bool]()
     var testHeaders = ["Legal", "Account", "Appearance", " "]
     var themeImages = ["Theme1.png","Theme2.png", "Theme3.png", "Theme4.png", "Theme5.png"]
@@ -65,13 +64,30 @@ class SettingsTableViewController: UITableViewController {
         logOutButton.layer.cornerRadius = 28
         
         collectionCellSelected = [false, false, false, false, false]
+        
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(SettingsTableViewController.back(sender:)))
+        self.navigationItem.leftBarButtonItem = newBackButton
 
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        view.backgroundColor = userSettings?.theme?.primaryColor
+        
+    }
+    
+// ------------------------ PREPARE TO UNWIND --------------------------
+    
+    func back(sender: UIBarButtonItem) {
+        let prevVC = TopicsViewController()
+        prevVC.userSettings = self.userSettings
+        _ = navigationController?.popViewController(animated: true)
+    }
     
 
     func hexStringToUIColor (hex:String) -> UIColor {
@@ -120,7 +136,8 @@ class SettingsTableViewController: UITableViewController {
     
     }
 
-   
+// ------------------------ PREPARE FOR SEGUE --------------------------
+    
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let secondarySettingsVC = segue.destination as! SecondarySettingsViewController
@@ -134,6 +151,9 @@ class SettingsTableViewController: UITableViewController {
         } else if segue.identifier == "fromEM" {
             secondarySettingsVC.whichView = "encrypt"
         }
+        
+        secondarySettingsVC.userSettings = self.userSettings
+        
     }
  
     

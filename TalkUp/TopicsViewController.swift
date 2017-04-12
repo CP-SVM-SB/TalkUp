@@ -71,7 +71,12 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //getKeywords()
     
   }
-  
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        view.backgroundColor = userSettings?.theme?.primaryColor
+        
+    }
   
   override func viewDidLayoutSubviews() {
     if traitCollection.forceTouchCapability == .available {
@@ -224,6 +229,25 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
   }
   
+// ------------------------ PREPARE FOR SEGUE --------------------------
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toSettings"{
+            let settingsVC = segue.destination as! SettingsTableViewController
+            settingsVC.userSettings = self.userSettings
+        }
+        
+        if segue.identifier == "topicsToChatsSegue"{
+            let navC = segue.destination as! UINavigationController
+            let chatVC = navC.viewControllers.first as! ChatRoomViewController
+            chatVC.userSettings = self.userSettings
+        }
+        
+        
+        
+    }
+    
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return (self.keywordsArr.count > self.noTopicsMax) ? self.noTopicsMax : self.keywordsArr.count
