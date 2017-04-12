@@ -37,6 +37,11 @@ class LoginViewController: UIViewController {
     self.passwordField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSForegroundColorAttributeName : placeholderColor])
   }
   
+    override func viewWillAppear(_ animated: Bool) {
+        
+        
+    }
+    
   
   @IBAction func onSignIn(_ sender: UIButton) {
     signInButton.alpha = 0.5  // subtle alert to user network call is being made
@@ -45,7 +50,6 @@ class LoginViewController: UIViewController {
       (user: PFUser?, error: Error?) -> Void in
       if user != nil {
         print("Successful login!")
-        print(self.userSettings)
         self.performSegue(withIdentifier: "loginToAnimationsSegue", sender: nil)
         
       } else {
@@ -58,6 +62,8 @@ class LoginViewController: UIViewController {
     }
     signInButton.alpha = 1
   }
+
+// ------------------------ PREPARE FOR SEGUE --------------------------
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -66,8 +72,6 @@ class LoginViewController: UIViewController {
         if segue.identifier == "loginToAnimationsSegue"{
             animsVC.userSettings = self.userSettings
         }
-        print(animsVC.userSettings)
-        
         
     }
     

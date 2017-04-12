@@ -44,6 +44,8 @@ class AnimationsViewController: UIViewController {
     self.performSegue(withIdentifier: "animationsToTopicsSegue", sender: self)
   }
     
+// ------------------------ PREPARE FOR SEGUE --------------------------
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let navC = segue.destination as! UINavigationController
@@ -52,9 +54,7 @@ class AnimationsViewController: UIViewController {
         if segue.identifier == "animationsToTopicsSegue"{
             topicsVC.userSettings = self.userSettings
         }
-        print("TO TOPICS:", topicsVC.userSettings)
-        
-        
+
     }
   
 }

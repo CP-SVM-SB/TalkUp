@@ -46,7 +46,11 @@ class SecondarySettingsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        view.backgroundColor = userSettings?.theme?.primaryColor
+        
+    }
     
     @IBAction func fontSliderDidChange(_ sender: UISlider) {
         
@@ -61,8 +65,6 @@ class SecondarySettingsViewController: UIViewController {
         let navVC = segue.destination as? UINavigationController
         
         let settingsVC = navVC?.viewControllers.first as! SettingsTableViewController
-        
-        settingsVC.userStr = "YOOOOOO"
         
         print("going back")
     }

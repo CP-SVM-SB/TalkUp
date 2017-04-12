@@ -19,6 +19,12 @@ class GifsViewController: UIViewController {
         doneButton.setTitle("Done", for: .normal)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        
+        view.backgroundColor = userSettings?.theme?.primaryColor
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -44,7 +44,6 @@ class SettingsTableViewController: UITableViewController {
     
     var theme: Theme?
     var userSettings: UserSettings?
-    var userStr = String()
     var collectionCellSelected = [Bool]()
     var testHeaders = ["Legal", "Account", "Appearance", " "]
     var themeImages = ["Theme1.png","Theme2.png", "Theme3.png", "Theme4.png", "Theme5.png"]
@@ -75,12 +74,18 @@ class SettingsTableViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        view.backgroundColor = userSettings?.theme?.primaryColor
+        
+    }
+    
+// ------------------------ PREPARE TO UNWIND --------------------------
     
     func back(sender: UIBarButtonItem) {
         let prevVC = TopicsViewController()
         prevVC.userSettings = self.userSettings
-        print("GOING GOING BACK BACK", prevVC.userSettings?.theme?.primaryColor)
         _ = navigationController?.popViewController(animated: true)
     }
     
@@ -131,7 +136,8 @@ class SettingsTableViewController: UITableViewController {
     
     }
 
-   
+// ------------------------ PREPARE FOR SEGUE --------------------------
+    
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let secondarySettingsVC = segue.destination as! SecondarySettingsViewController
@@ -147,8 +153,6 @@ class SettingsTableViewController: UITableViewController {
         }
         
         secondarySettingsVC.userSettings = self.userSettings
-        
-        print("TO SETTINGS DETAIL: ", secondarySettingsVC.userSettings)
         
     }
  

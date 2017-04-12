@@ -171,7 +171,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Gifs"/>
                                         <connections>
-                                            <segue destination="2Vq-r4-RyY" kind="presentation" id="HLg-71-cmy"/>
+                                            <segue destination="2Vq-r4-RyY" kind="presentation" identifier="toGifs" id="HLg-71-cmy"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -194,7 +194,7 @@
                         <barButtonItem key="leftBarButtonItem" image="trendIcon" id="jJd-cr-ynK">
                             <color key="tintColor" red="0.1368328738" green="0.070900592200000001" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <segue destination="v4S-qC-nG7" kind="unwind" unwindAction="unwindToTopicsWithSegue:" id="LRm-uW-exo"/>
+                                <segue destination="v4S-qC-nG7" kind="unwind" identifier="unwindToTopics" unwindAction="unwindToTopicsWithSegue:" id="LRm-uW-exo"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1057,6 +1057,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="0Ww-ro-ORF"/>
-        <segue reference="5JG-hD-Cfv"/>
+        <segue reference="jh2-39-Pn4"/>
     </inferredMetricsTieBreakers>
 </document>

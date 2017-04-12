@@ -49,7 +49,12 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     
   }
-  
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        view.backgroundColor = userSettings?.theme?.primaryColor
+        
+    }
   
   override func viewDidLayoutSubviews() {
     if traitCollection.forceTouchCapability == .available {
@@ -138,23 +143,21 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   
   @IBAction func unwindToTopics (segue: UIStoryboardSegue) {
     
-    print("UNWINDING TO TOPICS")
-    
   }
   
+// ------------------------ PREPARE FOR SEGUE --------------------------
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "toSettings"{
             let settingsVC = segue.destination as! SettingsTableViewController
             settingsVC.userSettings = self.userSettings
-            print("TO SETTINGS:", settingsVC.userSettings)
         }
         
         if segue.identifier == "topicsToChatsSegue"{
             let navC = segue.destination as! UINavigationController
             let chatVC = navC.viewControllers.first as! ChatRoomViewController
             chatVC.userSettings = self.userSettings
-            print("TO CHAT", chatVC.userSettings?.theme?.primaryColor)
         }
         
         
