@@ -17,6 +17,7 @@ class ChatRoom: NSObject {
     var open: Int
     var location: Location?
     var topic: String?
+    var activity: [Int]
     
     override init() {
         count = 0
@@ -24,8 +25,9 @@ class ChatRoom: NSObject {
         members = []
         memberCount = 0
         open = 0
-        location = nil
+        location = Location()
         topic = nil
+        activity = []
     }
     
     //

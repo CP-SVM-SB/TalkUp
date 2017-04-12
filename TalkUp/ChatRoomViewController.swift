@@ -13,6 +13,8 @@ import CoreLocation
 
 class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
   
+    @IBOutlet var `switch`: UISwitch!
+    
     let locationManager = CLLocationManager()
     
     @IBOutlet var chatView: UIView!
@@ -25,11 +27,19 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
     var flag = false
     var user = User()
     var chat = ChatRoom()
+    var activity: [Int] = []
+    var timerFlag = false
 
     var userSettings: UserSettings?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.switch.isEnabled = true
+        self.switch.isOn = false
+        
+        
         // Get user's location
         self.locationManager.requestAlwaysAuthorization()
         self.locationManager.requestWhenInUseAuthorization()
@@ -37,25 +47,75 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
+            
         }
         
+        //make sure the location is saved before we find the close by chat
+    //self.location
         // Get chatroom info -> members, messages and info stuff
-        Client.findChat { (chatID: Int, chatAlreadyExists: Bool) in
-            if chatAlreadyExists {
-                self.Client.joinChatWithId(id: chatID, onSuccess: { (chatInfo: ChatRoom) in
-                    self.chat = chatInfo
-                    print("joined chat")
-                    self.loadTable()
-                })
-            }
-            else {
-                self.Client.createAndJoinChatWithId(id: chatID, onSuccess: { (chatInfo: ChatRoom) in
-                    self.chat = chatInfo
-                    print("created and joined new chat")
-                    self.loadTable()
-                })
-            }
+        /*
+        while (self.chat.location?.longitude == nil) {
+            // wait till we have a location
         }
+ */
+        
+        
+        
+        
+        let when = DispatchTime.now() + 5 // change 2 to desired number of seconds
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            // Your code with delay
+            print("here")
+            
+            self.Client.findCloseByChat(userLocation: self.chat.location!, onSuccess: { (code: Int) in
+                self.Client.joinChatWithId(id: code, onSuccess: { (chatInfo: ChatRoom) in
+                    self.chat = chatInfo
+                    if self.chat.open == 1 {
+                        self.switch.isOn = true
+                    }
+                    else {
+                        self.switch.isOn = false
+                    }
+                    print("joined chat based on location")
+                    self.loadTable()
+                    let timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(ChatRoomViewController.refreshChat), userInfo: nil, repeats: true)
+                })
+            }, onFailure: { 
+                self.Client.findChat { (chatID: Int, chatAlreadyExists: Bool) in
+                    if chatAlreadyExists {
+                        self.Client.joinChatWithId(id: chatID, onSuccess: { (chatInfo: ChatRoom) in
+                            self.chat = chatInfo
+                            if self.chat.open == 1 {
+                                self.switch.isOn = true
+                            }
+                            else {
+                                self.switch.isOn = false
+                            }
+                            print("joined chat")
+                            self.loadTable()
+                            let timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(ChatRoomViewController.refreshChat), userInfo: nil, repeats: true)
+                        })
+                    }
+                    else {
+                        self.Client.createAndJoinChatWithId(id: chatID, onSuccess: { (chatInfo: ChatRoom) in
+                            self.chat = chatInfo
+                            if self.chat.open == 1 {
+                                self.switch.isOn = true
+                            }
+                            else {
+                                self.switch.isOn = false
+                            }
+                            print("created and joined new chat")
+                            self.loadTable()
+                            let timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(ChatRoomViewController.refreshChat), userInfo: nil, repeats: true)
+                        })
+                    }
+                }
+            })
+        }
+        
+        
+        
         
         
         // add the current user to the chat room
@@ -100,7 +160,23 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
 
     }
 
-    
+    func refreshChat()
+    {
+        self.Client.getDataForChatWithId(id: self.chat.count) { (listOfMessages: [Message], open: Bool, activityList: [Int]) in
+            self.messages = listOfMessages
+            self.tableView.reloadData()
+            if open {
+                self.switch.isOn = true
+            }
+            else {
+                self.switch.isOn = false
+            }
+            self.activity = activityList
+            self.scrollToBottom()
+            self.timerFlag = true
+        }
+        
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         self.scrollToBottom()
@@ -113,6 +189,13 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        Client.getInfoForChatWithId(id: self.chat.count) { (room: ChatRoom) in
+            if room.memberCount <= 1{
+                self.Client.cleanupChatWithId(id: room.count, onSuccess: { 
+                    print("cleaned up chat")
+                })
+            }
+        }
         Client.exitChatWithId(id: self.chat.count) { 
             print("exited chat and ready to segue")
         }
@@ -140,10 +223,16 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
 
     func userInactive(){
         print("------ USER INACTIVE -------- ")
+        if self.timerFlag {
+            Client.changeToInactive(id: self.chat.count)
+        }
         // here is where we will send user activity status to the backend
     }
     
     func userActive(){
+        if self.timerFlag {
+            Client.changeToActive(id: self.chat.count)
+        }
         // here too
     }
 
@@ -217,9 +306,28 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         var locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        self.chat.location?.longitude = locValue.longitude
+        self.chat.location?.latitude = locValue.latitude
         //print("LOCATION = \(locValue.latitude) \(locValue.longitude)")
     }
 
+    @IBAction func changedSwitch(_ sender: UISwitch) {
+        if sender.isOn {
+            self.Client.openChatWithId(id: self.chat.count, location: self.chat.location!, onSuccess: {
+                self.Client.queueChatWithId(id: self.chat.count, location: self.chat.location!, onSuccess: { 
+                    print("queued")
+                })
+                print("location added and chat is open")
+            })
+        }
+        else {
+            self.Client.closeChatWithId(id: self.chat.count, onSuccess: {
+                self.Client.dequeueChatWithId(id: self.chat.count, onSuccess: { 
+                    print("closed and qequeued")
+                })
+            })
+        }
+    }
     
   
   /*

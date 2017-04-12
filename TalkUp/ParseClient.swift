@@ -8,12 +8,46 @@
 
 import UIKit
 import Parse
+import CoreLocation
 
 class ParseClient: NSObject {
     
+    func findCloseByChat (userLocation: Location, onSuccess: @escaping (Int) -> (), onFailure: @escaping () -> ()) {
+        
+        let uLocation = CLLocation(latitude: userLocation.latitude!, longitude: userLocation.longitude!)
+        
+        let query = PFQuery(className: "queue")
+        
+        query.getFirstObjectInBackground { (queue: PFObject?, error: Error?) in
+            if let queue = queue {
+                var list = queue["list"] as! Array<Int>
+                var longitude = queue["longitude"] as! Array<Double>
+                var latitude = queue["latitude"] as! Array<Double>
+                
+                var i = 0
+                
+                while i < list.count {
+                    let chatLocation = CLLocation(latitude: latitude[i], longitude: longitude[i])
+                    let distanceInMeters = uLocation.distance(from: chatLocation)
+                    
+                    if distanceInMeters < 80450 {
+                        onSuccess(list[i])
+                    }
+                    
+                    i = i + 1
+                    
+                }
+                
+                onFailure()
+            }
+        }
+    }
+    
     func setupQueue () {
-        var queue = PFObject(className: "queue")
-        queue["list"] = [4, 3]
+        let queue = PFObject(className: "queue")
+        queue["list"] = [1]
+        queue["longitude"] = [232.22]
+        queue["latitude"] = [232.22]
         
         queue.saveInBackground { (success: Bool, error: Error?) in
             if success {
@@ -25,16 +59,24 @@ class ParseClient: NSObject {
         }
     }
     
-    func queueChatWithId (id: Int, onSuccess: @escaping () -> ()) {
-        var query = PFQuery(className: "queue")
+    func queueChatWithId (id: Int, location: Location, onSuccess: @escaping () -> ()) {
+        let query = PFQuery(className: "queue")
         
-        query.getObjectInBackground(withId: "kOnNLRhWPG") { (queue: PFObject?, error: Error?) in
+        query.getFirstObjectInBackground { (queue: PFObject?, error: Error?) in
             if let queue = queue {
-                var list = queue["list"] as! Array<Any>
+                var list = queue["list"] as! Array<Int>
                 print(list)
+                var longitude = queue["longitude"] as! Array<Double>
+                var latitude = queue["latitude"] as! Array<Double>
+                
                 
                 list.append(id)
+                longitude.append(location.longitude!)
+                latitude.append(location.latitude!)
+                
                 queue["list"] = list
+                queue["longitude"] = longitude
+                queue["latitude"] = latitude
                 
                 queue.saveInBackground(block: { (success: Bool, error: Error?) in
                     print("Queue updated")
@@ -42,11 +84,51 @@ class ParseClient: NSObject {
                 })
             }
         }
+    }
+    
+    func dequeueChatWithId (id: Int, onSuccess: @escaping () -> ()) {
+        let query = PFQuery(className: "queue")
         
+        
+        
+        query.getFirstObjectInBackground { (queue: PFObject?, error: Error?) in
+            if let queue = queue {
+                var list = queue["list"] as! Array<Int>
+                print(list)
+                var longitude = queue["longitude"] as! Array<Double>
+                var latitude = queue["latitude"] as! Array<Double>
+                
+                var index = -999
+                
+                var i = 0
+                while i < list.count {
+                    if list[i] == id {
+                        index = i
+                        i = list.count + 1
+                    }
+                    i = i + 1
+                }
+                
+                if index != -999 {
+                    list.remove(at: index)
+                    longitude.remove(at: index)
+                    latitude.remove(at: index)
+                }
+                
+                queue["list"] = list
+                queue["longitude"] = longitude
+                queue["latitude"] = latitude
+                
+                queue.saveInBackground(block: { (success: Bool, error: Error?) in
+                    print("Queue updated")
+                    onSuccess()
+                })
+            }
+        }
     }
     
     func getChatCount (onSuccess: @escaping (Int) -> ()) -> (){
-        var query = PFQuery(className: "chatCount")
+        let query = PFQuery(className: "chatCount")
         
         var count = -999
         
@@ -61,7 +143,7 @@ class ParseClient: NSObject {
     }
     
     func updateChatCount (){
-        var query = PFQuery(className: "chatCount")
+        let query = PFQuery(className: "chatCount")
         
         query.getObjectInBackground(withId: "oSxYliZ7a6") { (chat: PFObject?, error: Error?) in
             if chat != nil {
@@ -80,7 +162,7 @@ class ParseClient: NSObject {
     
     
     func setChatCount () {
-        var chat = PFObject(className: "chatCount")
+        let chat = PFObject(className: "chatCount")
         chat["key"] = "this"
         chat["count"] = 0
         
@@ -96,13 +178,17 @@ class ParseClient: NSObject {
     
     
     func createNewChat(onSuccess: @escaping (Int) -> ()) {
-        var count = getChatCount { (count: Int) in
+        let count = getChatCount { (count: Int) in
             if count != -999 {
                 let id = count + 1
-                var chat = PFObject(className: "chat\(id)")
+                let chat = PFObject(className: "chat\(id)")
                 chat["count"] = id
                 chat["memberCount"] = 0
                 chat["open"] = 0
+                chat["topic"] = "nil"
+                chat["longitude"] = "nil"
+                chat["latitude"] = "nil"
+                chat["activity"] = []
                 chat.saveInBackground(block: { (success: Bool, error: Error?) in
                     if success {
                         print("New Chat created")
@@ -120,12 +206,15 @@ class ParseClient: NSObject {
     
     func createNewChatWithId(id: Int, onSuccess: @escaping () -> ()) {
         
-        var chat = PFObject(className: "chat\(id)")
+        let chat = PFObject(className: "chat\(id)")
         chat["count"] = id
         chat["memberCount"] = 0
         chat["open"] = 0
-        //chat["activeMembers"] = ["nil"]
+        chat["activeMembers"] = [PFUser.current()?.username]
         chat["topic"] = "nil"
+        chat["longitude"] = "nil"
+        chat["latitude"] = "nil"
+        chat["activity"] = [1]
         chat.saveInBackground(block: { (success: Bool, error: Error?) in
             if success {
                 print("New Chat created")
@@ -149,36 +238,45 @@ class ParseClient: NSObject {
         query.getFirstObjectInBackground { (chatInfo: PFObject?, error: Error?) in
             
             if let chatInfo = chatInfo{
-                chatInfo["longitude"] = location.longitude
-                chatInfo["latitude"] = location.latitude
+                chatInfo["longitude"] = String(describing: location.longitude)
+                chatInfo["latitude"] = String(describing: location.latitude)
                 
                 chatInfo.saveInBackground(block: { (success: Bool, error: Error?) in
                     if success {
                         print("location added to chat")
                         onSuccess()
+                        if let error = error {
+                            print(error.localizedDescription)
+                        }
                     }
                 })
             }
         }
     }
     
-    func makeOpenChatWithId(id: Int, onSuccess: @escaping() -> ()) {
+    func openChatWithId(id: Int, location: Location, onSuccess: @escaping() -> ()) {
         let query = PFQuery(className: "chat\(id)")
         
         query.getFirstObjectInBackground { (chatInfo: PFObject?, error: Error?) in
             
             if let chatInfo = chatInfo{
                 chatInfo["open"] = 1
+                chatInfo["longitude"] = String(describing: location.longitude)
+                chatInfo["latitude"] = String(describing: location.latitude)
                 
                 chatInfo.saveInBackground(block: { (success: Bool, error: Error?) in
                     if success {
                         print("Chat is now open for others nearby to join")
                         onSuccess()
                     }
+                    if let error = error {
+                        print(error.localizedDescription)
+                    }
                 })
             }
         }
     }
+    
     
     func closeChatWithId(id: Int, onSuccess: @escaping() -> ()) {
         let query = PFQuery(className: "chat\(id)")
@@ -243,8 +341,9 @@ class ParseClient: NSObject {
         chat["count"] = id
         chat["memberCount"] = 1
         chat["open"] = 0
-        //chat["activeMembers"] = ["nil"]
+        chat["activeMembers"] = [PFUser.current()?.username!]
         chat["topic"] = "nil"
+        chat["activity"] = [1]
         chat.saveInBackground(block: { (success: Bool, error: Error?) in
             if success {
                 print("New Chat created")
@@ -258,16 +357,17 @@ class ParseClient: NSObject {
     }
     
     func joinChatWithId(id: Int, onSuccess: @escaping (ChatRoom) -> ()) {
-        var chat = ChatRoom()
-        var query = PFQuery(className: "chat\(id)")
+        let chat = ChatRoom()
+        let query = PFQuery(className: "chat\(id)")
         query.getFirstObjectInBackground { (chatInfo: PFObject?, error: Error?) in
             
             if let chatInfo = chatInfo{
                 
                 chat.count = chatInfo["count"] as! Int
                 chat.memberCount = chatInfo["memberCount"] as! Int
-                //chat.members = chatInfo["activeMembers"] as! [String]
+                chat.members = chatInfo["activeMembers"] as! [String]
                 chat.open = chatInfo["open"] as! Int
+                chat.activity = chatInfo["activity"] as! [Int]
                 /*
                 let topic = chatInfo["topic"] as! String
                 if topic == "nil" {
@@ -279,8 +379,11 @@ class ParseClient: NSObject {
                 let user = PFUser.current()?.username!
                 chat.members.append(user!)
                 chat.memberCount = chat.memberCount+1
+                chat.activity.append(1)
                 
                 chatInfo["memberCount"] = chat.memberCount
+                chatInfo["activity"] = chat.activity
+                chatInfo["activeMembers"] = chat.members
                 //chatInfo["members"] = chat.members
                 
                 chatInfo.saveInBackground(block: { (success: Bool, error: Error?) in
@@ -289,6 +392,7 @@ class ParseClient: NSObject {
                         print(chat)
                         onSuccess(chat)
                     }
+                    print("error saving chat after joining")
                 })
             }
         }
@@ -303,6 +407,22 @@ class ParseClient: NSObject {
                 memberCount = memberCount - 1
                 
                 chat["memberCount"] = memberCount
+                var members = chat["activeMembers"] as! [String]
+                var activity = chat["activity"] as! [Int]
+                
+                var i = 0
+                
+                while i < members.count {
+                    if members[i] == PFUser.current()?.username! {
+                        members.remove(at: i)
+                        activity.remove(at: i)
+                    }
+                    i = i + 1
+                }
+                
+                chat["activeMembers"] = members
+                chat["activity"] = activity
+                
                 
                 chat.saveInBackground(block: { (success: Bool, error: Error?) in
                     if success {
@@ -310,6 +430,128 @@ class ParseClient: NSObject {
                         onSuccess()
                     }
                 })
+            }
+        }
+    }
+    
+    func changeToActive(id: Int) {
+        var query = PFQuery(className: "chat\(id)")
+        
+        query.getFirstObjectInBackground { (chat: PFObject?, error: Error?) in
+            if let chat = chat {
+                var members = chat["activeMembers"] as! [String]
+                var activity = chat["activity"] as! [Int]
+                var i = 0
+                while i < members.count {
+                    if members[i] == PFUser.current()?.username! {
+                        activity.remove(at: i)
+                        activity.insert(1, at: i)
+                        
+                    }
+                    i = i + 1
+                }
+                chat["activity"] = activity
+                
+                chat.saveInBackground(block: { (success: Bool, error: Error?) in
+                    if success {
+                        print("user is now active")
+                    }
+                })
+            }
+        }
+    }
+    
+    func changeToInactive(id: Int) {
+        var query = PFQuery(className: "chat\(id)")
+        
+        query.getFirstObjectInBackground { (chat: PFObject?, error: Error?) in
+            if let chat = chat {
+                var members = chat["activeMembers"] as! [String]
+                var activity = chat["activity"] as! [Int]
+                var i = 0
+                while i < members.count {
+                    if members[i] == PFUser.current()?.username! {
+                        activity.remove(at: i)
+                        activity.insert(0, at: i)
+                        
+                    }
+                    i = i + 1
+                }
+                chat["activity"] = activity
+                
+                chat.saveInBackground(block: { (success: Bool, error: Error?) in
+                    if success {
+                        print("user is now active")
+                    }
+                })
+            }
+        }
+    }
+    
+    func getDataForChatWithId(id: Int, onSuccess: @escaping ([Message], Bool, [Int]) -> ()) {
+        var messages: [Message] = []
+        
+        let query = PFQuery(className: "chat\(id)")
+        query.order(byAscending: "createdAt")
+        var flag = false
+        var open = false
+        var activity: [Int] = []
+        
+        query.findObjectsInBackground { (response: [PFObject]?, error:Error?) in
+            if let error = error {
+            }
+            else {
+                if let response = response {
+                    for eachMessage in response {
+                        if flag == true {
+                            let message = Message()
+                            message.from = eachMessage["from"] as! String?
+                            message.text = eachMessage["text"] as! String?
+                            message.timeStamp = " "
+                            //eachMessage["_created_at"] as! String?
+                            
+                            messages.append(message)
+                        }
+                        else {
+                            
+                            let isOpen = eachMessage["open"] as! Int
+                            if isOpen == 1 {
+                                open = true
+                            }
+                            else {
+                                open = false
+                            }
+                            activity = eachMessage["activity"] as! [Int]
+                            flag = true
+                        }
+                    }
+                    
+                }
+                
+                onSuccess(messages, open, activity)
+            }
+        }
+    }
+
+    
+    func cleanupChatWithId(id: Int, onSuccess: @escaping () -> ()) {
+        var query = PFQuery(className: "chat\(id)")
+        query.order(byAscending: "createdAt")
+
+        var flag = false
+        
+        query.findObjectsInBackground { (response: [PFObject]?, error:Error?) in
+            if let error = error {
+                print("error cleaning up chat!")
+            }
+            else {
+                var i = 1
+                
+                while i < (response?.count)! {
+                    response?[i].deleteEventually()
+                    
+                    i = i + 1
+                }
             }
         }
     }
@@ -366,6 +608,8 @@ class ParseClient: NSObject {
         }
 
     }
+    
+    
     
     
     

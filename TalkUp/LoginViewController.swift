@@ -21,6 +21,8 @@ class LoginViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    
+    
     self.passwordField.isSecureTextEntry = true
     self.usernameField.becomeFirstResponder()
     
