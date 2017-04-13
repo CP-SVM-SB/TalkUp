@@ -10,7 +10,7 @@ import UIKit
 
 class GifsCollectionViewCell: UICollectionViewCell {
     
-    
+    @IBOutlet weak var gifImageView: UIImageView!
     @IBOutlet weak var urlLabel: UILabel!
     
     var url = String()

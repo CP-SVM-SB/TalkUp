@@ -66,7 +66,6 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
         let when = DispatchTime.now() + 5 // change 2 to desired number of seconds
         DispatchQueue.main.asyncAfter(deadline: when) {
             // Your code with delay
-            print("here")
             
             self.Client.findCloseByChat(userLocation: self.chat.location!, onSuccess: { (code: Int) in
                 self.Client.joinChatWithId(id: code, onSuccess: { (chatInfo: ChatRoom) in

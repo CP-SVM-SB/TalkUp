@@ -43,7 +43,22 @@ class Giphy: NSObject {
                     let response = try JSONSerialization.jsonObject(with: data!, options: []) as! NSDictionary
                     let returnedData = response["data"] as! NSArray
                     
-                    success(returnedData)
+                    let images = returnedData.value(forKey: "images") as! NSArray
+                    let originalGifs = images.value(forKey: "fixed_height_small") as! NSArray
+                    let gifUrls = originalGifs.value(forKey: "url") as! NSArray
+                    
+                    //print("URLS: ", gifUrls)
+                    
+                    //looping through all the json objects in the array teams
+//                    for i in 0 ..< testData.count{
+//                        let image: Int = (testData["fixes"] as! NSString).integerValue
+//                        print(image)
+//                    }
+                    
+//                    let image = returnedData.o"image"] as? NSArray
+//                    print(image)
+                    
+                    success(gifUrls)
                 } catch let error as NSError {
                     print(error)
                 }

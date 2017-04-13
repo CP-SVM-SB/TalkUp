@@ -1040,16 +1040,21 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="middleTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9v0-UT-LPS">
-                                                    <rect key="frame" x="6" y="58" width="168" height="21"/>
+                                                    <rect key="frame" x="6" y="118" width="168" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kfk-pu-0DA">
+                                                    <rect key="frame" x="20" y="9" width="141" height="110"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="0.93731868269999996" green="0.9370237589" blue="0.95687401289999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
+                                            <outlet property="gifImageView" destination="Kfk-pu-0DA" id="0B0-Um-xg6"/>
                                             <outlet property="urlLabel" destination="9v0-UT-LPS" id="OIf-YB-eFP"/>
                                         </connections>
                                     </collectionViewCell>
@@ -1067,17 +1072,27 @@
                                     <action selector="didTapDone:" destination="2Vq-r4-RyY" eventType="touchUpInside" id="LD1-B0-XKa"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19A-PX-pHa">
+                                <rect key="frame" x="240" y="4" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                <state key="normal" title="Reload"/>
+                                <connections>
+                                    <action selector="didTapReload:" destination="2Vq-r4-RyY" eventType="touchUpInside" id="LGa-GQ-O1R"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="Fqj-bG-dCV" id="lsH-fq-KlC"/>
                         <outlet property="doneButton" destination="RtD-x2-8U3" id="JdH-4l-Gal"/>
+                        <outlet property="reloadButton" destination="19A-PX-pHa" id="ZQS-yc-ZR1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="26m-8I-dE1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3025" y="865"/>
+            <point key="canvasLocation" x="3024.8000000000002" y="864.91754122938539"/>
         </scene>
         <!--Preview Chats View Controller-->
         <scene sceneID="GKb-nK-z3P">
