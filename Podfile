@@ -10,4 +10,5 @@ target 'TalkUp' do
   pod 'AFNetworking'
   pod 'RevealingSplashView'
   pod 'lottie-ios'
+  pod 'SwiftGifOrigin', '~> 1.6.1'
 end

@@ -24,13 +24,11 @@ class Giphy: NSObject {
     let public_beta_key = "&api_key=dc6zaTOxFJmzC"
     
     var q = String()
-    var gifUrl = String()
     
     
     func makeRandomSearchRequest(success: @escaping (NSArray) ->(), failure: @escaping (Error)->()){
         
         q = "?q=raccoon"
-        gifUrl = "somethingSoItWontCrash"
         
         let url = URL(string: host_path+q+public_beta_key)
         let session = URLSession(
@@ -44,17 +42,6 @@ class Giphy: NSObject {
                     
                     let response = try JSONSerialization.jsonObject(with: data!, options: []) as! NSDictionary
                     let returnedData = response["data"] as! NSArray
-                    
-//                    for i in 0...(returnedData.count - 1){
-//                        let object = returnedData.object(at: i) as! [String:Any]
-//                        let url = object["url"] as! String
-//                        print("URL: ", url)
-//                    }
-                    
-                    
-//                    let returnedData = response(dict: response)
-//                    self.gifUrl = returnedData["url"] as! String
-
                     
                     success(returnedData)
                 } catch let error as NSError {

@@ -5,6 +5,15 @@
 //  Created by Savannah McCoy on 4/9/17.
 //  Copyright © 2017 Shumba Brown. All rights reserved.
 //
+/*
+FOR  LATER REFERENCE: 
+ 
+let url = URL(string: url)
+let data = try? Data(contentsOf: url!)
+let gifImage = UIImage.gif(data: data!)
+imageView.image = gifImage
+ 
+ */
 
 import UIKit
 
