@@ -88,7 +88,7 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   
   
   
-  func getIndexChatMsgs(index: Int) {     // lots of moving parts! (hint: async calls)
+  func getIndexChatMsgs(index: Int) {     // lots of moving parts! (hint: nested, dependent async calls)
     var msg: String?
     print("\nrequesting chat(\(index))")
     
@@ -114,20 +114,15 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.chatRawMsgs.append(msg!)
         
         // extract keywords for current chat
-        //print("chatID: \(self.chatCount)")
-        //print("Texts: \(self.chatRawMsgs[self.chatCount])\n")
-        
         self.keywordApi.performKeywordSearch(textBody: self.chatRawMsgs[self.chatCount], success: { (keys: [String : Double]) in
           self.chatTopicWithRelevance = keys
           var chatTopic : String?
           
           // inelegant! extracts element "0" of dictionary keys
           for key in keys.keys {
-            //print("Chat(\(self.chatIndex)) Topic: \(key)")
             self.chatTopicsArr.append(key)
             break
           }
-          //print("chatTopics Arr: \(self.chatTopicsArr)")
           
           if self.chatTopicsArr.count == self.chatIndex + 1 { // check if a key was returned
             chatTopic = self.chatTopicsArr[self.chatIndex]
@@ -153,10 +148,13 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
           self.firstValSet = false
           self.chatCount += 1
           self.chatIndex += 1
+          
+          // perform Recursion
           if (self.chatIndex < self.noCurrentlyAvailableChats) {
             var nextIter = self.chatIndex
             self.getIndexChatMsgs(index: nextIter)
             self.tableView.reloadData()
+            
           } else {
             self.tableView.reloadData()
           }
@@ -169,66 +167,6 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }, onFailure: { (error: Error) in
       print(error.localizedDescription)
     })
-  }
-  
-  
-  
-  
-  
-  // *** To be DEPRECATED soon! ***
-  func getKeywords() {
-    myParseClient.getMessages(onSuccess: { (rawMsgs: [Message]) in
-      let revRawMsgs = rawMsgs.reversed()  // rollback purposes
-      var index = 0
-      
-      if (self.topicsRollbackLength == 0) {
-        for msg in revRawMsgs {
-          self.rawMessages = (self.rawMessages == nil) ? msg.text! : self.rawMessages!+", "+msg.text!
-        }
-      } else {
-        for i in revRawMsgs.indices {
-          if (index > self.topicsRollbackLength) {
-            break
-          }
-          self.rawMessages = (self.rawMessages == nil) ? revRawMsgs[i].text! : self.rawMessages!+", "+revRawMsgs[i].text!
-          index += 1
-        }
-      }
-      
-      
-      // watson API call
-      self.keywordApi.performKeywordSearch(textBody: self.rawMessages!, success: { (keys: [String : Double]) in
-        self.keywordsWithRelevance = keys
-        self.keywordsArr = [String](self.keywordsWithRelevance.keys)
-        self.tableView.reloadData()   // show keywords right away!
-        
-        for (keyW, _) in keys {
-          var count = 0
-          self.keywordsWithChats[keyW] = [""]  // initialize dict. of NSMutable Arr for appending
-          
-          for msg in revRawMsgs {
-            // case-insensitive search
-            if msg.text!.lowercased().range(of: keyW.lowercased()) != nil {
-              if count > 0 {
-                self.keywordsWithChats[keyW]!.add(msg.text!)
-              } else {
-                self.keywordsWithChats[keyW]?[0] = msg.text!
-              }
-              count += 1
-            }
-          }
-          self.noChatsWithKeyword.append(count)
-        }
-        
-        self.tableView.reloadData()   // show no. of chats when processing is complete
-        
-      }, failure: { (error: Error) in
-        print (error.localizedDescription)
-      })
-      
-    }) { (error: Error) in
-      print(error.localizedDescription)
-    }
   }
   
   @IBAction func unwindToTopics (segue: UIStoryboardSegue) {
