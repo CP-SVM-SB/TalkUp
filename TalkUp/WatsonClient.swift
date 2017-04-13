@@ -27,7 +27,7 @@ class WatsonClient: NSObject {
   func performKeywordSearch(textBody: String, success: @escaping ([String : Double])->(), failure: @escaping (Error)->()) {
     self.encodedStr = textBody.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)  // text needs to be UTF-8
     
-    let url = URL(string: baseUrl + "?apikey=\(apiKey)&outputMode=json&text=\(encodedStr!)")
+    let url = URL(string: baseUrl + "?apikey=\(apiKey)&outputMode=json&showSourceText=1&text=\(encodedStr!)")
     let request = URLRequest(url: url!)
     let session = URLSession(
       configuration: URLSessionConfiguration.default, delegate: nil, delegateQueue: OperationQueue.main
@@ -48,17 +48,20 @@ class WatsonClient: NSObject {
   
   
   func getKeyWordsAndRelevance(dict: NSDictionary) -> [String : Double] {
-    
+    self.keyDict = [:]
     if let status = dict["status"] as? String {
       if status == "OK" {
         //print (dict["usage"] ?? "Well, no T&C!")
+        
+        /*if let text = dict["text"] as? String {
+            print("Watson request sourceText: \(text)")
+        }*/
         
         if let keyArr = dict["keywords"] as? NSArray {
           for (_, returnedDict) in keyArr.enumerated() {
             if let returnedDict = returnedDict as? NSDictionary {
               keyword = returnedDict["text"] as? String
               relevance = returnedDict["relevance"] as? String
-
               self.keyDict[keyword!] = Double(relevance!)
             }
           }
