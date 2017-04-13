@@ -57,6 +57,13 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     self.tableView.separatorStyle = .none
     self.tableView.allowsSelection = false
     
+  }
+  
+  
+  
+  override func viewWillAppear(_ animated: Bool) {
+    view.backgroundColor = userSettings?.theme?.primaryColor
+    
     myDispatchGroup.enter()
     myParseClient.getChatCount (onSuccess: { (chatCount: Int) in
       print("No. of available chats: \(chatCount+1)")
@@ -67,13 +74,6 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     myDispatchGroup.notify(queue: .main) {
       self.getIndexChatMsgs(index: self.chatCount)
     }
-    
-  }
-  
-  
-  
-  override func viewWillAppear(_ animated: Bool) {
-    view.backgroundColor = userSettings?.theme?.primaryColor
   }
   
   
@@ -90,12 +90,12 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   
   func getIndexChatMsgs(index: Int) {     // lots of moving parts! (hint: nested, dependent async calls)
     var msg: String?
-    print("\nrequesting chat(\(index))")
+    //print("\nrequesting chat(\(index))")
     
     self.myParseClient.getMessagesFromChatWithId(id: index, onSuccess: { (rawChatMsgs: [Message]) in
-      print("returned chat(\(index))")
+      //print("returned chat(\(index))")
       if rawChatMsgs.isEmpty {} else {  // TODO: limited no. of msgs check to qualify for keyword search
-        print ("Chat(\(index)) Non-empty chat found!")
+        //print ("Chat(\(index)) Non-empty chat found!")
         self.chatIDs.append(index)
         
         // rollback?
