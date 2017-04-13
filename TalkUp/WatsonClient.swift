@@ -22,12 +22,13 @@ class WatsonClient: NSObject {
   var keyword: String?
   var relevance: String?
   var keyDict = Dictionary <String, Double>()
+  var showSourceText = 0     // boolean
   
   
   func performKeywordSearch(textBody: String, success: @escaping ([String : Double])->(), failure: @escaping (Error)->()) {
     self.encodedStr = textBody.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)  // text needs to be UTF-8
     
-    let url = URL(string: baseUrl + "?apikey=\(apiKey)&outputMode=json&showSourceText=1&text=\(encodedStr!)")
+    let url = URL(string: baseUrl + "?apikey=\(apiKey)&outputMode=json&showSourceText=\(showSourceText)&text=\(encodedStr!)")
     let request = URLRequest(url: url!)
     let session = URLSession(
       configuration: URLSessionConfiguration.default, delegate: nil, delegateQueue: OperationQueue.main
