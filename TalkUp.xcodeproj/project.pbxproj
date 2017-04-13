@@ -27,6 +27,8 @@
 		762461DB1E9083B6007741EA /* Theme4.png in Resources */ = {isa = PBXBuildFile; fileRef = 762461D91E9083B6007741EA /* Theme4.png */; };
 		762461DC1E9083B7007741EA /* Theme5.png in Resources */ = {isa = PBXBuildFile; fileRef = 762461DA1E9083B6007741EA /* Theme5.png */; };
 		76BCAE1A1E9A577900FD9018 /* GifsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BCAE191E9A577900FD9018 /* GifsViewController.swift */; };
+		76BCAE1C1E9F2A2B00FD9018 /* GiphyClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BCAE1B1E9F2A2B00FD9018 /* GiphyClient.swift */; };
+		76BCAE1E1E9F3DFA00FD9018 /* GifsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BCAE1D1E9F3DFA00FD9018 /* GifsCollectionViewCell.swift */; };
 		76F7DC911E985EAB00D8363A /* SecondarySettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F7DC901E985EAB00D8363A /* SecondarySettingsViewController.swift */; };
 		76F7DC931E9871F500D8363A /* loginBackground.gif in Resources */ = {isa = PBXBuildFile; fileRef = 76F7DC921E9871F500D8363A /* loginBackground.gif */; };
 		76F7DC951E995A1700D8363A /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F7DC941E995A1700D8363A /* UserSettings.swift */; };
@@ -69,6 +71,8 @@
 		762461D91E9083B6007741EA /* Theme4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Theme4.png; path = Assets.xcassets/Theme4.png; sourceTree = "<group>"; };
 		762461DA1E9083B6007741EA /* Theme5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Theme5.png; path = Assets.xcassets/Theme5.png; sourceTree = "<group>"; };
 		76BCAE191E9A577900FD9018 /* GifsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifsViewController.swift; sourceTree = "<group>"; };
+		76BCAE1B1E9F2A2B00FD9018 /* GiphyClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiphyClient.swift; sourceTree = "<group>"; };
+		76BCAE1D1E9F3DFA00FD9018 /* GifsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifsCollectionViewCell.swift; sourceTree = "<group>"; };
 		76F7DC901E985EAB00D8363A /* SecondarySettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondarySettingsViewController.swift; sourceTree = "<group>"; };
 		76F7DC921E9871F500D8363A /* loginBackground.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = loginBackground.gif; path = Assets.xcassets/loginBackground.gif; sourceTree = "<group>"; };
 		76F7DC941E995A1700D8363A /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
@@ -121,6 +125,7 @@
 				84BE64321E8837D800665425 /* ChatCell.swift */,
 				135508F81E9A21D4005B6BA9 /* PreviewChatsCell.swift */,
 				135508FA1E9A2221005B6BA9 /* ChatsPopCell.swift */,
+				76BCAE1D1E9F3DFA00FD9018 /* GifsCollectionViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -220,6 +225,7 @@
 			children = (
 				84BE64301E8837AF00665425 /* ParseClient.swift */,
 				13100FB21E90171A0017638A /* WatsonClient.swift */,
+				76BCAE1B1E9F2A2B00FD9018 /* GiphyClient.swift */,
 			);
 			name = Client;
 			sourceTree = "<group>";
@@ -384,10 +390,12 @@
 				849B53FA1E81EF7F008B1FE0 /* ChatRoom.swift in Sources */,
 				13E007C01E8744E800693F69 /* TopicsViewController.swift in Sources */,
 				762461C51E903624007741EA /* SettingsTableViewController.swift in Sources */,
+				76BCAE1C1E9F2A2B00FD9018 /* GiphyClient.swift in Sources */,
 				849B53F41E81EE15008B1FE0 /* User.swift in Sources */,
 				135508FB1E9A2221005B6BA9 /* ChatsPopCell.swift in Sources */,
 				76F7DC911E985EAB00D8363A /* SecondarySettingsViewController.swift in Sources */,
 				762461D61E90718E007741EA /* ThemeCollectionViewCell.swift in Sources */,
+				76BCAE1E1E9F3DFA00FD9018 /* GifsCollectionViewCell.swift in Sources */,
 				762461D81E9077DB007741EA /* Theme.swift in Sources */,
 				84BE64311E8837AF00665425 /* ParseClient.swift in Sources */,
 			);

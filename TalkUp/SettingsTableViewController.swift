@@ -125,9 +125,9 @@ class SettingsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if section == 0 {
-            return 4
-        } else if section == 1 {
             return 3
+        } else if section == 1 {
+            return 4
         }else if section == 2{
             return 2
         }else{

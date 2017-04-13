@@ -15,12 +15,13 @@ class LoginViewController: UIViewController {
   @IBOutlet weak var passwordField: UITextField!
   @IBOutlet weak var signInButton: UIButton!
     
+    
     var theme: Theme?
     var userSettings: UserSettings?
 
   override func viewDidLoad() {
     super.viewDidLoad()
-
+        
     UIApplication.shared.statusBarStyle = .lightContent
 
     self.passwordField.isSecureTextEntry = true
