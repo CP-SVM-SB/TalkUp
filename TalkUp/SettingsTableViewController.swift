@@ -39,13 +39,16 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var cell8: UITableViewCell!
     @IBOutlet weak var cell9: UITableViewCell!
     @IBOutlet weak var cell10: UITableViewCell!
+    @IBOutlet weak var cell11: UITableViewCell!
+    @IBOutlet weak var cell12: UITableViewCell!
+    @IBOutlet weak var cell13: UITableViewCell!
     
     
     
     var theme: Theme?
     var userSettings: UserSettings?
     var collectionCellSelected = [Bool]()
-    var testHeaders = ["Legal", "Account", "Appearance", " "]
+    var testHeaders = ["Account", "Appearance", "Legal", "Support", " "]
     var themeImages = ["Theme1.png","Theme2.png", "Theme3.png", "Theme4.png", "Theme5.png"]
 
    
@@ -125,11 +128,13 @@ class SettingsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if section == 0 {
-            return 3
-        } else if section == 1 {
             return 4
-        }else if section == 2{
+        } else if section == 1 {
             return 2
+        }else if section == 2{
+            return 3
+        }else if section == 3{
+            return 4
         }else{
             return 1
         }
