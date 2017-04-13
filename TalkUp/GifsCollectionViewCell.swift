@@ -18,9 +18,6 @@ class GifsCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         
-        print("AWAKE FROM NIB: ")
-        //urlLabel.text = url
-        
     }
     
     

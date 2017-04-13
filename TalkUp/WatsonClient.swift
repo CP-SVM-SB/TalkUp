@@ -38,6 +38,7 @@ class WatsonClient: NSObject {
         if let watsonResponse = try! JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary {
           let returnedKeyWords = self.getKeyWordsAndRelevance(dict: watsonResponse)
           success(returnedKeyWords)
+            //print(returnedKeyWords)
           
         }
       }

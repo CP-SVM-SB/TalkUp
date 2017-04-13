@@ -14,17 +14,29 @@ class GifsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var doneButton: UIButton!
     
     let GiphyClient = Giphy()
-    var gifsArray: [String] = []
+    let myDispatchGroup = DispatchGroup()
+
+    var gifsArray = [String]()
     var userSettings: UserSettings?
-    var numCells = 16
+    var numCells = 25
+    var url = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.getRandomGifs()
         
-        //print("VIEW DID LOAD", GiphyClient.makeRandomRequest())
+        myDispatchGroup.enter()
+        myDispatchGroup.leave()
+        
+        myDispatchGroup.notify(queue: .main) {
+            print("HERE")
+            self.getRandomGifs()
+        }
+        
+        
+        
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.reloadData()
         doneButton.setTitle("Done", for: .normal)
     }
 
@@ -39,17 +51,37 @@ class GifsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func getRandomGifs(){
-        for i in 1...numCells {
-            var url = GiphyClient.makeRandomRequest()
-            print(" HERE: ", GiphyClient.makeRandomRequest())
-            gifsArray.append(url)
+
+        self.GiphyClient.makeRandomSearchRequest(success: { (returnedArray: (NSArray)) in
             
-        }
+            
+            for i in 0...(returnedArray.count - 1){
+                let object = returnedArray.object(at: i) as! [String:Any]
+                
+                self.url = object["url"] as! String
+                
+                self.gifsArray.append(self.url)
+                
+                print("URL: ", self.url)
+                
+            }
+
+            
+            //self.url = gifurl
+            
+            self.collectionView.reloadData()
+            
+        }, failure: { (error: Error) in
+            print (error.localizedDescription)
+        })
         
-        for j in 0...(numCells - 1) {
-            print(gifsArray[j])
-            
-        }
+//        for j in 0...(numCells - 1) {
+//            print(gifsArray[j])
+//            
+//        }
+        
+        print(gifsArray.count)
+        
     }
     
     
@@ -65,7 +97,7 @@ class GifsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return numCells
+        return (self.gifsArray.count > self.numCells) ? self.numCells : self.gifsArray.count        //alternative if statement syntax
         
     }
     
@@ -74,9 +106,12 @@ class GifsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "gifCell", for: indexPath) as! GifsCollectionViewCell
         //cell.layer.cornerRadius = cell.frame.size.width / 2;
         //print("IN CELL FOR ITEM AT: ", GiphyClient.makeRandomRequest())
-        cell.urlLabel.text = GiphyClient.makeRandomRequest()
+        //let url = self.GiphyClient.makeRandomRequest()
+        //cell.urlLabel.text = url
+        
         cell.clipsToBounds = true
-        //cell.urlLabel.text = gifsArray[indexPath.row]
+        cell.urlLabel.text = gifsArray[indexPath.row]
+        
         //print(GiphyClient.makeRandomRequest())
         //cell.delegate = self
         //cell.themeButton.tag = indexPath.row
