@@ -20,7 +20,9 @@ class LoginViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
     UIApplication.shared.statusBarStyle = .lightContent
+
     self.passwordField.isSecureTextEntry = true
     self.usernameField.becomeFirstResponder()
     
