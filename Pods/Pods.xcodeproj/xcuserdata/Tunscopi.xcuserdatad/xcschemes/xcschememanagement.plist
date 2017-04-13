@@ -8,36 +8,63 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 		<key>Bolts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>Parse.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>4</integer>
 		</dict>
 		<key>Pods-TalkUp.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>5</integer>
 		</dict>
 		<key>RevealingSplashView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+		<key>SwiftGifOrigin.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
 		</dict>
 		<key>lottie-ios.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>6EE458AB7C9239893E5C6E840C0BF9B5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>92045B6AB13726BF1296337CE76EB4D3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9261CF08B078F8E03D0C99A2775670E2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -58,6 +85,11 @@
 			<true/>
 		</dict>
 		<key>D7752351376E3349ED6B0BCB80F8FD46</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EF4E5F395F45B856A4340D14FC425CDE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
