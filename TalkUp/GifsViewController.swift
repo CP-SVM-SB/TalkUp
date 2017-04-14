@@ -15,41 +15,70 @@ imageView.image = gifImage
  
  */
 
+protocol GifsViewControllerDelegate {
+    
+    func reloadCollection()
+    func selectCell(index: Int)
+    func resetSelection()
+    
+}
+
 import UIKit
 import SwiftGifOrigin
 
-class GifsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource{
+class GifsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate, GifsViewControllerDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var doneButton: UIButton!
-    @IBOutlet weak var reloadButton: UIButton!
-   
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     
     let GiphyClient = Giphy()
-    let myDispatchGroup = DispatchGroup()
+    let refreshControl = UIRefreshControl()
+    let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+    
+    var delegate: ChatRoomViewController?
     var gifsArray = [String]()
+    var gifsInCollectionSelected = [Bool](repeating: false, count:24)
     var dataArray = [Data]()
     var userSettings: UserSettings?
-    var numCells = 25
+    var numCells = 24
     var url = String()
+    var q = "reactions"
     var numCalls = 0
     var data = Data()
     var gifImage = UIImage()
+    var screenSize: CGRect!
+    var screenWidth: CGFloat!
+    var screenHeight: CGFloat!
+    var index: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        searchBar.delegate = self
+        screenSize = UIScreen.main.bounds
+        screenWidth = screenSize.width
+        screenHeight = screenSize.height
         
-        self.getRandomGifs()
-    
         doneButton.setTitle("Done", for: .normal)
+        
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.itemSize = CGSize(width: screenWidth/3.04, height: screenWidth/3.04)
+        layout.minimumInteritemSpacing = 2
+        layout.minimumLineSpacing = 2
+        collectionView!.collectionViewLayout = layout
+        
+        self.getRandomGifs(query: q)
+        
         
     }
 
 
     override func viewWillAppear(_ animated: Bool) {
+
         view.backgroundColor = userSettings?.theme?.primaryColor
         
     }
@@ -68,19 +97,34 @@ class GifsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         // Dispose of any resources that can be recreated.
     }
     
-    
-    @IBAction func didTapReload(_ sender: UIButton) {
-        print("clicked")
-        collectionView.reloadData()
-    }
-    
-    //  THIS FUNCTION IS LIGHTNING FAST
-    func getRandomGifs() {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        self.GiphyClient.makeRandomSearchRequest(success: { (returnedArray: (NSArray)) in
+        var searchText = searchText
+        
+        if searchText.isEmpty {
+            searchText = "reactions"
+        } else {
             
+            searchText = searchText.replacingOccurrences(of: " ", with: "+")
+            
+        }
+        
+        print(searchText)
+        getRandomGifs(query: searchText)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.1) {
+            self.setGifImages()
+        }
+        collectionView.reloadData()
+        
+    }
+
+
+
+    func getRandomGifs(query: String) {
+        self.gifsArray.removeAll()
+        self.GiphyClient.makeSearchRequest(q: query, success: { (returnedArray: (NSArray)) in
             for i in 0...(returnedArray.count - 1) {
-                    
+                
                     self.url = returnedArray.object(at: i) as! String
                     self.gifsArray.append(self.url)
             
@@ -93,37 +137,60 @@ class GifsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
     }
     
-    //  THIS FUNCTION IS TURTLE SLOW
+
     func setGifImages(){
-        
+        dataArray.removeAll()
         var thisUrl = String()
         
-        thisUrl = gifsArray[numCalls]
-        
-        let imageUrl = URL(string: thisUrl)
-        
-        self.data = try! Data(contentsOf: imageUrl!) // <--------- IS THE SLOW PART
-        
-        self.dataArray.append(self.data)
-        
-        print(self.data)
-        
-        self.collectionView.reloadData() // <--This does not happen until this function is done :/
-                                         //     HOW DO I FIX THIS?
-        
-        numCalls = numCalls + 1
-        
-        if (numCalls < 24){
+        for i in 0...(gifsArray.count - 1) {
             
-            setGifImages()
-            
+            DispatchQueue.global().async {
+                do {
+                    
+                    thisUrl = self.gifsArray[i]
+                    let imageUrl = URL(string: thisUrl)
+                    self.data = try! Data(contentsOf: imageUrl!) // <--------- IS THE SLOW PART
+                    self.dataArray.append(self.data)
+                    //print(self.data)
+
+                DispatchQueue.main.async(execute: {
+                    
+                        self.collectionView.reloadData()
+
+                })
+                }
+            }
         }
+        
         
     }
     
     
+    func selectCell(index: Int){
+        self.index = index
+        gifsInCollectionSelected[index] = true
+    }
+    
+    
+    func resetSelection(){
+        gifsInCollectionSelected = [Bool](repeating: false, count:24)
+    }
+    
+    
+    func reloadCollection(){
+        collectionView.reloadData()
+    }
+    
     @IBAction func didTapDone(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        
+        dismiss(animated: true) {
+            if self.index == nil {
+                print(":)")
+            }else{
+                self.delegate?.sendValues(gifUrl: self.gifsArray[self.index], gifData: self.dataArray[self.index])
+                
+            }
+        }
     }
     
     
@@ -133,20 +200,16 @@ class GifsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("here")
-        return (self.dataArray.count >= self.numCells) ? self.numCells : self.dataArray.count        //alternative if statement syntax
-        
+        return (self.dataArray.count-1 >= self.numCells) ? self.numCells : self.dataArray.count-1        //alternative if statement syntax
     }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "gifCell", for: indexPath) as! GifsCollectionViewCell
-        
         cell.gifImageView.image = UIImage.gif(data: dataArray[indexPath.row])
-        cell.clipsToBounds = true
-        cell.urlLabel.text = gifsArray[indexPath.row]
-        
-        
+        cell.delegate = self
+        cell.selectButton.tag = indexPath.row
+        cell.selectButton.isSelected = gifsInCollectionSelected[cell.selectButton.tag]
         return cell
     }
 

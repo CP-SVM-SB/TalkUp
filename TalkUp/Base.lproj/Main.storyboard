@@ -98,7 +98,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1sp-Ig-nfX" id="m10-8t-wBe">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pq5-IV-eA4">
@@ -169,7 +169,7 @@
                                         <rect key="frame" x="16" y="5" width="30" height="30"/>
                                         <state key="normal" title="Gifs"/>
                                         <connections>
-                                            <segue destination="2Vq-r4-RyY" kind="presentation" identifier="toGifs" id="HLg-71-cmy"/>
+                                            <action selector="didTapGif:" destination="h93-un-FEl" eventType="touchUpInside" id="VIl-pa-ITA"/>
                                         </connections>
                                     </button>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E1L-0W-4lg">
@@ -214,6 +214,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="chatView" destination="jzZ-5V-RGW" id="wPd-V8-Btu"/>
+                        <outlet property="gifButton" destination="HqC-hq-vwF" id="N7X-5T-Obc"/>
                         <outlet property="messageTextField" destination="KG8-Ao-TU3" id="ZP7-82-TgP"/>
                         <outlet property="sendButton" destination="623-fo-RMS" id="7j8-L3-iM7"/>
                         <outlet property="switch" destination="E1L-0W-4lg" id="j9k-G3-f64"/>
@@ -1012,7 +1013,7 @@
         <!--Gifs View Controller-->
         <scene sceneID="4es-vb-Xn7">
             <objects>
-                <viewController id="2Vq-r4-RyY" customClass="GifsViewController" customModule="TalkUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="gifsVC" id="2Vq-r4-RyY" customClass="GifsViewController" customModule="TalkUp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="apE-UK-Aro"/>
                         <viewControllerLayoutGuide type="bottom" id="LXd-UE-Acx"/>
@@ -1021,73 +1022,91 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Fqj-bG-dCV">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Fqj-bG-dCV">
                                 <rect key="frame" x="0.0" y="72" width="375" height="595"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pS2-5k-iDc">
-                                    <size key="itemSize" width="181" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="595" id="vSQ-tK-lNa"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="20" id="pS2-5k-iDc">
+                                    <size key="itemSize" width="150" height="150"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="gifCell" id="Ajg-8i-prS" customClass="GifsCollectionViewCell" customModule="TalkUp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="181" height="150"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="181" height="150"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="middleTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9v0-UT-LPS">
-                                                    <rect key="frame" x="6" y="118" width="168" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="13"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kfk-pu-0DA">
-                                                    <rect key="frame" x="20" y="9" width="141" height="110"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kfk-pu-0DA">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                                 </imageView>
+                                                <button opaque="NO" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Z8-ak-9C3">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                                    <state key="selected" image="purpleSelect"/>
+                                                    <connections>
+                                                        <action selector="didSelectGif:" destination="Ajg-8i-prS" eventType="touchUpInside" id="8az-dv-X9X"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" red="0.93731868269999996" green="0.9370237589" blue="0.95687401289999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstItem="1Z8-ak-9C3" firstAttribute="leading" secondItem="Ajg-8i-prS" secondAttribute="leading" id="0PT-YW-tau"/>
+                                            <constraint firstAttribute="trailing" secondItem="1Z8-ak-9C3" secondAttribute="trailing" id="3m7-tN-C7M"/>
+                                            <constraint firstAttribute="bottom" secondItem="Kfk-pu-0DA" secondAttribute="bottom" id="Y7l-8A-4do"/>
+                                            <constraint firstItem="Kfk-pu-0DA" firstAttribute="top" secondItem="Ajg-8i-prS" secondAttribute="top" id="YHA-U6-UyQ"/>
+                                            <constraint firstItem="Kfk-pu-0DA" firstAttribute="bottom" secondItem="1Z8-ak-9C3" secondAttribute="bottom" id="hzt-ab-uGu"/>
+                                            <constraint firstItem="Kfk-pu-0DA" firstAttribute="trailing" secondItem="1Z8-ak-9C3" secondAttribute="trailing" id="pGG-Lu-LVf"/>
+                                            <constraint firstItem="1Z8-ak-9C3" firstAttribute="top" secondItem="Kfk-pu-0DA" secondAttribute="top" id="u8X-O4-Skh"/>
+                                            <constraint firstItem="1Z8-ak-9C3" firstAttribute="leading" secondItem="Kfk-pu-0DA" secondAttribute="leading" id="wld-1U-iQd"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="gifImageView" destination="Kfk-pu-0DA" id="0B0-Um-xg6"/>
-                                            <outlet property="urlLabel" destination="9v0-UT-LPS" id="OIf-YB-eFP"/>
+                                            <outlet property="selectButton" destination="1Z8-ak-9C3" id="SHi-9h-BQK"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QQg-by-IbV">
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="QQg-by-IbV">
                                 <rect key="frame" x="0.0" y="28" width="305" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="305" id="Cxj-xp-UsH"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
                             </searchBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RtD-x2-8U3">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RtD-x2-8U3">
                                 <rect key="frame" x="305" y="28" width="70" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="didTapDone:" destination="2Vq-r4-RyY" eventType="touchUpInside" id="LD1-B0-XKa"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19A-PX-pHa">
-                                <rect key="frame" x="240" y="4" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                                <state key="normal" title="Reload"/>
-                                <connections>
-                                    <action selector="didTapReload:" destination="2Vq-r4-RyY" eventType="touchUpInside" id="LGa-GQ-O1R"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QQg-by-IbV" firstAttribute="top" secondItem="RtD-x2-8U3" secondAttribute="top" id="7H1-qp-JY4"/>
+                            <constraint firstItem="Fqj-bG-dCV" firstAttribute="top" secondItem="QQg-by-IbV" secondAttribute="bottom" id="9B2-Ud-NJU"/>
+                            <constraint firstItem="QQg-by-IbV" firstAttribute="trailing" secondItem="RtD-x2-8U3" secondAttribute="leading" id="Cc3-Z3-syK"/>
+                            <constraint firstItem="Fqj-bG-dCV" firstAttribute="leading" secondItem="QQg-by-IbV" secondAttribute="leading" id="Q75-VM-KIO"/>
+                            <constraint firstAttribute="trailing" secondItem="Fqj-bG-dCV" secondAttribute="trailing" id="VgZ-87-c8l"/>
+                            <constraint firstItem="Fqj-bG-dCV" firstAttribute="trailing" secondItem="RtD-x2-8U3" secondAttribute="trailing" id="cX3-S5-j4R"/>
+                            <constraint firstItem="Fqj-bG-dCV" firstAttribute="top" secondItem="RtD-x2-8U3" secondAttribute="bottom" id="r2v-Vh-O9I"/>
+                            <constraint firstItem="Fqj-bG-dCV" firstAttribute="leading" secondItem="KLq-iu-MLs" secondAttribute="leading" id="ssI-7f-4XQ"/>
+                            <constraint firstItem="Fqj-bG-dCV" firstAttribute="bottom" secondItem="LXd-UE-Acx" secondAttribute="top" id="wR4-PX-fTB"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="Fqj-bG-dCV" id="lsH-fq-KlC"/>
                         <outlet property="doneButton" destination="RtD-x2-8U3" id="JdH-4l-Gal"/>
-                        <outlet property="reloadButton" destination="19A-PX-pHa" id="ZQS-yc-ZR1"/>
+                        <outlet property="searchBar" destination="QQg-by-IbV" id="noW-XS-flc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="26m-8I-dE1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1160,6 +1179,7 @@
         <image name="chatIcon" width="222" height="220"/>
         <image name="noun_613089_cc" width="30" height="30"/>
         <image name="noun_936834_cc" width="30" height="32"/>
+        <image name="purpleSelect" width="800" height="800"/>
         <image name="trendIcon" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>

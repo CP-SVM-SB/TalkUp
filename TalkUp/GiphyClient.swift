@@ -22,15 +22,12 @@ class Giphy: NSObject {
     
     let host_path = "https://api.giphy.com/v1/gifs/search"
     let public_beta_key = "&api_key=dc6zaTOxFJmzC"
+    //let q = "raccoon"
     
-    var q = String()
     
-    
-    func makeRandomSearchRequest(success: @escaping (NSArray) ->(), failure: @escaping (Error)->()){
-        
-        q = "?q=raccoon"
-        
-        let url = URL(string: host_path+q+public_beta_key)
+    func makeSearchRequest(q: String, success: @escaping (NSArray) ->(), failure: @escaping (Error)->()){
+
+        let url = URL(string: host_path+"?q="+q+public_beta_key)
         let session = URLSession(
             configuration: URLSessionConfiguration.default, delegate: nil, delegateQueue: OperationQueue.main
         )
@@ -44,19 +41,8 @@ class Giphy: NSObject {
                     let returnedData = response["data"] as! NSArray
                     
                     let images = returnedData.value(forKey: "images") as! NSArray
-                    let originalGifs = images.value(forKey: "fixed_height_small") as! NSArray
-                    let gifUrls = originalGifs.value(forKey: "url") as! NSArray
-                    
-                    //print("URLS: ", gifUrls)
-                    
-                    //looping through all the json objects in the array teams
-//                    for i in 0 ..< testData.count{
-//                        let image: Int = (testData["fixes"] as! NSString).integerValue
-//                        print(image)
-//                    }
-                    
-//                    let image = returnedData.o"image"] as? NSArray
-//                    print(image)
+                    let downSampledGifs = images.value(forKey: "fixed_width_downsampled") as! NSArray
+                    let gifUrls = downSampledGifs.value(forKey: "url") as! NSArray
                     
                     success(gifUrls)
                 } catch let error as NSError {
@@ -66,8 +52,6 @@ class Giphy: NSObject {
             
             }
             task.resume()
-        
-        //return gifUrl
         
     }
     

@@ -10,15 +10,29 @@ import UIKit
 
 class GifsCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var selectButton: UIButton!
     @IBOutlet weak var gifImageView: UIImageView!
-    @IBOutlet weak var urlLabel: UILabel!
+
     
     var url = String()
+    var delegate: GifsViewController?
     
     
     override func awakeFromNib() {
         
     }
     
+    @IBAction func didSelectGif(_ sender: UIButton) {
+        
+        if selectButton.isSelected  == false {
+            selectButton.isSelected = true
+            
+            self.delegate?.resetSelection()
+            self.delegate?.selectCell(index: selectButton.tag)
+            self.delegate?.reloadCollection()
+            
+        }
+        
+    }
     
 }

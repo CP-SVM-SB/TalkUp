@@ -11,8 +11,12 @@ import Parse
 import MapKit
 import CoreLocation
 
+protocol ChatVCDelegate {
+    func sendValues(gifUrl: String, gifData: Data)
+}
 
-class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
+
+class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, ChatVCDelegate {
   
     @IBOutlet var `switch`: UISwitch!
     
@@ -22,6 +26,7 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet var messageTextField: UITextField!
     @IBOutlet var sendButton: UIButton!
     @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var gifButton: UIButton!
     
     var messages: [Message] = []
     var Client = ParseClient()
@@ -30,6 +35,8 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
     var chat = ChatRoom()
     var activity: [Int] = []
     var timerFlag = false
+    var gifData = Data()
+    var gifUrl = String()
 
     var userSettings: UserSettings?
     
@@ -59,8 +66,6 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
             // wait till we have a location
         }
  */
-        
-        
         
         
         let when = DispatchTime.now() + 5 // change 2 to desired number of seconds
@@ -114,29 +119,18 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
             })
         }
     
-    
-        
-        
-        
-        
         // add the current user to the chat room
         //chat.members.append(user!)
         
         // push the new chatroom
-        
 
-        
-        
         let currentUser = PFUser.current()!
         if let uname = currentUser["username"] as? String {
           user.username = uname
         } else {
           user.username = "unidentified user"
         }
-        
-        
 
-        
         // Adjust User Interface
 
         sendButton.layer.cornerRadius = 5.0
@@ -257,6 +251,13 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
         }
         // here too
     }
+    
+    func sendValues(gifUrl: String, gifData: Data){
+        self.gifUrl = gifUrl
+        self.gifData = gifData
+        //print("GIFURL: ", gifUrl, "    GIFDATA: ", gifData)
+        self.messageTextField.text = gifUrl
+    }
 
     @IBAction func unwindToMenu(segue: UIStoryboardSegue) {
 
@@ -333,6 +334,18 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
         //print("LOCATION = \(locValue.latitude) \(locValue.longitude)")
     }
 
+    @IBAction func didTapGif(_ sender: Any) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let gifsVC = storyboard.instantiateViewController(withIdentifier :"gifsVC") as! GifsViewController
+
+        gifsVC.delegate = self
+        self.present(gifsVC, animated: true, completion: nil)
+    
+    
+    }
+    
+    
     @IBAction func changedSwitch(_ sender: UISwitch) {
         if sender.isOn {
             self.Client.openChatWithId(id: self.chat.count, location: self.chat.location!, onSuccess: {

@@ -14,7 +14,7 @@ class TimerUIApplication: UIApplication {
     static let ApplicationDidTimoutNotification = "AppTimout"
     
     // The timeout in seconds for when to fire the idle timer.
-    let timeoutInSeconds: TimeInterval = 45
+    let timeoutInSeconds: TimeInterval = 60
     
     var idleTimer: Timer?
     

@@ -38,10 +38,8 @@ class LoginViewController: UIViewController {
     self.passwordField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSForegroundColorAttributeName : placeholderColor])
   }
   
-    override func viewWillAppear(_ animated: Bool) {
-        
-        UIApplication.shared.statusBarStyle = .lightContent
-        
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
   
