@@ -131,7 +131,7 @@ Project is currently in development
 
 ## License
 
-    Copyright [2017] [CP-SVM-SB Organizaion]
+    Copyright [2017] [CP-SVM-SB Organization]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
