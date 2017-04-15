@@ -18,6 +18,7 @@ class ThemeCollectionViewCell: UICollectionViewCell {
     
     var delegate: SettingsTableViewController?
     
+    var newAnonUser = AnonUser()
     var didSelect = Bool()
     var primaryColor = UIColor()
     var secondaryColor = UIColor()
@@ -44,6 +45,7 @@ class ThemeCollectionViewCell: UICollectionViewCell {
             self.delegate?.theme = theme
             self.updateCellView()
             self.delegate?.reloadView()
+            self.setNewAnonNameAndPic(theme: themeButton.tag)
             
         }
     
@@ -53,6 +55,16 @@ class ThemeCollectionViewCell: UICollectionViewCell {
     func updateCellView(){
         self.superview?.superview?.backgroundColor = theme?.secondaryColor
         self.superview?.backgroundColor = theme?.secondaryColor
+    }
+    
+    func setNewAnonNameAndPic(theme: Int){
+        
+        self.newAnonUser.setAnonInfo(themeNum: theme)
+        self.delegate?.userSettings?.username = newAnonUser.anonUserName
+        self.delegate?.userSettings?.profileImage = UIImage(named: newAnonUser.anonProfilePic)
+        
+        print("NEW USERNAME IS: ", self.delegate?.userSettings?.username!)
+        
     }
     
     func setTheme(choosenTheme: Int) -> Theme {

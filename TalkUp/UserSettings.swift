@@ -18,7 +18,7 @@ import Foundation
 import UIKit
 
 
-class UserSettings {
+class UserSettings: AnyObject {
     
     var notificationsOn: Bool?
     var encryptMessages: Bool?

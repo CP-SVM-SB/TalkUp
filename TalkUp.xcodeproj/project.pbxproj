@@ -17,6 +17,17 @@
 		135509011E9B0692005B6BA9 /* AnimationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135509001E9B0692005B6BA9 /* AnimationsViewController.swift */; };
 		13E007BE1E87441E00693F69 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E007BD1E87441E00693F69 /* SignUpViewController.swift */; };
 		13E007C01E8744E800693F69 /* TopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E007BF1E8744E800693F69 /* TopicsViewController.swift */; };
+		761EAF221EA1457C00257FC0 /* AnonUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761EAF211EA1457C00257FC0 /* AnonUser.swift */; };
+		761EAF2D1EA2930300257FC0 /* hotpink.png in Resources */ = {isa = PBXBuildFile; fileRef = 761EAF231EA2930300257FC0 /* hotpink.png */; };
+		761EAF2E1EA2930300257FC0 /* jeanblue.png in Resources */ = {isa = PBXBuildFile; fileRef = 761EAF241EA2930300257FC0 /* jeanblue.png */; };
+		761EAF2F1EA2930300257FC0 /* lightblue.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 761EAF251EA2930300257FC0 /* lightblue.jpg */; };
+		761EAF301EA2930300257FC0 /* limegreen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 761EAF261EA2930300257FC0 /* limegreen.jpg */; };
+		761EAF311EA2930300257FC0 /* magenta.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 761EAF271EA2930300257FC0 /* magenta.jpg */; };
+		761EAF321EA2930300257FC0 /* orange.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 761EAF281EA2930300257FC0 /* orange.jpg */; };
+		761EAF331EA2930300257FC0 /* purple.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 761EAF291EA2930300257FC0 /* purple.jpg */; };
+		761EAF341EA2930300257FC0 /* red.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 761EAF2A1EA2930300257FC0 /* red.jpg */; };
+		761EAF351EA2930300257FC0 /* skyblue.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 761EAF2B1EA2930300257FC0 /* skyblue.jpg */; };
+		761EAF361EA2930300257FC0 /* turquoise.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 761EAF2C1EA2930300257FC0 /* turquoise.jpg */; };
 		762461C51E903624007741EA /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762461C41E903624007741EA /* SettingsTableViewController.swift */; };
 		762461CD1E906468007741EA /* SettingsViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762461CC1E906468007741EA /* SettingsViewControllerExtension.swift */; };
 		762461D21E906F89007741EA /* Theme1.png in Resources */ = {isa = PBXBuildFile; fileRef = 762461CF1E906F89007741EA /* Theme1.png */; };
@@ -61,6 +72,17 @@
 		13E007BD1E87441E00693F69 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		13E007BF1E8744E800693F69 /* TopicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsViewController.swift; sourceTree = "<group>"; };
 		67FC73FE6B129877CEEBE7D2 /* Pods-TalkUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TalkUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TalkUp/Pods-TalkUp.release.xcconfig"; sourceTree = "<group>"; };
+		761EAF211EA1457C00257FC0 /* AnonUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnonUser.swift; sourceTree = "<group>"; };
+		761EAF231EA2930300257FC0 /* hotpink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hotpink.png; path = Assets.xcassets/hotpink.png; sourceTree = "<group>"; };
+		761EAF241EA2930300257FC0 /* jeanblue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = jeanblue.png; path = Assets.xcassets/jeanblue.png; sourceTree = "<group>"; };
+		761EAF251EA2930300257FC0 /* lightblue.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = lightblue.jpg; path = Assets.xcassets/lightblue.jpg; sourceTree = "<group>"; };
+		761EAF261EA2930300257FC0 /* limegreen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = limegreen.jpg; path = Assets.xcassets/limegreen.jpg; sourceTree = "<group>"; };
+		761EAF271EA2930300257FC0 /* magenta.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = magenta.jpg; path = Assets.xcassets/magenta.jpg; sourceTree = "<group>"; };
+		761EAF281EA2930300257FC0 /* orange.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = orange.jpg; path = Assets.xcassets/orange.jpg; sourceTree = "<group>"; };
+		761EAF291EA2930300257FC0 /* purple.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = purple.jpg; path = Assets.xcassets/purple.jpg; sourceTree = "<group>"; };
+		761EAF2A1EA2930300257FC0 /* red.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = red.jpg; path = Assets.xcassets/red.jpg; sourceTree = "<group>"; };
+		761EAF2B1EA2930300257FC0 /* skyblue.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = skyblue.jpg; path = Assets.xcassets/skyblue.jpg; sourceTree = "<group>"; };
+		761EAF2C1EA2930300257FC0 /* turquoise.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = turquoise.jpg; path = Assets.xcassets/turquoise.jpg; sourceTree = "<group>"; };
 		762461C41E903624007741EA /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		762461CC1E906468007741EA /* SettingsViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewControllerExtension.swift; sourceTree = "<group>"; };
 		762461CF1E906F89007741EA /* Theme1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Theme1.png; path = Assets.xcassets/Theme1.png; sourceTree = "<group>"; };
@@ -133,6 +155,16 @@
 		762461CE1E906F3F007741EA /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				761EAF231EA2930300257FC0 /* hotpink.png */,
+				761EAF241EA2930300257FC0 /* jeanblue.png */,
+				761EAF251EA2930300257FC0 /* lightblue.jpg */,
+				761EAF261EA2930300257FC0 /* limegreen.jpg */,
+				761EAF271EA2930300257FC0 /* magenta.jpg */,
+				761EAF281EA2930300257FC0 /* orange.jpg */,
+				761EAF291EA2930300257FC0 /* purple.jpg */,
+				761EAF2A1EA2930300257FC0 /* red.jpg */,
+				761EAF2B1EA2930300257FC0 /* skyblue.jpg */,
+				761EAF2C1EA2930300257FC0 /* turquoise.jpg */,
 				76F7DC921E9871F500D8363A /* loginBackground.gif */,
 				762461CF1E906F89007741EA /* Theme1.png */,
 				762461D01E906F89007741EA /* Theme2.png */,
@@ -216,6 +248,7 @@
 				849B53F91E81EF7E008B1FE0 /* ChatRoom.swift */,
 				762461D71E9077DB007741EA /* Theme.swift */,
 				76F7DC941E995A1700D8363A /* UserSettings.swift */,
+				761EAF211EA1457C00257FC0 /* AnonUser.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -302,14 +335,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				849B53E21E81EC04008B1FE0 /* LaunchScreen.storyboard in Resources */,
+				761EAF331EA2930300257FC0 /* purple.jpg in Resources */,
 				762461D41E906F89007741EA /* Theme3.png in Resources */,
 				762461D21E906F89007741EA /* Theme1.png in Resources */,
+				761EAF2D1EA2930300257FC0 /* hotpink.png in Resources */,
+				761EAF2F1EA2930300257FC0 /* lightblue.jpg in Resources */,
 				849B53DF1E81EC04008B1FE0 /* Assets.xcassets in Resources */,
 				762461D31E906F89007741EA /* Theme2.png in Resources */,
+				761EAF341EA2930300257FC0 /* red.jpg in Resources */,
+				761EAF311EA2930300257FC0 /* magenta.jpg in Resources */,
 				762461DC1E9083B7007741EA /* Theme5.png in Resources */,
 				76F7DC931E9871F500D8363A /* loginBackground.gif in Resources */,
+				761EAF2E1EA2930300257FC0 /* jeanblue.png in Resources */,
 				849B53DD1E81EC04008B1FE0 /* Main.storyboard in Resources */,
+				761EAF361EA2930300257FC0 /* turquoise.jpg in Resources */,
 				762461DB1E9083B6007741EA /* Theme4.png in Resources */,
+				761EAF351EA2930300257FC0 /* skyblue.jpg in Resources */,
+				761EAF321EA2930300257FC0 /* orange.jpg in Resources */,
+				761EAF301EA2930300257FC0 /* limegreen.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +420,7 @@
 				76BCAE1A1E9A577900FD9018 /* GifsViewController.swift in Sources */,
 				135509011E9B0692005B6BA9 /* AnimationsViewController.swift in Sources */,
 				135508F71E9A2182005B6BA9 /* PreviewChatsViewController.swift in Sources */,
+				761EAF221EA1457C00257FC0 /* AnonUser.swift in Sources */,
 				135508F91E9A21D4005B6BA9 /* PreviewChatsCell.swift in Sources */,
 				849B53EF1E81EDCF008B1FE0 /* ChatRoomViewController.swift in Sources */,
 				849B53D81E81EC04008B1FE0 /* AppDelegate.swift in Sources */,

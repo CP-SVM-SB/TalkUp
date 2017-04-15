@@ -71,6 +71,8 @@ class SettingsTableViewController: UITableViewController {
         self.navigationItem.hidesBackButton = true
         let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(SettingsTableViewController.back(sender:)))
         self.navigationItem.leftBarButtonItem = newBackButton
+        
+        print("USERNAME IS :", userSettings?.username)
 
     }
 

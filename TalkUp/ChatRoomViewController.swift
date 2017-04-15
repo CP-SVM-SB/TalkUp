@@ -55,7 +55,6 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
-            
         }
         
         //make sure the location is saved before we find the close by chat
@@ -66,8 +65,7 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
             // wait till we have a location
         }
  */
-        
-        
+
         let when = DispatchTime.now() + 5 // change 2 to desired number of seconds
         DispatchQueue.main.asyncAfter(deadline: when) {
             // Your code with delay
@@ -136,7 +134,6 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
         sendButton.layer.cornerRadius = 5.0
         sendButton.clipsToBounds = true
 
-
         // For keyboard
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(sender:)), name:NSNotification.Name.UIKeyboardWillShow, object: nil);
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(sender:)), name:NSNotification.Name.UIKeyboardWillHide, object: nil);
@@ -148,8 +145,6 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
         self.tableView.dataSource = self
         self.tableView.estimatedRowHeight = 100
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        //self.loadTable()
-
     }
 
     func refreshChat()

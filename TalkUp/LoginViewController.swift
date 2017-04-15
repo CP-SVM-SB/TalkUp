@@ -18,6 +18,7 @@ class LoginViewController: UIViewController {
     
     var theme: Theme?
     var userSettings: UserSettings?
+    var anonUser = AnonUser()
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -34,8 +35,16 @@ class LoginViewController: UIViewController {
     let placeholderColor = UIColor.lightGray    // placeholder text
     
     
-    self.usernameField.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSForegroundColorAttributeName : placeholderColor] )
+    self.usernameField.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSForegroundColorAttributeName : placeholderColor])
     self.passwordField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSForegroundColorAttributeName : placeholderColor])
+    
+    anonUser.setAnonInfo(themeNum: 0)
+    
+    userSettings?.profileImage = UIImage(named: anonUser.anonProfilePic)
+    userSettings?.username = anonUser.anonUserName
+    print("YOUR USERNAME IS:", anonUser.anonUserName)
+    print("YOUR PROFILEPIC IS:", anonUser.anonProfilePic)
+
   }
   
     override var preferredStatusBarStyle: UIStatusBarStyle {
