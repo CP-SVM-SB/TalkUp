@@ -15,13 +15,22 @@ class LoginViewController: UIViewController {
   @IBOutlet weak var passwordField: UITextField!
   @IBOutlet weak var signInButton: UIButton!
     
-    
+    var urlArr = [String]()
+    var cellIndexArr = [Int]()
     var theme: Theme?
     var userSettings: UserSettings?
     var anonUser = AnonUser()
+    
+    let flickrClient = Flickr()
+    let fakeTopicsArr = ["Donald Trump", "United Airlines", "WWIII", "iPhone 8", "Kendrick Lamar", "University of California Berkeley", "Maxine Waters", "North Korea"]
+    
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    DispatchQueue.global().async {
+        self.getTopicImageUrls()
+    }
 
     self.passwordField.isSecureTextEntry = true
     self.usernameField.becomeFirstResponder()
@@ -79,6 +88,8 @@ class LoginViewController: UIViewController {
         if segue.identifier == "loginToAnimationsSegue"{
             let animsVC = segue.destination as! AnimationsViewController
             animsVC.userSettings = self.userSettings
+            animsVC.urlArr = self.urlArr
+            animsVC.cellIndexArr = self.cellIndexArr
         }
         
     }
@@ -127,6 +138,20 @@ class LoginViewController: UIViewController {
         return Theme.init(primaryColor: primaryColor, secondaryColor: secondaryColor, tertiaryColor: tertiaryColor, quaternaryColor: quaternaryColor, quinaryColor: quinaryColor, characterType: characterType, backgroundImage: backgroundImage, font: font)
     }
     
+    
+    func getTopicImageUrls(){
+       
+        for i in 0...5 {
+            let tag = self.fakeTopicsArr[i].replacingOccurrences(of: " ", with: "+")
+            flickrClient.requestPhoto(tag: tag, success: { (string: String) in
+                self.cellIndexArr.append(i)
+                self.urlArr.append(string)
+            }) { (error: Error) in
+                print("Error getting urls")
+            }
+        }
+        
+    }
     
     
     func hexStringToUIColor (hex:String) -> UIColor {

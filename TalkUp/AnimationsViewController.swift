@@ -13,7 +13,10 @@ class AnimationsViewController: UIViewController {
   
   private var revealingLoaded = false
   let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "animationChatIcon")!,iconInitialSize: CGSize(width: 30, height: 30), backgroundColor: UIColor.init(red: 29, green: 143, blue: 241, alpha: 1))
-  
+    
+    var urlArr = [String]()
+    var cellIndexArr = [Int]()
+    var dataArr = [Data]()
     var userSettings: UserSettings?
     
   override var shouldAutorotate: Bool {
@@ -23,9 +26,10 @@ class AnimationsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    loadImageData()
+    
     self.view.addSubview(revealingSplashView)
     revealingSplashView.duration = 2.0
-    
     revealingSplashView.animationType = SplashAnimationType.popAndZoomOut
   }
   
@@ -40,6 +44,16 @@ class AnimationsViewController: UIViewController {
   }
   
   
+    func loadImageData(){
+        
+        for i in 0...urlArr.count-1 {
+            let data = try! Data(contentsOf: URL(string: urlArr[i])!)
+            dataArr.append(data)
+        }
+        
+    }
+    
+    
   func segueToTopics() {
     self.performSegue(withIdentifier: "animationsToTopicsSegue", sender: self)
   }
@@ -53,6 +67,8 @@ class AnimationsViewController: UIViewController {
         
         if segue.identifier == "animationsToTopicsSegue"{
             topicsVC.userSettings = self.userSettings
+            topicsVC.dataArr = self.dataArr
+            topicsVC.cellIndexArr = self.cellIndexArr
         }
 
     }

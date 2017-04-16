@@ -30,6 +30,13 @@
 		761EAF361EA2930300257FC0 /* turquoise.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 761EAF2C1EA2930300257FC0 /* turquoise.jpg */; };
 		761EAF381EA2B08500257FC0 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761EAF371EA2B08500257FC0 /* UIViewExtensions.swift */; };
 		761EAF3A1EA2B24100257FC0 /* TopicsMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761EAF391EA2B24100257FC0 /* TopicsMenuTableViewController.swift */; };
+		761EAF3C1EA30FC900257FC0 /* TopicsExtensionViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761EAF3B1EA30FC900257FC0 /* TopicsExtensionViewController2.swift */; };
+		761EAF3E1EA31DD700257FC0 /* TopicsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761EAF3D1EA31DD700257FC0 /* TopicsCollectionViewCell.swift */; };
+		761EAF421EA3222900257FC0 /* flame (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 761EAF3F1EA3222900257FC0 /* flame (1).png */; };
+		761EAF431EA3222900257FC0 /* flame (2).png in Resources */ = {isa = PBXBuildFile; fileRef = 761EAF401EA3222900257FC0 /* flame (2).png */; };
+		761EAF441EA3222900257FC0 /* flame copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 761EAF411EA3222900257FC0 /* flame copy.png */; };
+		761EAF461EA3222F00257FC0 /* black.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 761EAF451EA3222F00257FC0 /* black.jpg */; };
+		761EAF481EA324F600257FC0 /* FlickrClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761EAF471EA324F600257FC0 /* FlickrClient.swift */; };
 		762461C51E903624007741EA /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762461C41E903624007741EA /* SettingsTableViewController.swift */; };
 		762461CD1E906468007741EA /* SettingsViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762461CC1E906468007741EA /* SettingsViewControllerExtension.swift */; };
 		762461D21E906F89007741EA /* Theme1.png in Resources */ = {isa = PBXBuildFile; fileRef = 762461CF1E906F89007741EA /* Theme1.png */; };
@@ -87,6 +94,13 @@
 		761EAF2C1EA2930300257FC0 /* turquoise.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = turquoise.jpg; path = Assets.xcassets/turquoise.jpg; sourceTree = "<group>"; };
 		761EAF371EA2B08500257FC0 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		761EAF391EA2B24100257FC0 /* TopicsMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsMenuTableViewController.swift; sourceTree = "<group>"; };
+		761EAF3B1EA30FC900257FC0 /* TopicsExtensionViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsExtensionViewController2.swift; sourceTree = "<group>"; };
+		761EAF3D1EA31DD700257FC0 /* TopicsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsCollectionViewCell.swift; sourceTree = "<group>"; };
+		761EAF3F1EA3222900257FC0 /* flame (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flame (1).png"; path = "Assets.xcassets/flame (1).png"; sourceTree = "<group>"; };
+		761EAF401EA3222900257FC0 /* flame (2).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flame (2).png"; path = "Assets.xcassets/flame (2).png"; sourceTree = "<group>"; };
+		761EAF411EA3222900257FC0 /* flame copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flame copy.png"; path = "Assets.xcassets/flame copy.png"; sourceTree = "<group>"; };
+		761EAF451EA3222F00257FC0 /* black.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = black.jpg; path = Assets.xcassets/black.jpg; sourceTree = "<group>"; };
+		761EAF471EA324F600257FC0 /* FlickrClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrClient.swift; sourceTree = "<group>"; };
 		762461C41E903624007741EA /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		762461CC1E906468007741EA /* SettingsViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewControllerExtension.swift; sourceTree = "<group>"; };
 		762461CF1E906F89007741EA /* Theme1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Theme1.png; path = Assets.xcassets/Theme1.png; sourceTree = "<group>"; };
@@ -147,11 +161,12 @@
 			isa = PBXGroup;
 			children = (
 				762461D51E90718E007741EA /* ThemeCollectionViewCell.swift */,
+				761EAF3D1EA31DD700257FC0 /* TopicsCollectionViewCell.swift */,
+				76BCAE1D1E9F3DFA00FD9018 /* GifsCollectionViewCell.swift */,
 				133548FA1E90C2AA00D370EB /* TrendCell.swift */,
 				84BE64321E8837D800665425 /* ChatCell.swift */,
 				135508F81E9A21D4005B6BA9 /* PreviewChatsCell.swift */,
 				135508FA1E9A2221005B6BA9 /* ChatsPopCell.swift */,
-				76BCAE1D1E9F3DFA00FD9018 /* GifsCollectionViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -161,6 +176,10 @@
 			children = (
 				761EAF231EA2930300257FC0 /* hotpink.png */,
 				761EAF241EA2930300257FC0 /* jeanblue.png */,
+				761EAF3F1EA3222900257FC0 /* flame (1).png */,
+				761EAF401EA3222900257FC0 /* flame (2).png */,
+				761EAF451EA3222F00257FC0 /* black.jpg */,
+				761EAF411EA3222900257FC0 /* flame copy.png */,
 				761EAF251EA2930300257FC0 /* lightblue.jpg */,
 				761EAF261EA2930300257FC0 /* limegreen.jpg */,
 				761EAF271EA2930300257FC0 /* magenta.jpg */,
@@ -230,16 +249,17 @@
 				762461C41E903624007741EA /* SettingsTableViewController.swift */,
 				762461CC1E906468007741EA /* SettingsViewControllerExtension.swift */,
 				76F7DC901E985EAB00D8363A /* SecondarySettingsViewController.swift */,
+				13E007BF1E8744E800693F69 /* TopicsViewController.swift */,
+				135508F41E9A20FD005B6BA9 /* TopicsExtensionViewController.swift */,
+				761EAF3B1EA30FC900257FC0 /* TopicsExtensionViewController2.swift */,
 				76BCAE191E9A577900FD9018 /* GifsViewController.swift */,
 				849B53EC1E81EDB9008B1FE0 /* LoginViewController.swift */,
 				849B53EE1E81EDCF008B1FE0 /* ChatRoomViewController.swift */,
+				135509001E9B0692005B6BA9 /* AnimationsViewController.swift */,
 				13E007BD1E87441E00693F69 /* SignUpViewController.swift */,
-				13E007BF1E8744E800693F69 /* TopicsViewController.swift */,
-				135508F41E9A20FD005B6BA9 /* TopicsExtensionViewController.swift */,
 				761EAF391EA2B24100257FC0 /* TopicsMenuTableViewController.swift */,
 				135508F61E9A2182005B6BA9 /* PreviewChatsViewController.swift */,
 				135508FC1E9A228D005B6BA9 /* ChatsPopViewController.swift */,
-				135509001E9B0692005B6BA9 /* AnimationsViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -265,6 +285,7 @@
 				84BE64301E8837AF00665425 /* ParseClient.swift */,
 				13100FB21E90171A0017638A /* WatsonClient.swift */,
 				76BCAE1B1E9F2A2B00FD9018 /* GiphyClient.swift */,
+				761EAF471EA324F600257FC0 /* FlickrClient.swift */,
 			);
 			name = Client;
 			sourceTree = "<group>";
@@ -343,10 +364,12 @@
 				849B53E21E81EC04008B1FE0 /* LaunchScreen.storyboard in Resources */,
 				761EAF331EA2930300257FC0 /* purple.jpg in Resources */,
 				762461D41E906F89007741EA /* Theme3.png in Resources */,
+				761EAF431EA3222900257FC0 /* flame (2).png in Resources */,
 				762461D21E906F89007741EA /* Theme1.png in Resources */,
 				761EAF2D1EA2930300257FC0 /* hotpink.png in Resources */,
 				761EAF2F1EA2930300257FC0 /* lightblue.jpg in Resources */,
 				849B53DF1E81EC04008B1FE0 /* Assets.xcassets in Resources */,
+				761EAF461EA3222F00257FC0 /* black.jpg in Resources */,
 				762461D31E906F89007741EA /* Theme2.png in Resources */,
 				761EAF341EA2930300257FC0 /* red.jpg in Resources */,
 				761EAF311EA2930300257FC0 /* magenta.jpg in Resources */,
@@ -355,6 +378,8 @@
 				761EAF2E1EA2930300257FC0 /* jeanblue.png in Resources */,
 				849B53DD1E81EC04008B1FE0 /* Main.storyboard in Resources */,
 				761EAF361EA2930300257FC0 /* turquoise.jpg in Resources */,
+				761EAF421EA3222900257FC0 /* flame (1).png in Resources */,
+				761EAF441EA3222900257FC0 /* flame copy.png in Resources */,
 				762461DB1E9083B6007741EA /* Theme4.png in Resources */,
 				761EAF351EA2930300257FC0 /* skyblue.jpg in Resources */,
 				761EAF321EA2930300257FC0 /* orange.jpg in Resources */,
@@ -428,6 +453,7 @@
 				135508F71E9A2182005B6BA9 /* PreviewChatsViewController.swift in Sources */,
 				761EAF221EA1457C00257FC0 /* AnonUser.swift in Sources */,
 				135508F91E9A21D4005B6BA9 /* PreviewChatsCell.swift in Sources */,
+				761EAF3C1EA30FC900257FC0 /* TopicsExtensionViewController2.swift in Sources */,
 				849B53EF1E81EDCF008B1FE0 /* ChatRoomViewController.swift in Sources */,
 				849B53D81E81EC04008B1FE0 /* AppDelegate.swift in Sources */,
 				762461CD1E906468007741EA /* SettingsViewControllerExtension.swift in Sources */,
@@ -437,6 +463,7 @@
 				76F7DC951E995A1700D8363A /* UserSettings.swift in Sources */,
 				76F7DC971E99780D00D8363A /* TimerUIApplication.swift in Sources */,
 				13E007BE1E87441E00693F69 /* SignUpViewController.swift in Sources */,
+				761EAF3E1EA31DD700257FC0 /* TopicsCollectionViewCell.swift in Sources */,
 				849B53FA1E81EF7F008B1FE0 /* ChatRoom.swift in Sources */,
 				761EAF3A1EA2B24100257FC0 /* TopicsMenuTableViewController.swift in Sources */,
 				13E007C01E8744E800693F69 /* TopicsViewController.swift in Sources */,
@@ -450,6 +477,7 @@
 				76BCAE1E1E9F3DFA00FD9018 /* GifsCollectionViewCell.swift in Sources */,
 				762461D81E9077DB007741EA /* Theme.swift in Sources */,
 				84BE64311E8837AF00665425 /* ParseClient.swift in Sources */,
+				761EAF481EA324F600257FC0 /* FlickrClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

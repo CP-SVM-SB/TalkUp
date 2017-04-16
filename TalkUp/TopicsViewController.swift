@@ -13,22 +13,26 @@ protocol TopicsVCDelegate {
 }
 
 
-class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, TopicsVCDelegate {
+class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, TopicsVCDelegate, UIScrollViewDelegate {
   
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var counterItem: UIBarButtonItem!
     @IBOutlet var newChatButton: UIButton!
-   
+    @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var backToChatButton: UIButton!
+    @IBOutlet var otherTopicsLabel: UILabel!
+    @IBOutlet var trendingTopicsLabel: UILabel!
+    @IBOutlet var scrollView: UIScrollView!
     
-  
+    let screenHeight = UIScreen.main.bounds.height
+    //let scrollViewContentHeight = 1200 as CGFloat
   let myParseClient = ParseClient()
   let keywordApi = WatsonClient()
   let myDispatchGroup = DispatchGroup()
-    
-    
+  let fakeTopicsArr = ["Donald Trump", "United Airlines", "WWIII", "iPhone 8", "Kendrick Lamar", "Berkeley", "Maxine Waters", "North Korea"]
+  let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
   // -- Settable Vars --
   var noTopicsMax = 7               // max. number of topics you wish to see
   var topicsRollbackLength: Int = 50   // no of recent msgs you wish to use in getting topics [NB]: if 0, ALL messages are used
@@ -53,24 +57,44 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   var userSettings: UserSettings?
   var timer = Timer()
   var counter = 0
+  var dataArr = [Data]()
+  var cellIndexArr = [Int]()
     
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     tableView.delegate = self
     tableView.dataSource = self
+    tableView.allowsSelection = false
+    tableView.estimatedRowHeight = 80
+    tableView.preservesSuperviewLayoutMargins = false
+    tableView.separatorInset = UIEdgeInsets.zero
+    tableView.layoutMargins = UIEdgeInsets.zero
+    tableView.rowHeight = UITableViewAutomaticDimension
     
-    self.tableView.separatorStyle = .none
-    self.tableView.allowsSelection = false
+    
+    scrollView.delegate = self
+ 
     
     counterItem.title = " "
     counterItem.tintColor = .black
+    
+    trendingTopicsLabel.text = "Trending Topics"
+    otherTopicsLabel.text = "All Topics"
 
     containerView.layer.shadowColor = UIColor(white: 0.7, alpha: 0.7).cgColor
     containerView.layer.shadowOffset = CGSize(width: 3, height: 3)
     containerView.layer.shadowOpacity = 0.4
     containerView.layer.masksToBounds = false
     containerView.layer.shadowPath = UIBezierPath(rect: containerView.bounds).cgPath
-  }
+    
+    layout.minimumInteritemSpacing = 1
+    layout.minimumLineSpacing = 1
+    
+    collectionView.delegate = self
+    collectionView.dataSource = self
+    
+    }
   
   
   
@@ -87,6 +111,8 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     myDispatchGroup.notify(queue: .main) {
       self.getIndexChatMsgs(index: self.chatCount)
     }
+    
+    
   }
     
 
@@ -96,6 +122,41 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
   }
   
+    
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+
+        if scrollView.bounds.intersects(view.frame) == true {
+            //the UIView is within frame, use the UIScrollView's scrolling.
+            
+            if tableView.contentOffset.y == 0 {
+                //tableViews content is at the top of the tableView.
+                
+                tableView.isUserInteractionEnabled = false
+                tableView.resignFirstResponder()
+                //print("using scrollView scroll")
+                
+            } else {
+                
+                //UIView is in frame, but the tableView still has more content to scroll before resigning its scrolling over to ScrollView.
+                
+                tableView.isUserInteractionEnabled = true
+                scrollView.resignFirstResponder()
+                //print("using tableView scroll")
+            }
+            
+        } else {
+            
+            //UIView is not in frame. Use tableViews scroll.
+            
+            tableView.isUserInteractionEnabled = true
+            scrollView.resignFirstResponder()
+            //print("using tableView scroll")
+            
+        }
+        
+    }
     
     func startTimer(){
         
@@ -190,12 +251,14 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
           
           // perform Recursion
           if (self.chatIndex < self.noCurrentlyAvailableChats) {
-            var nextIter = self.chatIndex
+            let nextIter = self.chatIndex
             self.getIndexChatMsgs(index: nextIter)
             self.tableView.reloadData()
+            self.tableView.estimatedRowHeight = self.tableView.contentSize.height
             
           } else {
             self.tableView.reloadData()
+            self.tableView.estimatedRowHeight = self.tableView.contentSize.height
           }
           
         }, failure: { (error: Error) in
@@ -252,6 +315,8 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   
     
     @IBAction func didTapMenu(_ sender: Any) {
+        
+        self.view.bringSubview(toFront: containerView)
         
         if containerView.isHidden == false {
             containerView.slideOutToLeft()

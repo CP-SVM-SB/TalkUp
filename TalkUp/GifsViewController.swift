@@ -139,6 +139,7 @@ class GifsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
 
     func setGifImages(){
+        
         dataArray.removeAll()
         var thisUrl = String()
         
