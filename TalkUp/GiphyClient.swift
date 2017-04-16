@@ -22,7 +22,6 @@ class Giphy: NSObject {
     
     let host_path = "https://api.giphy.com/v1/gifs/search"
     let public_beta_key = "&api_key=dc6zaTOxFJmzC"
-    //let q = "raccoon"
     
     
     func makeSearchRequest(q: String, success: @escaping (NSArray) ->(), failure: @escaping (Error)->()){

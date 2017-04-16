@@ -20,11 +20,11 @@ class AnonUser: NSObject {
     var animalUsernames = ["bundleTurtle", "butterflyChicken", "jokesGiraffe", "venomousFish", "malcontentFlamingo", "puddingSnail", "glorySquirrel", "banginCamel", "dimDolphin", "confusedZebra"]
     var snapchatUsernames = ["djkhaled305", "arnoldschnitzel", "ellen", "kylizzlemynizzl", "kendalljenner", "howusnap", "jicknonas", "ohheyhilary", "jlobts", "snoopdogg213"]
     
-    var robotProfilepics =  ["hotpink.jpg", "jeanblue.png", "lightblue.jpg", "limegreen.jpg", "magenta.jpg", "orange.jpg", "purple.jpg", "red.jpg", "skyblue.jpg", "turquoise.jpg"]
-    var fruitProfilepics =  ["hotpink.jpg", "jeanblue.png", "lightblue.jpg", "limegreen.jpg", "magenta.jpg", "orange.jpg", "purple.jpg", "red.jpg", "skyblue.jpg", "turquoise.jpg"]
-    var planetProfilepics =  ["hotpink.jpg", "jeanblue.png", "lightblue.jpg", "limegreen.jpg", "magenta.jpg", "orange.jpg", "purple.jpg", "red.jpg", "skyblue.jpg", "turquoise.jpg"]
-    var animalProfilepics =  ["hotpink.jpg", "jeanblue.png", "lightblue.jpg", "limegreen.jpg", "magenta.jpg", "orange.jpg", "purple.jpg", "red.jpg", "skyblue.jpg", "turquoise.jpg"]
-    var snapchatProfilepics =  ["hotpink.jpg", "jeanblue.png", "lightblue.jpg", "limegreen.jpg", "magenta.jpg", "orange.jpg", "purple.jpg", "red.jpg", "skyblue.jpg", "turquoise.jpg"]
+    var robotProfilepics =  ["hotpink.png", "jeanblue.png", "lightblue.jpg", "limegreen.jpg", "magenta.jpg", "orange.jpg", "purple.jpg", "red.jpg", "skyblue.jpg", "turquoise.jpg"]
+    var fruitProfilepics =  ["hotpink.png", "jeanblue.png", "lightblue.jpg", "limegreen.jpg", "magenta.jpg", "orange.jpg", "purple.jpg", "red.jpg", "skyblue.jpg", "turquoise.jpg"]
+    var planetProfilepics =  ["hotpink.png", "jeanblue.png", "lightblue.jpg", "limegreen.jpg", "magenta.jpg", "orange.jpg", "purple.jpg", "red.jpg", "skyblue.jpg", "turquoise.jpg"]
+    var animalProfilepics =  ["hotpink.png", "jeanblue.png", "lightblue.jpg", "limegreen.jpg", "magenta.jpg", "orange.jpg", "purple.jpg", "red.jpg", "skyblue.jpg", "turquoise.jpg"]
+    var snapchatProfilepics =  ["hotpink.png", "jeanblue.png", "lightblue.jpg", "limegreen.jpg", "magenta.jpg", "orange.jpg", "purple.jpg", "red.jpg", "skyblue.jpg", "turquoise.jpg"]
     
     
     var anonUserName = String()

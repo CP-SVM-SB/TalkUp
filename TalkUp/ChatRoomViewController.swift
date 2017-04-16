@@ -28,6 +28,7 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet var tableView: UITableView!
     @IBOutlet weak var gifButton: UIButton!
     
+    var delegate: TopicsVCDelegate?
     var messages: [Message] = []
     var Client = ParseClient()
     var flag = false
@@ -200,6 +201,9 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
             Client.exitChatWithId(id: self.chat.count) {
                 print("exited chat")
             }
+            
+            self.delegate?.startTimer()
+            
         }
         
         if (segue.identifier == "toGifs"){

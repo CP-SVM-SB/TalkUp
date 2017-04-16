@@ -76,9 +76,8 @@ class LoginViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let animsVC = segue.destination as! AnimationsViewController
-        
         if segue.identifier == "loginToAnimationsSegue"{
+            let animsVC = segue.destination as! AnimationsViewController
             animsVC.userSettings = self.userSettings
         }
         

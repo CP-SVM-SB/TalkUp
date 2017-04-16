@@ -8,28 +8,39 @@
 
 import UIKit
 
-class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+protocol TopicsVCDelegate {
+    func startTimer()
+}
+
+
+class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, TopicsVCDelegate {
   
-  @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var menuButton: UIBarButtonItem!
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var counterItem: UIBarButtonItem!
+    @IBOutlet var newChatButton: UIButton!
+   
+    @IBOutlet var backToChatButton: UIButton!
+    
   
   let myParseClient = ParseClient()
   let keywordApi = WatsonClient()
-  
+  let myDispatchGroup = DispatchGroup()
+    
+    
   // -- Settable Vars --
   var noTopicsMax = 7               // max. number of topics you wish to see
   var topicsRollbackLength: Int = 50   // no of recent msgs you wish to use in getting topics [NB]: if 0, ALL messages are used
-  
   var noCurrentlyAvailableChats = 0
   var rawMessages: String?
   var chatmsg: String?
   var chatRawMsgs = [String]()
-  
   var keywordsWithRelevance = Dictionary <String, Double>()
   var keywordsWithChats = Dictionary<String, NSMutableArray>()
   var keywordsArr = [String]()
   var previewChats : NSMutableArray?
   var noChatsWithKeyword = [Int]()
-  
   var chatTopicWithRelevance = Dictionary<String, Double>()
   var chatTopicsArr = [String]()
   var chatIDs = [Int]()
@@ -37,18 +48,12 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   var keywordID = 0
   var chatCount = 0
   var chatIndex = 0
-  
   var revChatMsgs = Dictionary<Int, [Message]>()
-  
-  
   var firstValSet = false
   var userSettings: UserSettings?
-  
-  let myDispatchGroup = DispatchGroup()
-  
-  
-  
-  
+  var timer = Timer()
+  var counter = 0
+    
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.delegate = self
@@ -57,13 +62,21 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     self.tableView.separatorStyle = .none
     self.tableView.allowsSelection = false
     
+    counterItem.title = " "
+    counterItem.tintColor = .black
+
+    containerView.layer.shadowColor = UIColor(white: 0.7, alpha: 0.7).cgColor
+    containerView.layer.shadowOffset = CGSize(width: 3, height: 3)
+    containerView.layer.shadowOpacity = 0.4
+    containerView.layer.masksToBounds = false
+    containerView.layer.shadowPath = UIBezierPath(rect: containerView.bounds).cgPath
   }
   
   
   
   override func viewWillAppear(_ animated: Bool) {
     view.backgroundColor = userSettings?.theme?.primaryColor
-    
+    counter = 30
     myDispatchGroup.enter()
     myParseClient.getChatCount (onSuccess: { (chatCount: Int) in
       print("No. of available chats: \(chatCount+1)")
@@ -75,18 +88,44 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
       self.getIndexChatMsgs(index: self.chatCount)
     }
   }
-  
-  
-  
-  
+    
+
   override func viewDidLayoutSubviews() {
     if traitCollection.forceTouchCapability == .available {
       registerForPreviewing(with: self, sourceView: tableView)
     }
   }
   
+    
+    func startTimer(){
+        
+        counter = 30
+        newChatButton.isHidden  = true
+        newChatButton.isEnabled = false
+        backToChatButton.isHidden = false
+        
+        counterItem.isEnabled = true
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TopicsViewController.updateTime), userInfo: nil, repeats: true)
+    }
   
-  
+    func updateTime(){
+        counter = counter - 1
+        //print("TIMER:", counter)
+        counterItem.title = String(counter)
+        
+        if counter == 0{
+            timesUp()
+        }
+    }
+    
+    
+    func timesUp(){
+        timer.invalidate()
+        counterItem.title = " "
+        newChatButton.isHidden = false
+        newChatButton.isEnabled = true
+        backToChatButton.isHidden = true
+    }
   
   func getIndexChatMsgs(index: Int) {     // lots of moving parts! (hint: nested, dependent async calls)
     var msg: String?
@@ -182,17 +221,57 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
       settingsVC.userSettings = self.userSettings
     }
     
+    if segue.identifier == "toMenu"{
+        let menuTableVC = segue.destination as! TopicsMenuTableViewController
+        
+        menuTableVC.userSettings = self.userSettings
+    }
+    
     if segue.identifier == "topicsToChatsSegue"{
       let navC = segue.destination as! UINavigationController
       let chatVC = navC.viewControllers.first as! ChatRoomViewController
       chatVC.userSettings = self.userSettings
+        chatVC.delegate = self
     }
     
     
     
   }
   
+    
+    @IBAction func didTapBackToChat(_ sender: UIButton) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let chatVC = storyboard.instantiateViewController(withIdentifier :"chatVC") as!ChatRoomViewController
+        let navC = UINavigationController(rootViewController: chatVC)
+        self.present(navC, animated:true, completion: nil)
+        
+        
+        //present(chatVC, animated: true, completion: nil)
+    }
   
+    
+    @IBAction func didTapMenu(_ sender: Any) {
+        
+        if containerView.isHidden == false {
+            containerView.slideOutToLeft()
+            containerView.isHidden = true
+        }else{
+            containerView.slideInFromLeft()
+            containerView.isHidden = false
+        }
+        
+    }
+    
+    
+    @IBAction func didTapOutsideMenu(_ sender: Any) {
+        containerView.slideOutToLeft()
+        containerView.isHidden = true
+    }
+    
+    
+    
+    
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return (self.keywordsArr.count > self.noTopicsMax) ? self.noTopicsMax : self.keywordsArr.count
   }

@@ -72,7 +72,7 @@ class SettingsTableViewController: UITableViewController {
         let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(SettingsTableViewController.back(sender:)))
         self.navigationItem.leftBarButtonItem = newBackButton
         
-        print("USERNAME IS :", userSettings?.username)
+        //print("USERNAME IS :", userSettings?.username)
 
     }
 

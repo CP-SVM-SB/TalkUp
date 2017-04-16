@@ -28,6 +28,8 @@
 		761EAF341EA2930300257FC0 /* red.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 761EAF2A1EA2930300257FC0 /* red.jpg */; };
 		761EAF351EA2930300257FC0 /* skyblue.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 761EAF2B1EA2930300257FC0 /* skyblue.jpg */; };
 		761EAF361EA2930300257FC0 /* turquoise.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 761EAF2C1EA2930300257FC0 /* turquoise.jpg */; };
+		761EAF381EA2B08500257FC0 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761EAF371EA2B08500257FC0 /* UIViewExtensions.swift */; };
+		761EAF3A1EA2B24100257FC0 /* TopicsMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761EAF391EA2B24100257FC0 /* TopicsMenuTableViewController.swift */; };
 		762461C51E903624007741EA /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762461C41E903624007741EA /* SettingsTableViewController.swift */; };
 		762461CD1E906468007741EA /* SettingsViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762461CC1E906468007741EA /* SettingsViewControllerExtension.swift */; };
 		762461D21E906F89007741EA /* Theme1.png in Resources */ = {isa = PBXBuildFile; fileRef = 762461CF1E906F89007741EA /* Theme1.png */; };
@@ -83,6 +85,8 @@
 		761EAF2A1EA2930300257FC0 /* red.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = red.jpg; path = Assets.xcassets/red.jpg; sourceTree = "<group>"; };
 		761EAF2B1EA2930300257FC0 /* skyblue.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = skyblue.jpg; path = Assets.xcassets/skyblue.jpg; sourceTree = "<group>"; };
 		761EAF2C1EA2930300257FC0 /* turquoise.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = turquoise.jpg; path = Assets.xcassets/turquoise.jpg; sourceTree = "<group>"; };
+		761EAF371EA2B08500257FC0 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		761EAF391EA2B24100257FC0 /* TopicsMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsMenuTableViewController.swift; sourceTree = "<group>"; };
 		762461C41E903624007741EA /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		762461CC1E906468007741EA /* SettingsViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewControllerExtension.swift; sourceTree = "<group>"; };
 		762461CF1E906F89007741EA /* Theme1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Theme1.png; path = Assets.xcassets/Theme1.png; sourceTree = "<group>"; };
@@ -232,6 +236,7 @@
 				13E007BD1E87441E00693F69 /* SignUpViewController.swift */,
 				13E007BF1E8744E800693F69 /* TopicsViewController.swift */,
 				135508F41E9A20FD005B6BA9 /* TopicsExtensionViewController.swift */,
+				761EAF391EA2B24100257FC0 /* TopicsMenuTableViewController.swift */,
 				135508F61E9A2182005B6BA9 /* PreviewChatsViewController.swift */,
 				135508FC1E9A228D005B6BA9 /* ChatsPopViewController.swift */,
 				135509001E9B0692005B6BA9 /* AnimationsViewController.swift */,
@@ -249,6 +254,7 @@
 				762461D71E9077DB007741EA /* Theme.swift */,
 				76F7DC941E995A1700D8363A /* UserSettings.swift */,
 				761EAF211EA1457C00257FC0 /* AnonUser.swift */,
+				761EAF371EA2B08500257FC0 /* UIViewExtensions.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -432,11 +438,13 @@
 				76F7DC971E99780D00D8363A /* TimerUIApplication.swift in Sources */,
 				13E007BE1E87441E00693F69 /* SignUpViewController.swift in Sources */,
 				849B53FA1E81EF7F008B1FE0 /* ChatRoom.swift in Sources */,
+				761EAF3A1EA2B24100257FC0 /* TopicsMenuTableViewController.swift in Sources */,
 				13E007C01E8744E800693F69 /* TopicsViewController.swift in Sources */,
 				762461C51E903624007741EA /* SettingsTableViewController.swift in Sources */,
 				76BCAE1C1E9F2A2B00FD9018 /* GiphyClient.swift in Sources */,
 				849B53F41E81EE15008B1FE0 /* User.swift in Sources */,
 				135508FB1E9A2221005B6BA9 /* ChatsPopCell.swift in Sources */,
+				761EAF381EA2B08500257FC0 /* UIViewExtensions.swift in Sources */,
 				76F7DC911E985EAB00D8363A /* SecondarySettingsViewController.swift in Sources */,
 				762461D61E90718E007741EA /* ThemeCollectionViewCell.swift in Sources */,
 				76BCAE1E1E9F3DFA00FD9018 /* GifsCollectionViewCell.swift in Sources */,
