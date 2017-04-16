@@ -894,7 +894,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="#Topics" id="Amg-bo-GwW">
-                        <barButtonItem key="leftBarButtonItem" image="gear" id="UD1-cA-M71">
+                        <barButtonItem key="leftBarButtonItem" image="burgermenu" id="UD1-cA-M71">
                             <color key="tintColor" red="0.30129420759999997" green="0.118541047" blue="0.5530572534" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="didTapMenu:" destination="fd9-6W-YU3" id="izM-Tf-CBq"/>
@@ -1406,8 +1406,8 @@
     </scenes>
     <resources>
         <image name="Selected" width="640" height="480"/>
+        <image name="burgermenu" width="32" height="23"/>
         <image name="chatIcon" width="222" height="220"/>
-        <image name="gear" width="30" height="32"/>
         <image name="noun_969228_cc" width="32" height="22"/>
         <image name="plus" width="30" height="30"/>
         <image name="purpleSelect" width="800" height="800"/>
