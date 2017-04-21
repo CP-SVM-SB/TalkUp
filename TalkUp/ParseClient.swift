@@ -61,6 +61,7 @@ class ParseClient: NSObject {
     
     func queueChatWithId (id: Int, location: Location, onSuccess: @escaping () -> ()) {
         let query = PFQuery(className: "queue")
+        var flag = true
         
         query.getFirstObjectInBackground { (queue: PFObject?, error: Error?) in
             if let queue = queue {
@@ -69,19 +70,30 @@ class ParseClient: NSObject {
                 var longitude = queue["longitude"] as! Array<Double>
                 var latitude = queue["latitude"] as! Array<Double>
                 
+                for num in list {
+                    if num == id {
+                        flag = false
+                    }
+                }
                 
-                list.append(id)
-                longitude.append(location.longitude!)
-                latitude.append(location.latitude!)
+                if flag == true {
+                    list.append(id)
+                    longitude.append(location.longitude!)
+                    latitude.append(location.latitude!)
+                    
+                    queue["list"] = list
+                    queue["longitude"] = longitude
+                    queue["latitude"] = latitude
+                    
+                    queue.saveInBackground(block: { (success: Bool, error: Error?) in
+                        onSuccess()
+                    })
+                }
+                else {
+                    print("The chat is already in the queue")
+                }
                 
-                queue["list"] = list
-                queue["longitude"] = longitude
-                queue["latitude"] = latitude
                 
-                queue.saveInBackground(block: { (success: Bool, error: Error?) in
-                    print("Queue updated")
-                    onSuccess()
-                })
             }
         }
     }
@@ -120,7 +132,6 @@ class ParseClient: NSObject {
                 queue["latitude"] = latitude
                 
                 queue.saveInBackground(block: { (success: Bool, error: Error?) in
-                    print("Queue updated")
                     onSuccess()
                 })
             }
@@ -228,10 +239,6 @@ class ParseClient: NSObject {
         
     }
     
-    func getChatWithId(id: Int) {
-        
-    }
-    
     func addLocationToChatWithId(location: Location, id: Int, onSuccess: @escaping () -> ()) {
         let query = PFQuery(className: "chat\(id)")
         
@@ -320,7 +327,7 @@ class ParseClient: NSObject {
                 }
                 room.memberCount = chatInfo["memberCount"] as! Int
                 room.open = chatInfo["open"] as! Int
-                room.topic = chatInfo["topic"] as! String
+                room.topic = chatInfo["topic"] as? String
                 
             }
             
@@ -346,7 +353,7 @@ class ParseClient: NSObject {
         chat["activity"] = [1]
         chat.saveInBackground(block: { (success: Bool, error: Error?) in
             if success {
-                print("New Chat created")
+                print("New Chat created and joined with id \(id)")
                 onSuccess(room)
             }
             else {
@@ -388,7 +395,7 @@ class ParseClient: NSObject {
                 
                 chatInfo.saveInBackground(block: { (success: Bool, error: Error?) in
                     if success {
-                        print("chat created")
+                        print("chat chat with id \(chat.count)")
                         print(chat)
                         onSuccess(chat)
                     }
@@ -573,10 +580,26 @@ class ParseClient: NSObject {
         }
     }
     
+    func sendInitialMessageToChatWithId(id: Int, onSuccess: @escaping () -> (), onFailure: @escaping (Error) -> ()) {
+        let messageSender = PFObject(className: "chat\(id)")
+        messageSender["text"] = "Let's Talk Up!"
+        messageSender["from"] = "admin"
+        
+        messageSender.saveInBackground { (success: Bool, error: Error?) in
+            if let error = error {
+                onFailure(error)
+            }
+            else {
+                
+                onSuccess()
+            }
+        }
+    }
+    
     func getMessagesFromChatWithId(id: Int, onSuccess: @escaping ([Message]) -> (), onFailure: @escaping (Error) -> ()) {
         var messages: [Message] = []
         
-        var query = PFQuery(className: "chat\(id)")
+        let query = PFQuery(className: "chat\(id)")
         query.order(byAscending: "createdAt")
         var flag = false
         
@@ -675,17 +698,14 @@ class ParseClient: NSObject {
                 if let chatInfo = chatInfo {
                     let numberOfMembers = chatInfo["memberCount"] as! Int
                     let open = chatInfo["open"] as! Int
-                    if open == 1 /*and the chat is within 50 miles*/ {
-                        
+                    
+                    if numberOfMembers < 2{
+                        onSuccess(id, true)
                     }
                     else {
-                        if numberOfMembers < 2{
-                            onSuccess(id, true)
-                        }
-                        else {
-                            onSuccess(id+1, false)
-                        }
+                        onSuccess(id+1, false)
                     }
+                    
                 }
             })
             
