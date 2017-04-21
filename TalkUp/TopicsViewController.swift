@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 
 protocol TopicsVCDelegate {
     func startTimer()
 }
 
 
-class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, TopicsVCDelegate, UIScrollViewDelegate {
+class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, TopicsVCDelegate, UIScrollViewDelegate, CLLocationManagerDelegate {
   
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
@@ -59,9 +61,21 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   var counter = 0
   var dataArr = [Data]()
   var cellIndexArr = [Int]()
+    var location = Location()
+    
+    let locationManager = CLLocationManager()
+
     
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    self.locationManager.requestAlwaysAuthorization()
+    self.locationManager.requestWhenInUseAuthorization()
+    if CLLocationManager.locationServicesEnabled() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        locationManager.startUpdatingLocation()
+    }
     
     tableView.delegate = self
     tableView.dataSource = self
@@ -294,8 +308,11 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
       let navC = segue.destination as! UINavigationController
       let chatVC = navC.viewControllers.first as! ChatRoomViewController
       chatVC.userSettings = self.userSettings
+        chatVC.chat.location?.longitude = self.location.longitude
+        chatVC.chat.location?.latitude = self.location.latitude
         chatVC.delegate = self
     }
+    
     
     
     
@@ -351,7 +368,13 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     return cell
   }
   
-  
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        self.location.longitude = locValue.longitude
+        self.location.latitude = locValue.latitude
+        //print(self.location.latitude)
+        //print("LOCATION = \(locValue.latitude) \(locValue.longitude)")
+    }
   
   
   

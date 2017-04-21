@@ -16,11 +16,11 @@ protocol ChatVCDelegate {
 }
 
 
-class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, ChatVCDelegate {
-  
+class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ChatVCDelegate {
+    
+      
     @IBOutlet var `switch`: UISwitch!
     
-    let locationManager = CLLocationManager()
     
     @IBOutlet var chatView: UIView!
     @IBOutlet var messageTextField: UITextField!
@@ -49,14 +49,7 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
         self.switch.isOn = false
         
         
-        // Get user's location
-        self.locationManager.requestAlwaysAuthorization()
-        self.locationManager.requestWhenInUseAuthorization()
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
-        }
+        
         
         //make sure the location is saved before we find the close by chat
     //self.location
@@ -67,7 +60,9 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
         }
  */
 
-        let when = DispatchTime.now() + 5 // change 2 to desired number of seconds
+        
+        /*
+        let when = DispatchTime.now() + 5 // change 5 to desired number of seconds
         DispatchQueue.main.asyncAfter(deadline: when) {
             // Your code with delay
             
@@ -80,7 +75,8 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
                     else {
                         self.switch.isOn = false
                     }
-                    print("joined chat based on location")
+                    print("joined chat \(self.chat.count) based on location")
+                    
                     self.loadTable()
                     let timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(ChatRoomViewController.refreshChat), userInfo: nil, repeats: true)
                 })
@@ -117,6 +113,65 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
                 }
             })
         }
+         */
+        self.Client.findCloseByChat(userLocation: self.chat.location!, onSuccess: { (code: Int) in
+            self.Client.joinChatWithId(id: code, onSuccess: { (chatInfo: ChatRoom) in
+                self.chat = chatInfo
+                if self.chat.open == 1 {
+                    self.switch.isOn = true
+                }
+                else {
+                    self.switch.isOn = false
+                }
+                print("joined chat \(self.chat.count) based on location")
+                
+                self.loadTable()
+                let timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(ChatRoomViewController.refreshChat), userInfo: nil, repeats: true)
+            })
+        }, onFailure: {
+            self.Client.findChat { (chatID: Int, chatAlreadyExists: Bool) in
+                if chatAlreadyExists {
+                    self.Client.joinChatWithId(id: chatID, onSuccess: { (chatInfo: ChatRoom) in
+                        if chatInfo.memberCount < 2 {
+                            self.Client.sendInitialMessageToChatWithId(id: chatInfo.count, onSuccess: {
+                                print("Initial message sent")
+                            }, onFailure: { (error: Error) in
+                                print("failed to send initial message")
+                            })
+                        }
+                        self.chat = chatInfo
+                        if self.chat.open == 1 {
+                            self.switch.isOn = true
+                        }
+                        else {
+                            self.switch.isOn = false
+                        }
+                        print("joined chat")
+                        self.loadTable()
+                        let timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(ChatRoomViewController.refreshChat), userInfo: nil, repeats: true)
+                    })
+                }
+                else {
+                    self.Client.createAndJoinChatWithId(id: chatID, onSuccess: { (chatInfo: ChatRoom) in
+                        self.Client.sendInitialMessageToChatWithId(id: chatInfo.count, onSuccess: { 
+                            print("Initial message sent")
+                        }, onFailure: { (error: Error) in
+                            print("failed to send initial message")
+                        })
+                        self.chat = chatInfo
+                        if self.chat.open == 1 {
+                            self.switch.isOn = true
+                        }
+                        else {
+                            self.switch.isOn = false
+                        }
+                        print("created and joined new chat")
+                        self.loadTable()
+                        let timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(ChatRoomViewController.refreshChat), userInfo: nil, repeats: true)
+                    })
+                }
+            }
+        })
     
         // add the current user to the chat room
         //chat.members.append(user!)
@@ -181,6 +236,19 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
     // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func onLeaveChat(_ sender: Any) {
+        if self.chat.memberCount <= 1 {
+            self.Client.cleanupChatWithId(id: self.chat.count, onSuccess: {
+                print("cleaned up chat")
+                self.Client.exitChatWithId(id: self.chat.count) {
+                    print("exited chat and ready to segue")
+                }
+                
+            })
+        }
+        self.performSegue(withIdentifier: "unwindToTopics", sender: self)
+        
+    }
     
  // ------------------------ PREPARE FOR SEGUE --------------------------
     
@@ -189,12 +257,13 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
             if room.memberCount <= 1{
                 self.Client.cleanupChatWithId(id: room.count, onSuccess: { 
                     print("cleaned up chat")
+                    self.Client.exitChatWithId(id: self.chat.count) {
+                        print("exited chat and ready to segue")
+                    }
                 })
             }
         }
-        Client.exitChatWithId(id: self.chat.count) { 
-            print("exited chat and ready to segue")
-        }
+        
 
         
         if (segue.identifier == "unwindToTopics") {
@@ -324,13 +393,6 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
         UIView.animate(withDuration: 0.2) {
           self.chatView.endEditing(true)
         }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        var locValue:CLLocationCoordinate2D = manager.location!.coordinate
-        self.chat.location?.longitude = locValue.longitude
-        self.chat.location?.latitude = locValue.latitude
-        //print("LOCATION = \(locValue.latitude) \(locValue.longitude)")
     }
 
     @IBAction func didTapGif(_ sender: Any) {
