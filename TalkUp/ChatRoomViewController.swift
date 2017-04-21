@@ -28,6 +28,7 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet var tableView: UITableView!
     @IBOutlet weak var gifButton: UIButton!
     
+    var leavingChat = false
     var delegate: TopicsVCDelegate?
     var messages: [Message] = []
     var Client = ParseClient()
@@ -246,6 +247,7 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
                 
             })
         }
+        self.leavingChat = true
         self.performSegue(withIdentifier: "unwindToTopics", sender: self)
         
     }
@@ -270,8 +272,10 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
             Client.exitChatWithId(id: self.chat.count) {
                 print("exited chat")
             }
-            
-            self.delegate?.startTimer()
+            if self.leavingChat == false {
+                self.delegate?.startTimer()
+
+            }
             
         }
         
