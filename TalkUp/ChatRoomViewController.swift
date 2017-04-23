@@ -169,6 +169,7 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
                         print("created and joined new chat")
                         self.loadTable()
                         let timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(ChatRoomViewController.refreshChat), userInfo: nil, repeats: true)
+                        
                     })
                 }
             }
@@ -358,7 +359,11 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
     }
 
     func loadTable() {
-        Client.getMessagesFromChatWithId(id: self.chat.count, onSuccess: { (listOfMessages:[Message]) in
+        //To save the string
+        let userDefaults = Foundation.UserDefaults.standard
+        userDefaults.set( "\(self.chat.count)", forKey: "chatId")
+        
+                Client.getMessagesFromChatWithId(id: self.chat.count, onSuccess: { (listOfMessages:[Message]) in
             self.messages = listOfMessages
             self.tableView.reloadData()
             self.scrollToBottom()
