@@ -15,6 +15,9 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - Bolts/Tasks (1.8.4)
+  - ImageSlideshow (1.2.0):
+    - ImageSlideshow/Core (= 1.2.0)
+  - ImageSlideshow/Core (1.2.0)
   - lottie-ios (1.5.1)
   - Parse (1.14.4):
     - Bolts/Tasks (~> 1.8)
@@ -24,6 +27,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - ImageSlideshow (~> 1.2)
   - lottie-ios
   - Parse
   - RevealingSplashView
@@ -33,12 +37,13 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  ImageSlideshow: c1395dcf33f7dba407fd21df0e8c315e8941e209
   lottie-ios: f680a7c4cb7a567ecf258fde0f967913aff111b8
   Parse: b0aa91d2c435e53d4a9af26e741e014c9b35c42e
   RevealingSplashView: 501dd03d975ba2c4165dd463ea1c7c407fb9d13e
   SwiftGifOrigin: d6679d3ebe9df2e049a84bc52582635107b581f6
   TextFieldEffects: 9e5cce561ea39c75b86e9d3637601727a67e8b23
 
-PODFILE CHECKSUM: 133a5486ce85100b8c9eef78ce28de7f7f840664
+PODFILE CHECKSUM: 7dd3849e953dedc3a4ec491eaa0b254afa0ceab6
 
 COCOAPODS: 1.2.0

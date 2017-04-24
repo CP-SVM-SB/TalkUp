@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import ImageSlideshow
 
 protocol TopicsVCDelegate {
     func startTimer()
@@ -17,55 +18,60 @@ protocol TopicsVCDelegate {
 
 class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, TopicsVCDelegate, UIScrollViewDelegate, CLLocationManagerDelegate {
   
+    //@IBOutlet var collectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var counterItem: UIBarButtonItem!
     @IBOutlet var newChatButton: UIButton!
-    @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var backToChatButton: UIButton!
     @IBOutlet var otherTopicsLabel: UILabel!
     @IBOutlet var trendingTopicsLabel: UILabel!
     @IBOutlet var scrollView: UIScrollView!
-    
+    @IBOutlet var slideShow: ImageSlideshow!
+    @IBOutlet var topicLabel: UILabel!
+    @IBOutlet var numberDescriptionLabel: UILabel!
+    @IBOutlet var numChatsLabel: UILabel!
     
     let screenHeight = UIScreen.main.bounds.height
-    //let scrollViewContentHeight = 1200 as CGFloat
-  let myParseClient = ParseClient()
-  let keywordApi = WatsonClient()
-  let myDispatchGroup = DispatchGroup()
-  let fakeTopicsArr = ["Donald Trump", "United Airlines", "WWIII", "iPhone 8", "Kendrick Lamar", "Berkeley", "Maxine Waters", "North Korea"]
-  let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-  // -- Settable Vars --
-  var noTopicsMax = 7               // max. number of topics you wish to see
-  var topicsRollbackLength: Int = 50   // no of recent msgs you wish to use in getting topics [NB]: if 0, ALL messages are used
-  var noCurrentlyAvailableChats = 0
-  var rawMessages: String?
-  var chatmsg: String?
-  var chatRawMsgs = [String]()
-  var keywordsWithRelevance = Dictionary <String, Double>()
-  var keywordsWithChats = Dictionary<String, NSMutableArray>()
-  var keywordsArr = [String]()
-  var previewChats : NSMutableArray?
-  var noChatsWithKeyword = [Int]()
-  var chatTopicWithRelevance = Dictionary<String, Double>()
-  var chatTopicsArr = [String]()
-  var chatIDs = [Int]()
-  var nonEmptyChatId = 0
-  var keywordID = 0
-  var chatCount = 0
-  var chatIndex = 0
-  var revChatMsgs = Dictionary<Int, [Message]>()
-  var firstValSet = false
-  var userSettings: UserSettings?
-  var timer = Timer()
-  var counter = 0
-  var dataArr = [Data]()
-  var cellIndexArr = [Int]()
-    var location = Location()
-    
+    let myParseClient = ParseClient()
+    let keywordApi = WatsonClient()
+    let myDispatchGroup = DispatchGroup()
+    let fakeTopicsArr = ["Donald Trump", "United Airlines", "Coachella", "Kendrick Lamar", "Maxine Waters", "North Korea", "Howard University"]
+    let fakeNumMessagesArr = [250, 304, 100, 678, 432, 763, 453]
+    let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
     let locationManager = CLLocationManager()
-
+    
+  // -- Settable Vars --
+    var noTopicsMax = 7               // max. number of topics you wish to see
+    var topicsRollbackLength: Int = 50   // no of recent msgs you wish to use in getting topics [NB]: if 0, ALL messages are used
+    var noCurrentlyAvailableChats = 0
+    var rawMessages: String?
+    var chatmsg: String?
+    var chatRawMsgs = [String]()
+    var keywordsWithRelevance = Dictionary <String, Double>()
+    var keywordsWithChats = Dictionary<String, NSMutableArray>()
+    var keywordsArr = [String]()
+    var previewChats : NSMutableArray?
+    var noChatsWithKeyword = [Int]()
+    var chatTopicWithRelevance = Dictionary<String, Double>()
+    var chatTopicsArr = [String]()
+    var chatIDs = [Int]()
+    var nonEmptyChatId = 0
+    var keywordID = 0
+    var chatCount = 0
+    var chatIndex = 0
+    var revChatMsgs = Dictionary<Int, [Message]>()
+    var firstValSet = false
+    var userSettings: UserSettings?
+    var timer = Timer()
+    var counter = 0
+    var imageDataArr = [Data]()
+    var cellIndexArr = [Int]()
+    var location = Location()
+    var number = 0
+    var localSource = [ImageSource]()
+    var cellSpacingHeight = CGFloat()
     
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -96,7 +102,10 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     trendingTopicsLabel.text = "Trending Topics"
     otherTopicsLabel.text = "All Topics"
-
+    numberDescriptionLabel.text = "chats about this topic"
+    self.topicLabel.text = "#"+fakeTopicsArr[cellIndexArr[0]]
+    numChatsLabel.text = String(fakeNumMessagesArr[0])
+    
     containerView.layer.shadowColor = UIColor(white: 0.7, alpha: 0.7).cgColor
     containerView.layer.shadowOffset = CGSize(width: 3, height: 3)
     containerView.layer.shadowOpacity = 0.4
@@ -106,14 +115,48 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     layout.minimumInteritemSpacing = 1
     layout.minimumLineSpacing = 1
     
-    collectionView.delegate = self
-    collectionView.dataSource = self
+//    collectionView.delegate = self
+//    collectionView.dataSource = self
+    
+    slideShow.backgroundColor = UIColor.white
+    slideShow.slideshowInterval = 3.0
+    slideShow.pageControlPosition = PageControlPosition.underScrollView
+    slideShow.pageControl.isHidden = true
+
+    slideShow.contentScaleMode = UIViewContentMode.scaleAspectFill
+    
+    
+    
+    slideShow.currentPageChanged = { page in
+
+        if (self.number == self.fakeTopicsArr.count - 1){
+            self.number = 0
+        }else{
+            self.number = self.number+1
+        }
+        
+        self.topicLabel.text = "#"+self.fakeTopicsArr[self.cellIndexArr[self.number]]
+        self.numChatsLabel.text = String(self.fakeNumMessagesArr[self.number])
+        
+    }
+    
+    
+    
+    for i in 0...imageDataArr.count - 1{
+        localSource.append(ImageSource(image: UIImage(data: imageDataArr[i])!))
+        //slideShow.insertSubview(UILabel, at: i)
+    }
+    
+    
+    
+    
     
     }
   
   
   
   override func viewWillAppear(_ animated: Bool) {
+    slideShow.setImageInputs(localSource)
     view.backgroundColor = userSettings?.theme?.primaryColor
     counter = 30
     myDispatchGroup.enter()
@@ -353,7 +396,10 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     
-    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        cellSpacingHeight = 5.0
+        return cellSpacingHeight
+    }
     
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return (self.keywordsArr.count > self.noTopicsMax) ? self.noTopicsMax : self.keywordsArr.count
@@ -362,7 +408,10 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "TrendCell", for: indexPath) as! TrendCell
-    
+    cell.layer.shadowOpacity = 1.0
+    cell.layer.shadowRadius = 2
+    cell.layer.shadowOffset = CGSize(width: 0, height: 3)
+    cell.layer.shadowColor = UIColor.darkGray.cgColor
     cell.noChatsforTopic = self.noChatsWithKeyword[indexPath.row]
     cell.buttonTitle = self.keywordsArr[indexPath.row]
     

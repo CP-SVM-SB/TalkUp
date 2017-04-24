@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
     var anonUser = AnonUser()
     
     let flickrClient = Flickr()
-    let fakeTopicsArr = ["Donald Trump", "United Airlines", "WWIII", "iPhone 8", "Kendrick Lamar", "University of California Berkeley", "Maxine Waters", "North Korea"]
+    let fakeTopicsArr = ["Donald Trump", "United Airlines", "Coachella", "Kendrick Lamar", "Maxine Waters", "North Korea", "Howard University"]
     
 
   override func viewDidLoad() {
@@ -161,7 +161,7 @@ class LoginViewController: UIViewController {
     
     func getTopicImageUrls(){
        
-        for i in 0...5 {
+        for i in 0...fakeTopicsArr.count-1 {
             let tag = self.fakeTopicsArr[i].replacingOccurrences(of: " ", with: "+")
             flickrClient.requestPhoto(tag: tag, success: { (string: String) in
                 self.cellIndexArr.append(i)

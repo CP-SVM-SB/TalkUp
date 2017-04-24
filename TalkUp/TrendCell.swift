@@ -18,7 +18,7 @@ class TrendCell: UITableViewCell {
   
   var buttonTitle: String! {
     didSet {
-      topicBTN.setTitle(buttonTitle, for:.normal)
+      topicBTN.setTitle("#"+buttonTitle, for:.normal)
       noChatsAboutThisLabel.text = (noChatsforTopic! > 1) ? "\(noChatsforTopic!) chats" : "\(noChatsforTopic!) chat"
     }
   }

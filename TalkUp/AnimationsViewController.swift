@@ -91,7 +91,7 @@ class AnimationsViewController: UIViewController {
         
         if segue.identifier == "animationsToTopicsSegue"{
             topicsVC.userSettings = self.userSettings
-            topicsVC.dataArr = self.dataArr
+            topicsVC.imageDataArr = self.dataArr
             topicsVC.cellIndexArr = self.cellIndexArr
         }
 

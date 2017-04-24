@@ -12,4 +12,5 @@ target 'TalkUp' do
   pod 'lottie-ios'
   pod 'SwiftGifOrigin', '~> 1.6.1'
   pod ‘TextFieldEffects’
+  pod 'ImageSlideshow', '~> 1.2'
 end

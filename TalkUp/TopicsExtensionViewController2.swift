@@ -20,7 +20,7 @@ extension TopicsViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataArr.count
+        return imageDataArr.count
     }
     
     
@@ -50,7 +50,7 @@ extension TopicsViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "topicCell", for: indexPath) as! TopicsCollectionViewCell
-        cell.imageView.image = UIImage(data: dataArr[indexPath.row])
+        cell.imageView.image = UIImage(data: imageDataArr[indexPath.row])
         cell.topicLabel.text = fakeTopicsArr[cellIndexArr[indexPath.row]]
         return cell
     }

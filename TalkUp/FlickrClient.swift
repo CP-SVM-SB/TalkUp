@@ -40,7 +40,7 @@ class Flickr: NSObject {
                     let response = try JSONSerialization.jsonObject(with: data!, options: []) as! NSDictionary
                     let returnedData = response["photos"] as! NSDictionary
                     let photoArr = returnedData.value(forKey: "photo") as! NSArray
-                    let photourl = self.convertToUrl(dict: photoArr[0] as! NSDictionary)
+                    let photourl = self.convertToUrl(dict: photoArr[1] as! NSDictionary)
 
                     success(photourl)
 

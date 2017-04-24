@@ -14,6 +14,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ImageSlideshow-ImageSlideshow.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ImageSlideshow.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Parse.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,22 +57,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2B455BC69A0926028CE20AD9CB7403F1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>465871D355F2F4F8E101AE1DB47999AD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>636A9F8B789DAFBE73EE8BF9395D5902</key>
+		<key>56C0DAD7CE8D15ECC20424CFEE2472A1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>6EE458AB7C9239893E5C6E840C0BF9B5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>71792F09D12D974CC0A83F1C4D6C2DD6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>854A358F694791FC141F75E15F82BB64</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8EEF8480435485A0B62F4E86FD581415</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,12 +92,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F957EABCA56BD8F5B626798CC7B344D3</key>
+		<key>DAC8B433D2D7F5087D00113B160DD418</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FD4D218A3291C722BA3E29A02AFF6A16</key>
+		<key>F1883A945C236CDCF166DE672D76F89C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F957EABCA56BD8F5B626798CC7B344D3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
