@@ -11,4 +11,5 @@ target 'TalkUp' do
   pod 'RevealingSplashView'
   pod 'lottie-ios'
   pod 'SwiftGifOrigin', '~> 1.6.1'
+  pod ‘TextFieldEffects’
 end

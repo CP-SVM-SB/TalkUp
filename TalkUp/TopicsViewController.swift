@@ -28,6 +28,7 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet var trendingTopicsLabel: UILabel!
     @IBOutlet var scrollView: UIScrollView!
     
+    
     let screenHeight = UIScreen.main.bounds.height
     //let scrollViewContentHeight = 1200 as CGFloat
   let myParseClient = ParseClient()

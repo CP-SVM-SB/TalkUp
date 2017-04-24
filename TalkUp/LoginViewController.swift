@@ -8,12 +8,19 @@
 
 import UIKit
 import Parse
+import SwiftGifOrigin
+import TextFieldEffects
+
 
 class LoginViewController: UIViewController {
   
-  @IBOutlet weak var usernameField: UITextField!
-  @IBOutlet weak var passwordField: UITextField!
-  @IBOutlet weak var signInButton: UIButton!
+
+    @IBOutlet var logoImageView: UIImageView!
+    @IBOutlet weak var usernameField: HoshiTextField!
+    @IBOutlet weak var passwordField: HoshiTextField!
+    @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet var backgroundImageView: UIImageView!
+    @IBOutlet var signupButton: UIButton!
     
     var urlArr = [String]()
     var cellIndexArr = [Int]()
@@ -31,7 +38,9 @@ class LoginViewController: UIViewController {
     DispatchQueue.global().async {
         self.getTopicImageUrls()
     }
+    
 
+    
     self.passwordField.isSecureTextEntry = true
     self.usernameField.becomeFirstResponder()
     
@@ -39,12 +48,23 @@ class LoginViewController: UIViewController {
     
     userSettings = setDefaultSettings()
     
-    self.view.backgroundColor = UIColor(patternImage: UIImage(named: "HomeImage.png")!)
+    self.backgroundImageView.image = UIImage(named: "water_night_6.jpg")
+    self.signupButton.layer.masksToBounds = true
+    self.signInButton.layer.cornerRadius = 23
+    self.signInButton.backgroundColor = .clear
+    self.signInButton.layer.borderWidth = 1
+    self.signInButton.layer.borderColor = UIColor.white.cgColor
     
+    self.logoImageView.image = UIImage(named: "logo.png")
+    
+
     let placeholderColor = UIColor.lightGray    // placeholder text
     
+    self.signupButton.titleLabel?.textColor = .white
     
-    self.usernameField.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSForegroundColorAttributeName : placeholderColor])
+    
+    
+    self.usernameField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSForegroundColorAttributeName : placeholderColor])
     self.passwordField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSForegroundColorAttributeName : placeholderColor])
     
     anonUser.setAnonInfo(themeNum: 0)

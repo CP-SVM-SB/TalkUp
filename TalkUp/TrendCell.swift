@@ -10,7 +10,7 @@ import UIKit
 
 class TrendCell: UITableViewCell {
   
-  
+  @IBOutlet var flameImageView: UIImageView!
   @IBOutlet weak var topicBTN: UIButton!
   @IBOutlet weak var noChatsAboutThisLabel: UILabel!
   
@@ -25,7 +25,7 @@ class TrendCell: UITableViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
-    
+    flameImageView.image = UIImage(named: "flame (2).png")
   }
   
   

@@ -46,6 +46,12 @@
 		762461D81E9077DB007741EA /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762461D71E9077DB007741EA /* Theme.swift */; };
 		762461DB1E9083B6007741EA /* Theme4.png in Resources */ = {isa = PBXBuildFile; fileRef = 762461D91E9083B6007741EA /* Theme4.png */; };
 		762461DC1E9083B7007741EA /* Theme5.png in Resources */ = {isa = PBXBuildFile; fileRef = 762461DA1E9083B6007741EA /* Theme5.png */; };
+		7696C2D51EAD3B8C00676BC0 /* ADAM.CG PRO.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7696C2D31EAD3A1A00676BC0 /* ADAM.CG PRO.otf */; };
+		7696C2D61EAD3B8C00676BC0 /* ufonts.com_din-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7696C2D41EAD3A1A00676BC0 /* ufonts.com_din-light.ttf */; };
+		76AE48041EAD972F00036447 /* mapsBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 76AE48031EAD972F00036447 /* mapsBG.png */; };
+		76AE48061EAD979C00036447 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 76AE48051EAD979C00036447 /* logo.png */; };
+		76AE48081EADAFAA00036447 /* logoName.png in Resources */ = {isa = PBXBuildFile; fileRef = 76AE48071EADAFAA00036447 /* logoName.png */; };
+		76AE480A1EADB59300036447 /* water_night_6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 76AE48091EADB59300036447 /* water_night_6.jpg */; };
 		76BCAE1A1E9A577900FD9018 /* GifsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BCAE191E9A577900FD9018 /* GifsViewController.swift */; };
 		76BCAE1C1E9F2A2B00FD9018 /* GiphyClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BCAE1B1E9F2A2B00FD9018 /* GiphyClient.swift */; };
 		76BCAE1E1E9F3DFA00FD9018 /* GifsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BCAE1D1E9F3DFA00FD9018 /* GifsCollectionViewCell.swift */; };
@@ -110,6 +116,13 @@
 		762461D71E9077DB007741EA /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		762461D91E9083B6007741EA /* Theme4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Theme4.png; path = Assets.xcassets/Theme4.png; sourceTree = "<group>"; };
 		762461DA1E9083B6007741EA /* Theme5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Theme5.png; path = Assets.xcassets/Theme5.png; sourceTree = "<group>"; };
+		7696C2D31EAD3A1A00676BC0 /* ADAM.CG PRO.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ADAM.CG PRO.otf"; path = "Assets.xcassets/ADAM.CG PRO.otf"; sourceTree = "<group>"; };
+		7696C2D41EAD3A1A00676BC0 /* ufonts.com_din-light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ufonts.com_din-light.ttf"; path = "Assets.xcassets/ufonts.com_din-light.ttf"; sourceTree = "<group>"; };
+		76AE48021EAD967D00036447 /* ufonts.com_din-light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ufonts.com_din-light.ttf"; path = "Assets.xcassets/ufonts.com_din-light.ttf"; sourceTree = "<group>"; };
+		76AE48031EAD972F00036447 /* mapsBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapsBG.png; path = Assets.xcassets/mapsBG.png; sourceTree = "<group>"; };
+		76AE48051EAD979C00036447 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = Assets.xcassets/logo.png; sourceTree = "<group>"; };
+		76AE48071EADAFAA00036447 /* logoName.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoName.png; sourceTree = "<group>"; };
+		76AE48091EADB59300036447 /* water_night_6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = water_night_6.jpg; sourceTree = "<group>"; };
 		76BCAE191E9A577900FD9018 /* GifsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifsViewController.swift; sourceTree = "<group>"; };
 		76BCAE1B1E9F2A2B00FD9018 /* GiphyClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiphyClient.swift; sourceTree = "<group>"; };
 		76BCAE1D1E9F3DFA00FD9018 /* GifsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -179,8 +192,13 @@
 				761EAF3F1EA3222900257FC0 /* flame (1).png */,
 				761EAF401EA3222900257FC0 /* flame (2).png */,
 				761EAF451EA3222F00257FC0 /* black.jpg */,
+				76AE48071EADAFAA00036447 /* logoName.png */,
+				76AE48021EAD967D00036447 /* ufonts.com_din-light.ttf */,
+				76AE48051EAD979C00036447 /* logo.png */,
+				76AE48091EADB59300036447 /* water_night_6.jpg */,
 				761EAF411EA3222900257FC0 /* flame copy.png */,
 				761EAF251EA2930300257FC0 /* lightblue.jpg */,
+				76AE48031EAD972F00036447 /* mapsBG.png */,
 				761EAF261EA2930300257FC0 /* limegreen.jpg */,
 				761EAF271EA2930300257FC0 /* magenta.jpg */,
 				761EAF281EA2930300257FC0 /* orange.jpg */,
@@ -196,6 +214,15 @@
 				762461DA1E9083B6007741EA /* Theme5.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		7696C2D21EAD39EA00676BC0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				7696C2D31EAD3A1A00676BC0 /* ADAM.CG PRO.otf */,
+				7696C2D41EAD3A1A00676BC0 /* ufonts.com_din-light.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		76F7DC981E99783600D8363A /* Timer Files */ = {
@@ -238,6 +265,7 @@
 				849B53E01E81EC04008B1FE0 /* LaunchScreen.storyboard */,
 				849B53DE1E81EC04008B1FE0 /* Assets.xcassets */,
 				849B53E31E81EC04008B1FE0 /* Info.plist */,
+				7696C2D21EAD39EA00676BC0 /* Fonts */,
 				762461CE1E906F3F007741EA /* Images */,
 			);
 			path = TalkUp;
@@ -361,6 +389,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7696C2D51EAD3B8C00676BC0 /* ADAM.CG PRO.otf in Resources */,
+				7696C2D61EAD3B8C00676BC0 /* ufonts.com_din-light.ttf in Resources */,
+				76AE48061EAD979C00036447 /* logo.png in Resources */,
 				849B53E21E81EC04008B1FE0 /* LaunchScreen.storyboard in Resources */,
 				761EAF331EA2930300257FC0 /* purple.jpg in Resources */,
 				762461D41E906F89007741EA /* Theme3.png in Resources */,
@@ -382,8 +413,11 @@
 				761EAF441EA3222900257FC0 /* flame copy.png in Resources */,
 				762461DB1E9083B6007741EA /* Theme4.png in Resources */,
 				761EAF351EA2930300257FC0 /* skyblue.jpg in Resources */,
+				76AE480A1EADB59300036447 /* water_night_6.jpg in Resources */,
 				761EAF321EA2930300257FC0 /* orange.jpg in Resources */,
+				76AE48081EADAFAA00036447 /* logoName.png in Resources */,
 				761EAF301EA2930300257FC0 /* limegreen.jpg in Resources */,
+				76AE48041EAD972F00036447 /* mapsBG.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

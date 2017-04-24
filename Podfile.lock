@@ -20,6 +20,7 @@ PODS:
     - Bolts/Tasks (~> 1.8)
   - RevealingSplashView (0.1.0)
   - SwiftGifOrigin (1.6.1)
+  - TextFieldEffects (1.3.2)
 
 DEPENDENCIES:
   - AFNetworking
@@ -27,6 +28,7 @@ DEPENDENCIES:
   - Parse
   - RevealingSplashView
   - SwiftGifOrigin (~> 1.6.1)
+  - TextFieldEffects
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -35,7 +37,8 @@ SPEC CHECKSUMS:
   Parse: b0aa91d2c435e53d4a9af26e741e014c9b35c42e
   RevealingSplashView: 501dd03d975ba2c4165dd463ea1c7c407fb9d13e
   SwiftGifOrigin: d6679d3ebe9df2e049a84bc52582635107b581f6
+  TextFieldEffects: 9e5cce561ea39c75b86e9d3637601727a67e8b23
 
-PODFILE CHECKSUM: cff1e00e88d007262338c310f6ccec4ed9199aa2
+PODFILE CHECKSUM: 133a5486ce85100b8c9eef78ce28de7f7f840664
 
 COCOAPODS: 1.2.0

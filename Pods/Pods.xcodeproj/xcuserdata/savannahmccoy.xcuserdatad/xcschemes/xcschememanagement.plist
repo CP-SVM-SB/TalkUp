@@ -34,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>TextFieldEffects.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>lottie-ios.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,17 +47,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>2B455BC69A0926028CE20AD9CB7403F1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>465871D355F2F4F8E101AE1DB47999AD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>636A9F8B789DAFBE73EE8BF9395D5902</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>6EE458AB7C9239893E5C6E840C0BF9B5</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>92045B6AB13726BF1296337CE76EB4D3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9261CF08B078F8E03D0C99A2775670E2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,12 +77,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EF4E5F395F45B856A4340D14FC425CDE</key>
+		<key>F957EABCA56BD8F5B626798CC7B344D3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F957EABCA56BD8F5B626798CC7B344D3</key>
+		<key>FD4D218A3291C722BA3E29A02AFF6A16</key>
 		<dict>
 			<key>primary</key>
 			<true/>
