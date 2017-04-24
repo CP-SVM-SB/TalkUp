@@ -127,7 +127,7 @@
                         <outlet property="signInButton" destination="vKS-Ba-KlN" id="ZDQ-Ub-ZYx"/>
                         <outlet property="signupButton" destination="a8B-FW-5xp" id="ldi-gG-xUe"/>
                         <outlet property="usernameField" destination="X1f-eL-xmV" id="c2a-9T-4eJ"/>
-                        <segue destination="UZR-dd-KU9" kind="presentation" identifier="loginToAnimationsSegue" id="0Ww-ro-ORF"/>
+                        <segue destination="UZR-dd-KU9" kind="showDetail" identifier="loginToAnimationsSegue" id="0Ww-ro-ORF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -962,8 +962,8 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1mE-PQ-4OR">
                                                             <rect key="frame" x="0.0" y="0.0" width="372" height="104"/>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="black.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="sPz-kH-9Ol">
-                                                            <rect key="frame" x="0.0" y="0.0" width="372" height="104"/>
+                                                        <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="black.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="sPz-kH-9Ol">
+                                                            <rect key="frame" x="0.0" y="-30" width="372" height="134"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9bJ-4j-pml">
                                                             <rect key="frame" x="20" y="20" width="160" height="40"/>
@@ -1152,7 +1152,7 @@
                     <view key="view" contentMode="scaleToFill" id="Eas-gq-v0M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <segue destination="vRb-Fo-pOk" kind="presentation" identifier="animationsToTopicsSegue" id="rmK-24-Hmr"/>

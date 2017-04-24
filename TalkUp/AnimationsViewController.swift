@@ -8,12 +8,13 @@
 
 import UIKit
 import RevealingSplashView
+import SwiftGifOrigin
 
 class AnimationsViewController: UIViewController {
   
   private var revealingLoaded = false
-  let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "animationChatIcon")!,iconInitialSize: CGSize(width: 30, height: 30), backgroundColor: UIColor.init(red: 29, green: 143, blue: 241, alpha: 1))
-    
+  
+    var revealingSplashView = RevealingSplashView(iconImage: UIImage.gif(name: "loading1")! ,iconInitialSize: CGSize(width: 400, height: 400), backgroundColor: UIColor.black)
     var urlArr = [String]()
     var cellIndexArr = [Int]()
     var dataArr = [Data]()
@@ -25,12 +26,13 @@ class AnimationsViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     loadImageData()
     
+    revealingSplashView = RevealingSplashView(iconImage: UIImage.gif(name: "loading1")! ,iconInitialSize: CGSize(width: 500, height: 500), backgroundColor: hexStringToUIColor(hex: "efedef"))
     self.view.addSubview(revealingSplashView)
+    
     revealingSplashView.duration = 2.0
-    revealingSplashView.animationType = SplashAnimationType.popAndZoomOut
+    revealingSplashView.animationType = SplashAnimationType.heartBeat
   }
   
   
@@ -40,7 +42,7 @@ class AnimationsViewController: UIViewController {
       self.setNeedsStatusBarAppearanceUpdate()
     }
     
-    perform(#selector(AnimationsViewController.segueToTopics), with: nil, afterDelay: 2.8)
+    perform(#selector(AnimationsViewController.segueToTopics), with: nil, afterDelay: 3.2)
   }
   
   
@@ -52,7 +54,29 @@ class AnimationsViewController: UIViewController {
         }
         
     }
-    
+ 
+    func hexStringToUIColor (hex:String) -> UIColor {
+        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        
+        if (cString.hasPrefix("#")) {
+            cString.remove(at: cString.startIndex)
+        }
+        
+        if ((cString.characters.count) != 6) {
+            return UIColor.gray
+        }
+        
+        var rgbValue:UInt32 = 0
+        Scanner(string: cString).scanHexInt32(&rgbValue)
+        
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
+
     
   func segueToTopics() {
     self.performSegue(withIdentifier: "animationsToTopicsSegue", sender: self)
