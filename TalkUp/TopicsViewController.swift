@@ -86,7 +86,7 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     tableView.delegate = self
     tableView.dataSource = self
-    tableView.allowsSelection = false
+    //tableView.allowsSelection = false
     tableView.estimatedRowHeight = 80
     tableView.preservesSuperviewLayoutMargins = false
     tableView.separatorInset = UIEdgeInsets.zero
@@ -134,7 +134,9 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }else{
             self.number = self.number+1
         }
-        
+        print("FTA COUNT: ", self.fakeTopicsArr.count)
+        print("NUMBER: ", self.number)
+        print("CIA.num: ", self.cellIndexArr[self.number])
         self.topicLabel.text = "#"+self.fakeTopicsArr[self.cellIndexArr[self.number]]
         self.numChatsLabel.text = String(self.fakeNumMessagesArr[self.number])
         

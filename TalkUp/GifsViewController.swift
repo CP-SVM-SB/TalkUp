@@ -71,7 +71,15 @@ class GifsViewController: UIViewController, UICollectionViewDelegate, UICollecti
         layout.minimumLineSpacing = 2
         collectionView!.collectionViewLayout = layout
         
-        self.getRandomGifs(query: q)
+        
+        
+        
+        DispatchQueue.main.async(execute: {
+            
+            self.getRandomGifs(query: self.q)
+            
+        })
+        
         
         
     }
@@ -85,7 +93,7 @@ class GifsViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     override func viewDidAppear(_ animated: Bool) {
         
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.0) {
             self.setGifImages()
         }
         
@@ -108,12 +116,23 @@ class GifsViewController: UIViewController, UICollectionViewDelegate, UICollecti
             searchText = searchText.replacingOccurrences(of: " ", with: "+")
             
         }
-        
+    
         print(searchText)
-        getRandomGifs(query: searchText)
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.1) {
+        
+        DispatchQueue.main.async(execute: {
+            
+            self.getRandomGifs(query: searchText)
+        
+        })
+        
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.0) {
+                
             self.setGifImages()
+    
         }
+    
         collectionView.reloadData()
         
     }

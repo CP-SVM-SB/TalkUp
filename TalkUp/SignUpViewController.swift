@@ -11,26 +11,49 @@ import Parse
 
 class SignUpViewController: UIViewController {
   
-  @IBOutlet weak var usernameField: UITextField!
-  @IBOutlet weak var passwordField: UITextField!
-  @IBOutlet weak var emailField: UITextField!
-  
+    @IBOutlet weak var usernameField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet var registerButton: UIButton!
+    @IBOutlet var cancelButton: UIButton!
+    @IBOutlet var bgImageView: UIImageView!
+    @IBOutlet var blurView: UIVisualEffectView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     self.passwordField.isSecureTextEntry = true
-    
+    bgImageView.image = UIImage(named: "signupBG")
     // placeholder text
     let placeholderColor = UIColor.lightGray
-    self.usernameField.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSForegroundColorAttributeName : placeholderColor] )
-    self.passwordField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSForegroundColorAttributeName : placeholderColor])
+    //self.usernameField.attributedPlaceholder = NSAttributedString(string: "Username", attributes: [NSForegroundColorAttributeName : placeholderColor] )
+    self.emailField.font?.withSize(13)
+    self.passwordField.attributedPlaceholder = NSAttributedString(string: "Repeat Password", attributes: [NSForegroundColorAttributeName : placeholderColor])
      self.emailField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSForegroundColorAttributeName : placeholderColor])
-
+    
+    self.registerButton.layer.borderColor = UIColor.white.cgColor
+    self.registerButton.layer.borderWidth = 1
+    self.registerButton.layer.cornerRadius = self.registerButton.frame.size.height / 2.0
+    //self.blurView.layer.cornerRadius = 15
+    self.registerButton.titleLabel?.textColor = .white
+    
+    
   }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    
+    
+    @IBAction func didTouchDismiss(_ sender: Any) {
+    
+    dismiss(animated: true, completion: nil)
+    
+    }
   
   @IBAction func onRegister(_ sender: UIButton) {
     let newUser = PFUser()
-    newUser.username = usernameField.text
+    newUser.username = emailField.text
     newUser.password = passwordField.text
     newUser.email = emailField.text
     

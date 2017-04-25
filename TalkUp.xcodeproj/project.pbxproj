@@ -54,6 +54,7 @@
 		76AE48081EADAFAA00036447 /* logoName.png in Resources */ = {isa = PBXBuildFile; fileRef = 76AE48071EADAFAA00036447 /* logoName.png */; };
 		76AE480A1EADB59300036447 /* water_night_6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 76AE48091EADB59300036447 /* water_night_6.jpg */; };
 		76AE480D1EAE922C00036447 /* loading1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 76AE480C1EAE922C00036447 /* loading1.gif */; };
+		76AE48111EAF8FDF00036447 /* signupBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 76AE48101EAF8FDF00036447 /* signupBG.png */; };
 		76BCAE1A1E9A577900FD9018 /* GifsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BCAE191E9A577900FD9018 /* GifsViewController.swift */; };
 		76BCAE1C1E9F2A2B00FD9018 /* GiphyClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BCAE1B1E9F2A2B00FD9018 /* GiphyClient.swift */; };
 		76BCAE1E1E9F3DFA00FD9018 /* GifsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BCAE1D1E9F3DFA00FD9018 /* GifsCollectionViewCell.swift */; };
@@ -127,6 +128,7 @@
 		76AE48071EADAFAA00036447 /* logoName.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoName.png; sourceTree = "<group>"; };
 		76AE48091EADB59300036447 /* water_night_6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = water_night_6.jpg; sourceTree = "<group>"; };
 		76AE480C1EAE922C00036447 /* loading1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = loading1.gif; path = Assets.xcassets/loading1.gif; sourceTree = "<group>"; };
+		76AE48101EAF8FDF00036447 /* signupBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = signupBG.png; path = Assets.xcassets/signupBG.png; sourceTree = "<group>"; };
 		76BCAE191E9A577900FD9018 /* GifsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifsViewController.swift; sourceTree = "<group>"; };
 		76BCAE1B1E9F2A2B00FD9018 /* GiphyClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiphyClient.swift; sourceTree = "<group>"; };
 		76BCAE1D1E9F3DFA00FD9018 /* GifsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				761EAF3F1EA3222900257FC0 /* flame (1).png */,
 				761EAF401EA3222900257FC0 /* flame (2).png */,
 				761EAF451EA3222F00257FC0 /* black.jpg */,
+				76AE48101EAF8FDF00036447 /* signupBG.png */,
 				76AE48071EADAFAA00036447 /* logoName.png */,
 				76AE48021EAD967D00036447 /* ufonts.com_din-light.ttf */,
 				76AE48051EAD979C00036447 /* logo.png */,
@@ -427,6 +430,7 @@
 				761EAF421EA3222900257FC0 /* flame (1).png in Resources */,
 				761EAF441EA3222900257FC0 /* flame copy.png in Resources */,
 				762461DB1E9083B6007741EA /* Theme4.png in Resources */,
+				76AE48111EAF8FDF00036447 /* signupBG.png in Resources */,
 				761EAF351EA2930300257FC0 /* skyblue.jpg in Resources */,
 				76AE480A1EADB59300036447 /* water_night_6.jpg in Resources */,
 				761EAF321EA2930300257FC0 /* orange.jpg in Resources */,
