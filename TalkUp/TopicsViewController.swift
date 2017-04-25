@@ -159,6 +159,7 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     slideShow.setImageInputs(localSource)
     view.backgroundColor = userSettings?.theme?.primaryColor
     counter = 30
+    self.firstValSet = false
     myDispatchGroup.enter()
     myParseClient.getChatCount (onSuccess: { (chatCount: Int) in
       print("No. of available chats: \(chatCount+1)")

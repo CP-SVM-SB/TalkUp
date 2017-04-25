@@ -18,6 +18,7 @@
 		13E007BE1E87441E00693F69 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E007BD1E87441E00693F69 /* SignUpViewController.swift */; };
 		13E007C01E8744E800693F69 /* TopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E007BF1E8744E800693F69 /* TopicsViewController.swift */; };
 		13E3756E1EAEF89C00970DCA /* ChatCollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E3756D1EAEF89C00970DCA /* ChatCollCell.swift */; };
+		13E375701EAF028E00970DCA /* UserChatCollCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E3756F1EAF028E00970DCA /* UserChatCollCell.swift */; };
 		761EAF221EA1457C00257FC0 /* AnonUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761EAF211EA1457C00257FC0 /* AnonUser.swift */; };
 		761EAF2D1EA2930300257FC0 /* hotpink.png in Resources */ = {isa = PBXBuildFile; fileRef = 761EAF231EA2930300257FC0 /* hotpink.png */; };
 		761EAF2E1EA2930300257FC0 /* jeanblue.png in Resources */ = {isa = PBXBuildFile; fileRef = 761EAF241EA2930300257FC0 /* jeanblue.png */; };
@@ -89,6 +90,7 @@
 		13E007BD1E87441E00693F69 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		13E007BF1E8744E800693F69 /* TopicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsViewController.swift; sourceTree = "<group>"; };
 		13E3756D1EAEF89C00970DCA /* ChatCollCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCollCell.swift; sourceTree = "<group>"; };
+		13E3756F1EAF028E00970DCA /* UserChatCollCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserChatCollCell.swift; sourceTree = "<group>"; };
 		67FC73FE6B129877CEEBE7D2 /* Pods-TalkUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TalkUp.release.xcconfig"; path = "Pods/Target Support Files/Pods-TalkUp/Pods-TalkUp.release.xcconfig"; sourceTree = "<group>"; };
 		761EAF211EA1457C00257FC0 /* AnonUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnonUser.swift; sourceTree = "<group>"; };
 		761EAF231EA2930300257FC0 /* hotpink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hotpink.png; path = Assets.xcassets/hotpink.png; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				135508F81E9A21D4005B6BA9 /* PreviewChatsCell.swift */,
 				135508FA1E9A2221005B6BA9 /* ChatsPopCell.swift */,
 				13E3756D1EAEF89C00970DCA /* ChatCollCell.swift */,
+				13E3756F1EAF028E00970DCA /* UserChatCollCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 				762461C51E903624007741EA /* SettingsTableViewController.swift in Sources */,
 				76BCAE1C1E9F2A2B00FD9018 /* GiphyClient.swift in Sources */,
 				849B53F41E81EE15008B1FE0 /* User.swift in Sources */,
+				13E375701EAF028E00970DCA /* UserChatCollCell.swift in Sources */,
 				135508FB1E9A2221005B6BA9 /* ChatsPopCell.swift in Sources */,
 				761EAF381EA2B08500257FC0 /* UIViewExtensions.swift in Sources */,
 				13E3756E1EAEF89C00970DCA /* ChatCollCell.swift in Sources */,
