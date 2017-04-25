@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
     var anonUser = AnonUser()
     
     let flickrClient = Flickr()
-    let fakeTopicsArr = ["Donald Trump", "United Airlines", "Coachella", "Kendrick Lamar", "Maxine Waters", "North Korea", "Howard University"]
+    let fakeTopicsArr = ["Donald Trump", "United Airlines", "Coachella", "Kendrick Lamar", "Maxine Waters", "North Korea", "Howard University", "CodePath"]
     
 
   override func viewDidLoad() {

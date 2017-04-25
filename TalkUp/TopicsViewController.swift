@@ -37,8 +37,8 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   let myParseClient = ParseClient()
   let keywordApi = WatsonClient()
   let myDispatchGroup = DispatchGroup()
-  let fakeTopicsArr = ["Donald Trump", "United Airlines", "Coachella", "Kendrick Lamar", "Maxine Waters", "North Korea", "Howard University"]
-  let fakeNumMessagesArr = [250, 304, 100, 678, 432, 763, 453]
+  var fakeTopicsArr = [String]()
+  let fakeNumMessagesArr = [250, 304, 100, 678, 432, 763, 453, 294]
   let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
   let locationManager = CLLocationManager()
   
@@ -52,8 +52,10 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   var keywordsWithRelevance = Dictionary <String, Double>()
   var keywordsWithChats = Dictionary<String, NSMutableArray>()
   var keywordsArr = [String]()
+    var fakeKeywordsArr = [String]()  // fake news!!
   var previewChats : NSMutableArray?
   var noChatsWithKeyword = [Int]()
+    var fakenoChatsWithKeyword = [Int]()  // fake news!!
   var chatTopicWithRelevance = Dictionary<String, Double>()
   var chatTopicsArr = [String]()
   var chatIDs = [Int]()
@@ -73,9 +75,20 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   var localSource = [ImageSource]()
   var cellSpacingHeight = CGFloat()
   var topicTappedIndex = 0
+    var alreadyCounting = Bool()
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    
+    fakeTopicsArr = ["Donald Trump", "United Airlines", "Coachella", "Kendrick Lamar", "Maxine Waters", "North Korea", "Howard University", "CodePath"]
+    
+    fakeKeywordsArr = ["yolo", "Android Users", "new app", "CodePath", "Swift", "fix chat bugs", "presentation day"]
+    fakenoChatsWithKeyword = [1, 2, 1, 3, 1, 1, 1]
+    
+    
+    //keywordsArr.append(contentsOf: fakeKeywordsArr)
+    //noChatsWithKeyword.append(contentsOf: fakenoChatsWithKeyword)
     
     self.locationManager.requestAlwaysAuthorization()
     self.locationManager.requestWhenInUseAuthorization()
@@ -137,19 +150,17 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }else{
             self.number = self.number+1
         }
-        print("FTA COUNT: ", self.fakeTopicsArr.count)
-        print("NUMBER: ", self.number)
-        print("CIA.num: ", self.cellIndexArr[self.number])
+//        print("FTA COUNT: ", self.fakeTopicsArr.count)
+//        print("NUMBER: ", self.number)
+//        print("CIA.num: ", self.cellIndexArr[self.number])
         self.topicLabel.text = "#"+self.fakeTopicsArr[self.cellIndexArr[self.number]]
         self.numChatsLabel.text = String(self.fakeNumMessagesArr[self.number])
-        
     }
     
     
     
     for i in 0...imageDataArr.count - 1{
       localSource.append(ImageSource(image: UIImage(data: imageDataArr[i])!))
-      //slideShow.insertSubview(UILabel, at: i)
     }
     
     
@@ -254,12 +265,12 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   
   func getIndexChatMsgs(index: Int) {     // lots of moving parts! (hint: nested, dependent async calls)
     var msg: String?
-    print("\nrequesting chat(\(index))")
+    //print("\nrequesting chat(\(index))")
     
     self.myParseClient.getMessagesFromChatWithId(id: index, onSuccess: { (rawChatMsgs: [Message]) in
-      print("returned chat(\(index))")
+      //print("returned chat(\(index))")
       if rawChatMsgs.isEmpty {} else {  // TODO: limited no. of msgs check to qualify for keyword search
-        print ("Chat(\(index)) Non-empty chat found!")
+        //print ("Chat(\(index)) Non-empty chat found!")
         self.chatIDs.append(index)
         
         // rollback?
@@ -425,12 +436,14 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "TrendCell", for: indexPath) as! TrendCell
+    cell.delegate = self
     cell.layer.shadowOpacity = 1.0
     cell.layer.shadowRadius = 2
     cell.layer.shadowOffset = CGSize(width: 0, height: 3)
     cell.layer.shadowColor = UIColor.darkGray.cgColor
     cell.noChatsforTopic = self.noChatsWithKeyword[indexPath.row]
     cell.buttonTitle = self.keywordsArr[indexPath.row]
+    cell.topicBTN.tag = indexPath.row
     
     return cell
   }

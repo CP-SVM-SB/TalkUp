@@ -54,7 +54,7 @@ class ChatRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
     self.switch.isOn = false
     
     
-    
+    print("CONFIRMATION: ", topicChatIndex)
     
     //make sure the location is saved before we find the close by chat
     //self.location
@@ -260,9 +260,9 @@ class ChatRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
   @IBAction func onLeaveChat(_ sender: Any) {
     if self.chat.memberCount <= 1 {
       self.Client.cleanupChatWithId(id: self.chat.count, onSuccess: {
-        print("cleaned up chat")
+        //print("cleaned up chat")
         self.Client.exitChatWithId(id: self.chat.count) {
-          print("exited chat and ready to segue")
+          //print("exited chat and ready to segue")
         }
         
       })

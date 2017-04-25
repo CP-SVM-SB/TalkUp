@@ -14,9 +14,11 @@ class TrendCell: UITableViewCell {
   @IBOutlet weak var topicBTN: UIButton!
   @IBOutlet weak var noChatsAboutThisLabel: UILabel!
   
-  var noChatsforTopic: Int?
-  
-  var buttonTitle: String! {
+    var delegate: TopicsViewController?
+    var noChatsforTopic: Int?
+    var buttonTitle: String! {
+    
+        
     didSet {
       topicBTN.setTitle("#"+buttonTitle, for:.normal)
       noChatsAboutThisLabel.text = (noChatsforTopic! > 1) ? "\(noChatsforTopic!) chats" : "\(noChatsforTopic!) chat"
@@ -26,7 +28,17 @@ class TrendCell: UITableViewCell {
   override func awakeFromNib() {
     super.awakeFromNib()
     flameImageView.image = UIImage(named: "flame (2).png")
+    flameImageView.tintColor = UIColor.lightGray
   }
   
+    @IBAction func didTapTopic(_ sender: UIButton) {
+
+        print("BUTTON TAPPED")
+        print("SENDER TAG: ", sender.tag)
+        self.delegate?.topicTappedIndex = (self.delegate?.chatIDs[sender.tag])!
+        print("JOINING CHAT FROM TOPIC -- CHAT ID =",  self.delegate?.chatIDs[sender.tag])
+
+        
+    }
   
 }
