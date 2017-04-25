@@ -149,66 +149,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Tta-Cp-9PB">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SeU-75-XtB">
-                                    <size key="itemSize" width="364" height="114"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChatCollCell" id="Ztx-8I-f3u" customClass="ChatCollCell" customModule="TalkUp" customModuleProvider="target">
-                                        <rect key="frame" x="5.5" y="0.0" width="364" height="114"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="364" height="114"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AkZ-08-BRs">
-                                                    <rect key="frame" x="8" y="73" width="52" height="41"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="52" id="wqU-yY-wzS"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SMu-gB-MOs">
-                                                    <rect key="frame" x="68" y="8" width="288" height="99"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xz-v4-Ome">
-                                                            <rect key="frame" x="8" y="0.0" width="280" height="99"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="8xz-v4-Ome" secondAttribute="trailing" id="H2G-ja-6j3"/>
-                                                        <constraint firstAttribute="bottom" secondItem="8xz-v4-Ome" secondAttribute="bottom" id="OiI-H8-p7B"/>
-                                                        <constraint firstItem="8xz-v4-Ome" firstAttribute="top" secondItem="SMu-gB-MOs" secondAttribute="top" id="RL7-2e-Hta"/>
-                                                        <constraint firstItem="8xz-v4-Ome" firstAttribute="leading" secondItem="SMu-gB-MOs" secondAttribute="leadingMargin" id="Xen-TO-X59"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                        </view>
-                                        <constraints>
-                                            <constraint firstItem="SMu-gB-MOs" firstAttribute="centerY" secondItem="Ztx-8I-f3u" secondAttribute="centerY" id="0Lz-eR-UyG"/>
-                                            <constraint firstAttribute="bottom" secondItem="AkZ-08-BRs" secondAttribute="bottom" id="GVv-NT-7eQ"/>
-                                            <constraint firstItem="SMu-gB-MOs" firstAttribute="top" secondItem="Ztx-8I-f3u" secondAttribute="topMargin" id="SHR-EQ-zCB"/>
-                                            <constraint firstItem="AkZ-08-BRs" firstAttribute="leading" secondItem="Ztx-8I-f3u" secondAttribute="leadingMargin" id="iW8-W7-10o"/>
-                                            <constraint firstItem="AkZ-08-BRs" firstAttribute="top" secondItem="Ztx-8I-f3u" secondAttribute="topMargin" constant="65" id="m5x-AA-B16"/>
-                                            <constraint firstItem="SMu-gB-MOs" firstAttribute="leading" secondItem="AkZ-08-BRs" secondAttribute="trailing" constant="8" symbolic="YES" id="vwz-xY-VnZ"/>
-                                            <constraint firstItem="SMu-gB-MOs" firstAttribute="trailing" secondItem="Ztx-8I-f3u" secondAttribute="trailingMargin" id="xK3-yP-Vru"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="chatBubbleView" destination="SMu-gB-MOs" id="SMr-kx-SLE"/>
-                                            <outlet property="chatLabel" destination="8xz-v4-Ome" id="ASE-t9-tEE"/>
-                                            <outlet property="profileImageView" destination="AkZ-08-BRs" id="YQn-As-XkX"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1g3-ZQ-KyZ">
                                 <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                                 <subviews>
@@ -275,10 +215,105 @@
                                     <constraint firstItem="E1L-0W-4lg" firstAttribute="trailing" secondItem="ED3-6z-p96" secondAttribute="trailingMargin" id="mOe-F4-UzH"/>
                                 </constraints>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Tta-Cp-9PB">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SeU-75-XtB">
+                                    <size key="itemSize" width="364" height="114"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UserChatCollCell" id="ZlJ-my-MJk" customClass="UserChatCollCell" customModule="TalkUp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6OO-fg-QsD">
+                                                    <rect key="frame" x="330" y="25" width="34" height="34"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6YW-1M-COf">
+                                                    <rect key="frame" x="239" y="-2" width="128" height="13"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.67431945189999998" green="0.6708614034" blue="0.67777750039999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U53-Hm-9RY">
+                                                    <rect key="frame" x="69" y="10" width="257" height="49"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UserChat" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9kB-Ek-r64">
+                                                            <rect key="frame" x="1" y="8" width="256" height="41"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                        <size key="customSize" width="375" height="64"/>
+                                        <connections>
+                                            <outlet property="chatBubbleView" destination="U53-Hm-9RY" id="WDd-tG-JEN"/>
+                                            <outlet property="profileImageView" destination="6OO-fg-QsD" id="fVI-l8-knE"/>
+                                            <outlet property="userChatLabel" destination="9kB-Ek-r64" id="VtP-Ru-XSi"/>
+                                            <outlet property="usernameLabel" destination="6YW-1M-COf" id="UxG-nW-G5D"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChatCollCell" id="Ztx-8I-f3u" customClass="ChatCollCell" customModule="TalkUp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="74" width="375" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AkZ-08-BRs">
+                                                    <rect key="frame" x="6" y="25" width="34" height="34"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egB-0D-Nqq">
+                                                    <rect key="frame" x="8" y="0.0" width="89" height="13"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.67431945189999998" green="0.6708614034" blue="0.67777750039999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SMu-gB-MOs">
+                                                    <rect key="frame" x="44" y="16" width="260" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Chat" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xz-v4-Ome">
+                                                            <rect key="frame" x="0.0" y="2" width="260" height="41"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                        <size key="customSize" width="375" height="64"/>
+                                        <connections>
+                                            <outlet property="chatBubbleView" destination="SMu-gB-MOs" id="SMr-kx-SLE"/>
+                                            <outlet property="chatLabel" destination="8xz-v4-Ome" id="ASE-t9-tEE"/>
+                                            <outlet property="profileImageView" destination="AkZ-08-BRs" id="YQn-As-XkX"/>
+                                            <outlet property="usernameLabel" destination="egB-0D-Nqq" id="ndE-ao-vF3"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ED3-6z-p96" firstAttribute="top" secondItem="Tta-Cp-9PB" secondAttribute="bottom" id="9su-2Z-q71"/>
+                            <constraint firstItem="ED3-6z-p96" firstAttribute="top" secondItem="Tta-Cp-9PB" secondAttribute="bottom" constant="8" id="9su-2Z-q71"/>
                             <constraint firstItem="Tta-Cp-9PB" firstAttribute="top" secondItem="jzZ-5V-RGW" secondAttribute="top" id="GAx-Wh-yB8"/>
                             <constraint firstAttribute="trailing" secondItem="1g3-ZQ-KyZ" secondAttribute="trailing" id="NDG-Ya-Hea"/>
                             <constraint firstItem="Tta-Cp-9PB" firstAttribute="leading" secondItem="jzZ-5V-RGW" secondAttribute="leading" id="NEh-hX-oF9"/>
@@ -1022,6 +1057,9 @@
                                                             <state key="normal">
                                                                 <color key="titleColor" red="0.546275497" green="0.54177043319999996" blue="0.54754290800000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             </state>
+                                                            <connections>
+                                                                <segue destination="3fW-TE-Zg0" kind="presentation" identifier="topicCellToChatsSegue" id="JMQ-za-SDP"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </tableViewCellContentView>
@@ -1032,9 +1070,6 @@
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="Lfc-Tl-TMc" appends="YES" id="adX-of-FcO"/>
-                                        </connections>
                                     </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kBh-Ib-rpB">
                                         <rect key="frame" x="0.0" y="0.0" width="376" height="33"/>
@@ -1191,11 +1226,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AYR-2p-LRg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Lfc-Tl-TMc">
-                    <connections>
-                        <action selector="didTapOutsideMenu:" destination="fd9-6W-YU3" id="wU8-nX-tvV"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1584.8" y="864.91754122938539"/>
         </scene>
@@ -1671,7 +1701,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="uRj-Rp-cgw"/>
-        <segue reference="w1U-vg-vrE"/>
         <segue reference="jh2-39-Pn4"/>
+        <segue reference="w1U-vg-vrE"/>
+        <segue reference="X1x-xm-Q0y"/>
     </inferredMetricsTieBreakers>
 </document>
