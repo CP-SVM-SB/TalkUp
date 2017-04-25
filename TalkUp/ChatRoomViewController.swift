@@ -16,17 +16,18 @@ protocol ChatVCDelegate {
 }
 
 
-class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ChatVCDelegate {
+class ChatRoomViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, ChatVCDelegate {
     
       
     @IBOutlet var `switch`: UISwitch!
     
     
+
     @IBOutlet var chatView: UIView!
     @IBOutlet var messageTextField: UITextField!
     @IBOutlet var sendButton: UIButton!
-    @IBOutlet var tableView: UITableView!
     @IBOutlet weak var gifButton: UIButton!
+  @IBOutlet weak var collectionView: UICollectionView!
     
     var leavingChat = false
     var delegate: TopicsVCDelegate?
@@ -45,6 +46,8 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.dataSource = self
+      collectionView.delegate = self
         
         self.switch.isEnabled = true
         self.switch.isOn = false
@@ -199,17 +202,14 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tap(_:)))
         self.chatView.addGestureRecognizer(tapGesture)
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.tableView.estimatedRowHeight = 100
-        self.tableView.rowHeight = UITableViewAutomaticDimension
+      
     }
 
     func refreshChat()
     {
         self.Client.getDataForChatWithId(id: self.chat.count) { (listOfMessages: [Message], open: Bool, activityList: [Int]) in
             self.messages = listOfMessages
-            self.tableView.reloadData()
+            self.collectionView.reloadData()
             if open {
                 self.switch.isOn = true
             }
@@ -338,24 +338,8 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
 
     // ---------- SCROLL TO BOTTOM FUNCTION: Added By SVM ---------
     func scrollToBottom() {
-        tableView.reloadData()
-        tableView.contentOffset = CGPoint(x: CGFloat(0), y: CGFloat(tableView.contentSize.height - tableView.frame.size.height))
-    }
-
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.messages.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell", for: indexPath) as! ChatCell
-        cell.messageLabel.text = (messages[indexPath.row].text!)
-        if messages[indexPath.row].from == user.username {
-            cell.messageLabel.textAlignment = NSTextAlignment.right
-        }
-        
-        return cell
-
+        collectionView.reloadData()
+        collectionView.contentOffset = CGPoint(x: CGFloat(0), y: CGFloat(collectionView.contentSize.height - collectionView.frame.size.height))
     }
 
     func loadTable() {
@@ -365,7 +349,7 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
         
                 Client.getMessagesFromChatWithId(id: self.chat.count, onSuccess: { (listOfMessages:[Message]) in
             self.messages = listOfMessages
-            self.tableView.reloadData()
+            self.collectionView.reloadData()
             self.scrollToBottom()
         }) { (error: Error) in
             print(error.localizedDescription)
@@ -434,6 +418,26 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
+  //  --- Collection View functions ---
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return self.messages.count
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChatCollCell", for: indexPath) as! ChatCollCell
+    cell.chatLabel.text = messages[indexPath.row].text!
+    cell.profileImageView.image = userSettings?.profileImage
+    cell.chatBubbleView.backgroundColor = UIColor(white: 0.95, alpha: 1)
+    
+    if( messages[indexPath.row].from == user.username) {
+      cell.userMessage = true
+    } else {
+      cell.userMessage = false
+    }
+    
+    return cell
+  }
+  
   
   /*
    // MARK: - Navigation
@@ -446,3 +450,19 @@ class ChatRoomViewController: UIViewController, UITableViewDelegate, UITableView
    */
   
 }
+
+extension UIColor {
+  static func appleBlue() -> UIColor {
+    return UIColor.init(colorLiteralRed: 14.0/255, green: 122.0/255, blue: 254.0/255, alpha: 1.0)
+  }
+}
+
+
+
+
+
+
+
+
+
+

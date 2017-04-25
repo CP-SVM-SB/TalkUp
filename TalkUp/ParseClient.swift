@@ -370,11 +370,11 @@ class ParseClient: NSObject {
             
             if let chatInfo = chatInfo{
                 
-                chat.count = chatInfo["count"] as! Int
-                chat.memberCount = chatInfo["memberCount"] as! Int
-                chat.members = chatInfo["activeMembers"] as! [String]
-                chat.open = chatInfo["open"] as! Int
-                chat.activity = chatInfo["activity"] as! [Int]
+                //chat.count = chatInfo["count"] as! Int
+                //chat.memberCount = chatInfo["memberCount"] as! Int
+                //chat.members = chatInfo["activeMembers"] as! [String]
+                //chat.open = chatInfo["open"] as! Int
+                //chat.activity = chatInfo["activity"] as! [Int]
                 /*
                 let topic = chatInfo["topic"] as! String
                 if topic == "nil" {
@@ -696,9 +696,16 @@ class ParseClient: NSObject {
             var query = PFQuery(className: "chat\(id)")
             query.getFirstObjectInBackground(block: { (chatInfo: PFObject?, error: Error?) in
                 if let chatInfo = chatInfo {
-                    let numberOfMembers = chatInfo["memberCount"] as! Int
-                    let open = chatInfo["open"] as! Int
-                    
+                  var numberOfMembers = 0
+                  var open = 0
+                  if let noMembers = chatInfo["memberCount"] as? Int {
+                     numberOfMembers = noMembers
+                  }
+                  
+                  if let openStatus = chatInfo["open"] as? Int {
+                    open = openStatus
+                  }
+                  
                     if numberOfMembers < 2{
                         onSuccess(id, true)
                     }
