@@ -20,6 +20,7 @@ class TopicsMenuTableViewController: UITableViewController {
     @IBOutlet weak var cell4Label: UILabel!
     @IBOutlet weak var logOutButton: UIButton!
     
+    @IBOutlet var onlineStatusIndicator: UIButton!
     
     var userSettings: UserSettings?
     
@@ -38,6 +39,7 @@ class TopicsMenuTableViewController: UITableViewController {
         imageView.clipsToBounds = true
         
         cell1Label.text = "Online"
+        onlineStatusIndicator.layer.cornerRadius = onlineStatusIndicator.frame.height / 2.0
         cell2Label.text = "Settings"
         cell3Label.text = "Recent Topics"
         cell4Label.text = "Help"

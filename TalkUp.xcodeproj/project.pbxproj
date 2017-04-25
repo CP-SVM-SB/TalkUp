@@ -39,6 +39,17 @@
 		761EAF441EA3222900257FC0 /* flame copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 761EAF411EA3222900257FC0 /* flame copy.png */; };
 		761EAF461EA3222F00257FC0 /* black.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 761EAF451EA3222F00257FC0 /* black.jpg */; };
 		761EAF481EA324F600257FC0 /* FlickrClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761EAF471EA324F600257FC0 /* FlickrClient.swift */; };
+		76225C191EAFEFF300757713 /* water_night_6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 76225C181EAFEFF300757713 /* water_night_6.jpg */; };
+		76225C241EAFEFFC00757713 /* bot1.png in Resources */ = {isa = PBXBuildFile; fileRef = 76225C1A1EAFEFFC00757713 /* bot1.png */; };
+		76225C251EAFEFFC00757713 /* bot2.png in Resources */ = {isa = PBXBuildFile; fileRef = 76225C1B1EAFEFFC00757713 /* bot2.png */; };
+		76225C261EAFEFFC00757713 /* bot6.png in Resources */ = {isa = PBXBuildFile; fileRef = 76225C1C1EAFEFFC00757713 /* bot6.png */; };
+		76225C271EAFEFFC00757713 /* bot4.png in Resources */ = {isa = PBXBuildFile; fileRef = 76225C1D1EAFEFFC00757713 /* bot4.png */; };
+		76225C281EAFEFFC00757713 /* bot3.png in Resources */ = {isa = PBXBuildFile; fileRef = 76225C1E1EAFEFFC00757713 /* bot3.png */; };
+		76225C291EAFEFFC00757713 /* bot5.png in Resources */ = {isa = PBXBuildFile; fileRef = 76225C1F1EAFEFFC00757713 /* bot5.png */; };
+		76225C2A1EAFEFFC00757713 /* bot7.png in Resources */ = {isa = PBXBuildFile; fileRef = 76225C201EAFEFFC00757713 /* bot7.png */; };
+		76225C2B1EAFEFFC00757713 /* bot10.png in Resources */ = {isa = PBXBuildFile; fileRef = 76225C211EAFEFFC00757713 /* bot10.png */; };
+		76225C2C1EAFEFFC00757713 /* bot8.png in Resources */ = {isa = PBXBuildFile; fileRef = 76225C221EAFEFFC00757713 /* bot8.png */; };
+		76225C2D1EAFEFFC00757713 /* bot9.png in Resources */ = {isa = PBXBuildFile; fileRef = 76225C231EAFEFFC00757713 /* bot9.png */; };
 		762461C51E903624007741EA /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762461C41E903624007741EA /* SettingsTableViewController.swift */; };
 		762461CD1E906468007741EA /* SettingsViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762461CC1E906468007741EA /* SettingsViewControllerExtension.swift */; };
 		762461D21E906F89007741EA /* Theme1.png in Resources */ = {isa = PBXBuildFile; fileRef = 762461CF1E906F89007741EA /* Theme1.png */; };
@@ -53,7 +64,6 @@
 		76AE48041EAD972F00036447 /* mapsBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 76AE48031EAD972F00036447 /* mapsBG.png */; };
 		76AE48061EAD979C00036447 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 76AE48051EAD979C00036447 /* logo.png */; };
 		76AE48081EADAFAA00036447 /* logoName.png in Resources */ = {isa = PBXBuildFile; fileRef = 76AE48071EADAFAA00036447 /* logoName.png */; };
-		76AE480A1EADB59300036447 /* water_night_6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 76AE48091EADB59300036447 /* water_night_6.jpg */; };
 		76AE480D1EAE922C00036447 /* loading1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 76AE480C1EAE922C00036447 /* loading1.gif */; };
 		76AE48111EAF8FDF00036447 /* signupBG.png in Resources */ = {isa = PBXBuildFile; fileRef = 76AE48101EAF8FDF00036447 /* signupBG.png */; };
 		76AE48131EAFD52700036447 /* lightflame.png in Resources */ = {isa = PBXBuildFile; fileRef = 76AE48121EAFD52700036447 /* lightflame.png */; };
@@ -114,6 +124,17 @@
 		761EAF411EA3222900257FC0 /* flame copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flame copy.png"; path = "Assets.xcassets/flame copy.png"; sourceTree = "<group>"; };
 		761EAF451EA3222F00257FC0 /* black.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = black.jpg; path = Assets.xcassets/black.jpg; sourceTree = "<group>"; };
 		761EAF471EA324F600257FC0 /* FlickrClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrClient.swift; sourceTree = "<group>"; };
+		76225C181EAFEFF300757713 /* water_night_6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = water_night_6.jpg; path = Assets.xcassets/water_night_6.jpg; sourceTree = "<group>"; };
+		76225C1A1EAFEFFC00757713 /* bot1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bot1.png; path = Assets.xcassets/bot1.png; sourceTree = "<group>"; };
+		76225C1B1EAFEFFC00757713 /* bot2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bot2.png; path = Assets.xcassets/bot2.png; sourceTree = "<group>"; };
+		76225C1C1EAFEFFC00757713 /* bot6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bot6.png; path = Assets.xcassets/bot6.png; sourceTree = "<group>"; };
+		76225C1D1EAFEFFC00757713 /* bot4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bot4.png; path = Assets.xcassets/bot4.png; sourceTree = "<group>"; };
+		76225C1E1EAFEFFC00757713 /* bot3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bot3.png; path = Assets.xcassets/bot3.png; sourceTree = "<group>"; };
+		76225C1F1EAFEFFC00757713 /* bot5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bot5.png; path = Assets.xcassets/bot5.png; sourceTree = "<group>"; };
+		76225C201EAFEFFC00757713 /* bot7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bot7.png; path = Assets.xcassets/bot7.png; sourceTree = "<group>"; };
+		76225C211EAFEFFC00757713 /* bot10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bot10.png; path = Assets.xcassets/bot10.png; sourceTree = "<group>"; };
+		76225C221EAFEFFC00757713 /* bot8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bot8.png; path = Assets.xcassets/bot8.png; sourceTree = "<group>"; };
+		76225C231EAFEFFC00757713 /* bot9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bot9.png; path = Assets.xcassets/bot9.png; sourceTree = "<group>"; };
 		762461C41E903624007741EA /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		762461CC1E906468007741EA /* SettingsViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewControllerExtension.swift; sourceTree = "<group>"; };
 		762461CF1E906F89007741EA /* Theme1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Theme1.png; path = Assets.xcassets/Theme1.png; sourceTree = "<group>"; };
@@ -129,7 +150,6 @@
 		76AE48031EAD972F00036447 /* mapsBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapsBG.png; path = Assets.xcassets/mapsBG.png; sourceTree = "<group>"; };
 		76AE48051EAD979C00036447 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = Assets.xcassets/logo.png; sourceTree = "<group>"; };
 		76AE48071EADAFAA00036447 /* logoName.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoName.png; sourceTree = "<group>"; };
-		76AE48091EADB59300036447 /* water_night_6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = water_night_6.jpg; sourceTree = "<group>"; };
 		76AE480C1EAE922C00036447 /* loading1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = loading1.gif; path = Assets.xcassets/loading1.gif; sourceTree = "<group>"; };
 		76AE48101EAF8FDF00036447 /* signupBG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = signupBG.png; path = Assets.xcassets/signupBG.png; sourceTree = "<group>"; };
 		76AE48121EAFD52700036447 /* lightflame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lightflame.png; path = Assets.xcassets/lightflame.png; sourceTree = "<group>"; };
@@ -209,10 +229,20 @@
 				76AE48071EADAFAA00036447 /* logoName.png */,
 				76AE48021EAD967D00036447 /* ufonts.com_din-light.ttf */,
 				76AE48051EAD979C00036447 /* logo.png */,
-				76AE48091EADB59300036447 /* water_night_6.jpg */,
+				76225C1A1EAFEFFC00757713 /* bot1.png */,
+				76225C1B1EAFEFFC00757713 /* bot2.png */,
+				76225C1C1EAFEFFC00757713 /* bot6.png */,
+				76225C1D1EAFEFFC00757713 /* bot4.png */,
+				76225C1E1EAFEFFC00757713 /* bot3.png */,
+				76225C1F1EAFEFFC00757713 /* bot5.png */,
+				76225C201EAFEFFC00757713 /* bot7.png */,
+				76225C211EAFEFFC00757713 /* bot10.png */,
+				76225C221EAFEFFC00757713 /* bot8.png */,
+				76225C231EAFEFFC00757713 /* bot9.png */,
 				761EAF411EA3222900257FC0 /* flame copy.png */,
 				761EAF251EA2930300257FC0 /* lightblue.jpg */,
 				76AE48031EAD972F00036447 /* mapsBG.png */,
+				76225C181EAFEFF300757713 /* water_night_6.jpg */,
 				761EAF261EA2930300257FC0 /* limegreen.jpg */,
 				761EAF271EA2930300257FC0 /* magenta.jpg */,
 				761EAF281EA2930300257FC0 /* orange.jpg */,
@@ -414,11 +444,16 @@
 			files = (
 				7696C2D51EAD3B8C00676BC0 /* ADAM.CG PRO.otf in Resources */,
 				7696C2D61EAD3B8C00676BC0 /* ufonts.com_din-light.ttf in Resources */,
+				76225C2B1EAFEFFC00757713 /* bot10.png in Resources */,
 				76AE48061EAD979C00036447 /* logo.png in Resources */,
 				849B53E21E81EC04008B1FE0 /* LaunchScreen.storyboard in Resources */,
 				761EAF331EA2930300257FC0 /* purple.jpg in Resources */,
 				762461D41E906F89007741EA /* Theme3.png in Resources */,
+				76225C2C1EAFEFFC00757713 /* bot8.png in Resources */,
+				76225C261EAFEFFC00757713 /* bot6.png in Resources */,
+				76225C251EAFEFFC00757713 /* bot2.png in Resources */,
 				761EAF431EA3222900257FC0 /* flame (2).png in Resources */,
+				76225C2D1EAFEFFC00757713 /* bot9.png in Resources */,
 				762461D21E906F89007741EA /* Theme1.png in Resources */,
 				761EAF2D1EA2930300257FC0 /* hotpink.png in Resources */,
 				761EAF2F1EA2930300257FC0 /* lightblue.jpg in Resources */,
@@ -427,8 +462,12 @@
 				762461D31E906F89007741EA /* Theme2.png in Resources */,
 				76AE480D1EAE922C00036447 /* loading1.gif in Resources */,
 				761EAF341EA2930300257FC0 /* red.jpg in Resources */,
+				76225C2A1EAFEFFC00757713 /* bot7.png in Resources */,
 				761EAF311EA2930300257FC0 /* magenta.jpg in Resources */,
 				762461DC1E9083B7007741EA /* Theme5.png in Resources */,
+				76225C241EAFEFFC00757713 /* bot1.png in Resources */,
+				76225C271EAFEFFC00757713 /* bot4.png in Resources */,
+				76225C191EAFEFF300757713 /* water_night_6.jpg in Resources */,
 				76F7DC931E9871F500D8363A /* loginBackground.gif in Resources */,
 				761EAF2E1EA2930300257FC0 /* jeanblue.png in Resources */,
 				849B53DD1E81EC04008B1FE0 /* Main.storyboard in Resources */,
@@ -436,9 +475,10 @@
 				761EAF421EA3222900257FC0 /* flame (1).png in Resources */,
 				761EAF441EA3222900257FC0 /* flame copy.png in Resources */,
 				762461DB1E9083B6007741EA /* Theme4.png in Resources */,
+				76225C281EAFEFFC00757713 /* bot3.png in Resources */,
 				76AE48111EAF8FDF00036447 /* signupBG.png in Resources */,
+				76225C291EAFEFFC00757713 /* bot5.png in Resources */,
 				761EAF351EA2930300257FC0 /* skyblue.jpg in Resources */,
-				76AE480A1EADB59300036447 /* water_night_6.jpg in Resources */,
 				761EAF321EA2930300257FC0 /* orange.jpg in Resources */,
 				76AE48081EADAFAA00036447 /* logoName.png in Resources */,
 				761EAF301EA2930300257FC0 /* limegreen.jpg in Resources */,

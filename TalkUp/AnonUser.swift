@@ -20,7 +20,7 @@ class AnonUser: NSObject {
     var animalUsernames = ["bundleTurtle", "butterflyChicken", "jokesGiraffe", "venomousFish", "malcontentFlamingo", "puddingSnail", "glorySquirrel", "banginCamel", "dimDolphin", "confusedZebra"]
     var snapchatUsernames = ["djkhaled305", "arnoldschnitzel", "ellen", "kylizzlemynizzl", "kendalljenner", "howusnap", "jicknonas", "ohheyhilary", "jlobts", "snoopdogg213"]
     
-    var robotProfilepics =  ["hotpink.png", "jeanblue.png", "lightblue.jpg", "limegreen.jpg", "magenta.jpg", "orange.jpg", "purple.jpg", "red.jpg", "skyblue.jpg", "turquoise.jpg"]
+    var robotProfilepics =  ["bot1.png", "bot2.png", "bot3.png", "bot4.png", "bot5.png", "bot6.png", "bot7.png", "bot8.png", "bot9.png", "bot10.png"]
     var fruitProfilepics =  ["hotpink.png", "jeanblue.png", "lightblue.jpg", "limegreen.jpg", "magenta.jpg", "orange.jpg", "purple.jpg", "red.jpg", "skyblue.jpg", "turquoise.jpg"]
     var planetProfilepics =  ["hotpink.png", "jeanblue.png", "lightblue.jpg", "limegreen.jpg", "magenta.jpg", "orange.jpg", "purple.jpg", "red.jpg", "skyblue.jpg", "turquoise.jpg"]
     var animalProfilepics =  ["hotpink.png", "jeanblue.png", "lightblue.jpg", "limegreen.jpg", "magenta.jpg", "orange.jpg", "purple.jpg", "red.jpg", "skyblue.jpg", "turquoise.jpg"]

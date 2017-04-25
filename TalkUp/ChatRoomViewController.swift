@@ -49,6 +49,9 @@ class ChatRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
     self.switch.isEnabled = true
     self.switch.isOn = false
     
+    gifButton.layer.cornerRadius = gifButton.frame.height / 2.0
+    gifButton.layer.borderWidth = 1.0
+    gifButton.layer.borderColor = UIColor.blue.cgColor
     
     print("CONFIRMATION: ", topicChatIndex)
     
@@ -311,7 +314,7 @@ class ChatRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
   
   
   @IBAction func onSendButton(_ sender: Any) {
-    
+    self.scrollToBottom()
     let message = Message()
     message.from = user.username!
     message.text = messageTextField.text
@@ -322,10 +325,11 @@ class ChatRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
         self.scrollToBottom()
       }) { (error: Error) in
         print(error.localizedDescription)
+        self.scrollToBottom()
       }
     }
     
-    
+    self.scrollToBottom()
   }
   
   
@@ -369,7 +373,10 @@ class ChatRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
     Client.getMessagesFromChatWithId(id: self.chat.count, onSuccess: { (listOfMessages:[Message]) in
       self.messages = listOfMessages
       self.collectionView.reloadData()
-      self.scrollToBottom()
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.7, execute: {
+            self.scrollToBottom()
+        })
+      
     }) { (error: Error) in
       print(error.localizedDescription)
     }
