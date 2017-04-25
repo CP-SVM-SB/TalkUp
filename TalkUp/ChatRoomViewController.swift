@@ -321,6 +321,7 @@ class ChatRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
     let message = Message()
     message.from = userSettings?.username
     message.text = messageTextField.text
+    message.imageTitle = userSettings?.imageTitle
     messageTextField.text = ""
     if message.text != "" {
       self.Client.sendMessageToChatWithId(message: message, id: self.chat.count, onSuccess: {
@@ -465,7 +466,15 @@ class ChatRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
     } else {
       let otherCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChatCollCell", for: indexPath) as! ChatCollCell
       otherCell.chatLabel.text = messages[indexPath.row].text!
-      otherCell.profileImageView.image = UIImage(named: "animationChatIcon")
+      
+      if (messages[indexPath.row].imageTitle != nil) {
+        let imgTitle = messages[indexPath.row].imageTitle!
+        print(imgTitle)
+        otherCell.profileImageView.image = UIImage(named: imgTitle)
+      } else {
+        otherCell.profileImageView.image = UIImage(named: "purple.jpg")
+      }
+      
       otherCell.usernameLabel.text = messages[indexPath.row].from
       otherCell.chatBubbleView.backgroundColor = UIColor(white: 0.95, alpha: 1)
       return otherCell

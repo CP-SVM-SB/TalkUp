@@ -27,9 +27,10 @@ class UserSettings: AnyObject {
     var theme: Theme?
     var username: String?
     var profileImage: UIImage?
+    var imageTitle: String?
+  
     
-    
-    init(notificationsOn: Bool, encryptMessages: Bool, enableVM: Bool, fontSize: Int, theme: Theme, username: String, profileImage: UIImage) {
+  init(notificationsOn: Bool, encryptMessages: Bool, enableVM: Bool, fontSize: Int, theme: Theme, username: String, profileImage: UIImage, imageTitle: String) {
         
         self.notificationsOn = notificationsOn
         self.encryptMessages = encryptMessages
