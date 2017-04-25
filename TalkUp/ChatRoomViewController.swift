@@ -254,6 +254,9 @@ class ChatRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
   }
   
   @IBAction func onLeaveChat(_ sender: Any) {
+    
+    self.leavingChat = true
+    
     if self.chat.memberCount <= 1 {
       self.Client.cleanupChatWithId(id: self.chat.count, onSuccess: {
         //print("cleaned up chat")
@@ -263,7 +266,7 @@ class ChatRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
         
       })
     }
-    self.leavingChat = true
+    
     self.performSegue(withIdentifier: "unwindToTopics", sender: self)
     self.leavingChat = true
   }
