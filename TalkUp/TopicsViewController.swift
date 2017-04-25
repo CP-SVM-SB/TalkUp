@@ -43,7 +43,7 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   let locationManager = CLLocationManager()
   
   // -- Settable Vars --
-  var noTopicsMax = 7               // max. number of topics you wish to see
+  var noTopicsMax = 27               // max. number of topics you wish to see
   var topicsRollbackLength: Int = 40   // no of recent msgs you wish to use in getting topics [NB]: if 0, ALL messages are used
   var noCurrentlyAvailableChats = 0
   var rawMessages: String?
@@ -87,13 +87,13 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     fakeNumMessagesArr = [250, 304, 100, 678, 432, 763, 453, 294]
     
     
-    fakeKeywordsArr = ["yolo", "Android Users", "new app", "CodePath", "Swift", "fix chat bugs", "presentation day", "iOS", "finals", "test"]
-    fakenoChatsWithKeyword = [1, 2, 1, 3, 1, 1, 1, 3, 4, 5]
+    fakeKeywordsArr = ["yolo", "Android Users", "new app", "CodePath", "Swift", "fix chat bugs", "presentation day", "iOS", "finals", "test", "chat", "Story", "Github"]
+    fakenoChatsWithKeyword = [1, 2, 1, 3, 1, 1, 1, 3, 4, 5, 1, 4, 3]
     
-//    for i in 0...(fakeKeywordsArr.count - 1) {
-//        keywordsArr.append(fakeKeywordsArr[i])
-//        noChatsWithKeyword.append(fakenoChatsWithKeyword[i])
-//    }
+    for i in 0...(fakeKeywordsArr.count - 1) {
+        keywordsArr.append(fakeKeywordsArr[i])
+        noChatsWithKeyword.append(fakenoChatsWithKeyword[i])
+    }
     
     
     self.locationManager.requestAlwaysAuthorization()
@@ -454,6 +454,9 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+    UserDefaults.standard.set(locValue.longitude, forKey: "longitude")
+    UserDefaults.standard.set(locValue.latitude, forKey: "latitude")
+    //print(UserDefaults.standard.string(forKey: "longitude")!)
     self.location.longitude = locValue.longitude
     self.location.latitude = locValue.latitude
     //print(self.location.latitude)

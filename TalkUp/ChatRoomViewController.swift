@@ -52,7 +52,10 @@ class ChatRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
     gifButton.layer.cornerRadius = gifButton.frame.height / 2.0
     gifButton.layer.borderWidth = 1.0
     gifButton.layer.borderColor = UIColor.blue.cgColor
-    
+
+    self.chat.location?.longitude = Double(UserDefaults.standard.string(forKey: "longitude")!)
+    self.chat.location?.latitude = Double(UserDefaults.standard.string(forKey: "latitude")!)
+
     print("CONFIRMATION: ", topicChatIndex)
     
     //make sure the location is saved before we find the close by chat
@@ -269,9 +272,9 @@ class ChatRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
         
       })
     }
-    
-    self.performSegue(withIdentifier: "unwindToTopics", sender: self)
     self.leavingChat = true
+
+    self.performSegue(withIdentifier: "unwindToTopics", sender: self)
   }
   
   // ------------------------ PREPARE FOR SEGUE --------------------------
@@ -316,7 +319,7 @@ class ChatRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
   @IBAction func onSendButton(_ sender: Any) {
     self.scrollToBottom()
     let message = Message()
-    message.from = user.username!
+    message.from = userSettings?.username
     message.text = messageTextField.text
     messageTextField.text = ""
     if message.text != "" {
@@ -451,7 +454,7 @@ class ChatRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-    if (messages[indexPath.row].from == user.username) {
+    if (messages[indexPath.row].from == userSettings?.username) {
       let userCell = collectionView.dequeueReusableCell(withReuseIdentifier: "UserChatCollCell", for: indexPath) as! UserChatCollCell
       userCell.userChatLabel.text = messages[indexPath.row].text!
       userCell.profileImageView.image = userSettings?.profileImage
@@ -463,7 +466,7 @@ class ChatRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
       let otherCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChatCollCell", for: indexPath) as! ChatCollCell
       otherCell.chatLabel.text = messages[indexPath.row].text!
       otherCell.profileImageView.image = UIImage(named: "animationChatIcon")
-      otherCell.usernameLabel.text = "anon"
+      otherCell.usernameLabel.text = messages[indexPath.row].from
       otherCell.chatBubbleView.backgroundColor = UIColor(white: 0.95, alpha: 1)
       return otherCell
     }
