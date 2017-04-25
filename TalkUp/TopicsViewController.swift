@@ -75,7 +75,7 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   var localSource = [ImageSource]()
   var cellSpacingHeight = CGFloat()
   var topicTappedIndex = 0
-    var alreadyCounting = Bool()
+    var alreadyCounting = false
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -163,10 +163,6 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
       localSource.append(ImageSource(image: UIImage(data: imageDataArr[i])!))
     }
     
-    
-    
-    
-    
   }
   
   
@@ -234,14 +230,15 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   }
   
   func startTimer(){
-    
-    counter = 30
-    newChatButton.isHidden  = true
-    newChatButton.isEnabled = false
-    backToChatButton.isHidden = false
-    
-    counterItem.isEnabled = true
-    timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TopicsViewController.updateTime), userInfo: nil, repeats: true)
+    if alreadyCounting == false{
+        alreadyCounting = true
+        counter = 30
+        newChatButton.isHidden  = true
+        newChatButton.isEnabled = false
+        backToChatButton.isHidden = false
+        counterItem.isEnabled = true
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TopicsViewController.updateTime), userInfo: nil, repeats: true)
+    }
   }
   
   func updateTime(){
@@ -257,6 +254,7 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   
   func timesUp(){
     timer.invalidate()
+    alreadyCounting = false
     counterItem.title = " "
     newChatButton.isHidden = false
     newChatButton.isEnabled = true

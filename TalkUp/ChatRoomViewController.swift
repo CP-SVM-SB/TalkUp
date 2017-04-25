@@ -41,7 +41,6 @@ class ChatRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
   var gifData = Data()
   var gifUrl = String()
   var topicChatIndex: Int?
-  
   var userSettings: UserSettings?
   
   
@@ -269,7 +268,7 @@ class ChatRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     self.leavingChat = true
     self.performSegue(withIdentifier: "unwindToTopics", sender: self)
-    
+    self.leavingChat = true
   }
   
   // ------------------------ PREPARE FOR SEGUE --------------------------
@@ -292,6 +291,7 @@ class ChatRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
       Client.exitChatWithId(id: self.chat.count) {
         print("exited chat")
       }
+        
       if self.leavingChat == false {
         self.delegate?.startTimer()
         
