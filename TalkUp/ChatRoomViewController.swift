@@ -40,6 +40,7 @@ class ChatRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
   var timerFlag = false
   var gifData = Data()
   var gifUrl = String()
+  var topicChatIndex: Int?
   
   var userSettings: UserSettings?
   
@@ -118,6 +119,23 @@ class ChatRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
      })
      }
      */
+    
+    if topicChatIndex != nil {
+      self.Client.joinChatWithId(id: topicChatIndex!, onSuccess: { (chatInfo: ChatRoom) in
+        self.chat = chatInfo
+        if self.chat.open == 1 {
+          self.switch.isOn = true
+        }
+        else {
+          self.switch.isOn = false
+        }
+        print("joined chat \(self.topicChatIndex!) based on topic!")
+        
+        self.loadTable()
+        let timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(ChatRoomViewController.refreshChat), userInfo: nil, repeats: true)
+      })
+    } else {
+    
     self.Client.findCloseByChat(userLocation: self.chat.location!, onSuccess: { (code: Int) in
       self.Client.joinChatWithId(id: code, onSuccess: { (chatInfo: ChatRoom) in
         self.chat = chatInfo
@@ -127,7 +145,7 @@ class ChatRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
         else {
           self.switch.isOn = false
         }
-        print("joined chat \(self.chat.count) based on location")
+        print("joined chat \(self.chat.count) based on location!")
         
         self.loadTable()
         let timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(ChatRoomViewController.refreshChat), userInfo: nil, repeats: true)
@@ -177,6 +195,7 @@ class ChatRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
         }
       }
     })
+    }
     
     // add the current user to the chat room
     //chat.members.append(user!)

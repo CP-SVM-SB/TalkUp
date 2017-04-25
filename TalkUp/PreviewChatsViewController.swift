@@ -16,7 +16,6 @@ class PreviewChatsViewController: UIViewController, UITableViewDelegate, UITable
   var topic:String?
   var chatsWithKeyWord: NSMutableArray?
   
-
   override func viewDidLoad() {
     super.viewDidLoad()
     previewTableView.delegate = self
@@ -46,7 +45,6 @@ class PreviewChatsViewController: UIViewController, UITableViewDelegate, UITable
     
     return cell
   }
-  
   
   
 }
