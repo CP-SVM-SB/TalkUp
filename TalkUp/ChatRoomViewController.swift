@@ -310,7 +310,7 @@ class ChatRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
   @IBAction func onSendButton(_ sender: Any) {
     
     let message = Message()
-    message.from = user.username!
+    message.from = userSettings?.username
     message.text = messageTextField.text
     messageTextField.text = ""
     if message.text != "" {
@@ -441,7 +441,7 @@ class ChatRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
-    if (messages[indexPath.row].from == user.username) {
+    if (messages[indexPath.row].from == userSettings?.username) {
       let userCell = collectionView.dequeueReusableCell(withReuseIdentifier: "UserChatCollCell", for: indexPath) as! UserChatCollCell
       userCell.userChatLabel.text = messages[indexPath.row].text!
       userCell.profileImageView.image = userSettings?.profileImage
@@ -453,7 +453,7 @@ class ChatRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
       let otherCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChatCollCell", for: indexPath) as! ChatCollCell
       otherCell.chatLabel.text = messages[indexPath.row].text!
       otherCell.profileImageView.image = UIImage(named: "animationChatIcon")
-      otherCell.usernameLabel.text = "anon"
+      otherCell.usernameLabel.text = messages[indexPath.row].from
       otherCell.chatBubbleView.backgroundColor = UIColor(white: 0.95, alpha: 1)
       return otherCell
     }
