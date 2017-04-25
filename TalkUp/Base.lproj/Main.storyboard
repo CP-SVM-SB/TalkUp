@@ -227,22 +227,18 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UserChatCollCell" id="ZlJ-my-MJk" customClass="UserChatCollCell" customModule="TalkUp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6OO-fg-QsD">
-                                                    <rect key="frame" x="330" y="25" width="34" height="34"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U53-Hm-9RY">
                                                     <rect key="frame" x="69" y="10" width="257" height="49"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UserChat" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9kB-Ek-r64">
-                                                            <rect key="frame" x="1" y="8" width="256" height="41"/>
+                                                            <rect key="frame" x="8" y="8" width="249" height="31"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" name="DIN-Light" family="DIN Light" pointSize="14"/>
                                                             <nil key="textColor"/>
@@ -252,15 +248,19 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6YW-1M-COf">
-                                                    <rect key="frame" x="219" y="7" width="145" height="13"/>
+                                                    <rect key="frame" x="218" y="63" width="145" height="13"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
                                                     <color key="textColor" red="0.67431945189999998" green="0.6708614034" blue="0.67777750039999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6OO-fg-QsD">
+                                                    <rect key="frame" x="335" y="20" width="28" height="28"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </view>
-                                        <size key="customSize" width="375" height="64"/>
+                                        <size key="customSize" width="375" height="79"/>
                                         <connections>
                                             <outlet property="chatBubbleView" destination="U53-Hm-9RY" id="WDd-tG-JEN"/>
                                             <outlet property="profileImageView" destination="6OO-fg-QsD" id="fVI-l8-knE"/>
@@ -269,22 +269,18 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChatCollCell" id="Ztx-8I-f3u" customClass="ChatCollCell" customModule="TalkUp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="74" width="375" height="64"/>
+                                        <rect key="frame" x="0.0" y="89" width="375" height="79"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AkZ-08-BRs">
-                                                    <rect key="frame" x="6" y="25" width="34" height="34"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SMu-gB-MOs">
                                                     <rect key="frame" x="44" y="16" width="260" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Chat" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xz-v4-Ome">
-                                                            <rect key="frame" x="0.0" y="2" width="260" height="41"/>
+                                                            <rect key="frame" x="8" y="7" width="252" height="29"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" name="DIN-Light" family="DIN Light" pointSize="14"/>
                                                             <nil key="textColor"/>
@@ -294,15 +290,19 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egB-0D-Nqq">
-                                                    <rect key="frame" x="8" y="3" width="150" height="13"/>
+                                                    <rect key="frame" x="9" y="64" width="150" height="13"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
                                                     <color key="textColor" red="0.67431945189999998" green="0.6708614034" blue="0.67777750039999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AkZ-08-BRs">
+                                                    <rect key="frame" x="8" y="31" width="28" height="28"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </view>
-                                        <size key="customSize" width="375" height="64"/>
+                                        <size key="customSize" width="375" height="79"/>
                                         <connections>
                                             <outlet property="chatBubbleView" destination="SMu-gB-MOs" id="SMr-kx-SLE"/>
                                             <outlet property="chatLabel" destination="8xz-v4-Ome" id="ASE-t9-tEE"/>
@@ -1018,13 +1018,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Glu-S6-JRD">
-                                <rect key="frame" x="0.0" y="64" width="200" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="200" height="647"/>
                                 <connections>
                                     <segue destination="hbe-lE-E7j" kind="embed" identifier="toMenu" id="75g-bl-AFA"/>
                                 </connections>
                             </containerView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y6A-Xf-OzB">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="52" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zxd-nP-ko4">
                                         <rect key="frame" x="0.0" y="254" width="376" height="393"/>

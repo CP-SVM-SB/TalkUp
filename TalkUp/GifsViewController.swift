@@ -87,7 +87,7 @@ class GifsViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
     override func viewWillAppear(_ animated: Bool) {
 
-        view.backgroundColor = userSettings?.theme?.primaryColor
+        //view.backgroundColor = userSettings?.theme?.primaryColor
         
     }
     
