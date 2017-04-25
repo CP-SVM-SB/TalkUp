@@ -20,9 +20,6 @@ class ChatRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
   
   
   @IBOutlet var `switch`: UISwitch!
-  
-  
-  
   @IBOutlet var chatView: UIView!
   @IBOutlet var messageTextField: UITextField!
   @IBOutlet var sendButton: UIButton!
@@ -154,11 +151,11 @@ class ChatRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
         if chatAlreadyExists {
           self.Client.joinChatWithId(id: chatID, onSuccess: { (chatInfo: ChatRoom) in
             if chatInfo.memberCount < 2 {
-              self.Client.sendInitialMessageToChatWithId(id: chatInfo.count, onSuccess: {
-                print("Initial message sent")
-              }, onFailure: { (error: Error) in
-                print("failed to send initial message")
-              })
+//                //self.Client.sendInitialMessageToChatWithId(id: chatInfo.count, onSuccess: {
+//                print("Initial message sent")
+//              }, onFailure: { (error: Error) in
+//                print("failed to send initial message")
+//              })
             }
             self.chat = chatInfo
             if self.chat.open == 1 {
@@ -174,11 +171,11 @@ class ChatRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
         }
         else {
           self.Client.createAndJoinChatWithId(id: chatID, onSuccess: { (chatInfo: ChatRoom) in
-            self.Client.sendInitialMessageToChatWithId(id: chatInfo.count, onSuccess: {
-              print("Initial message sent")
-            }, onFailure: { (error: Error) in
-              print("failed to send initial message")
-            })
+//            //self.Client.sendInitialMessageToChatWithId(id: chatInfo.count, onSuccess: {
+//              print("Initial message sent")
+//            }, onFailure: { (error: Error) in
+//              print("failed to send initial message")
+//            })
             self.chat = chatInfo
             if self.chat.open == 1 {
               self.switch.isOn = true

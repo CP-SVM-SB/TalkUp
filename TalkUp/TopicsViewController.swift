@@ -38,7 +38,7 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   let keywordApi = WatsonClient()
   let myDispatchGroup = DispatchGroup()
   var fakeTopicsArr = [String]()
-  let fakeNumMessagesArr = [250, 304, 100, 678, 432, 763, 453, 294]
+  var fakeNumMessagesArr = [Int]()
   let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
   let locationManager = CLLocationManager()
   
@@ -80,15 +80,21 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    //UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: "Avenir Next Regular"]
+    
     
     fakeTopicsArr = ["Donald Trump", "United Airlines", "Coachella", "Kendrick Lamar", "Maxine Waters", "North Korea", "Howard University", "CodePath"]
-    
-    fakeKeywordsArr = ["yolo", "Android Users", "new app", "CodePath", "Swift", "fix chat bugs", "presentation day"]
-    fakenoChatsWithKeyword = [1, 2, 1, 3, 1, 1, 1]
+    fakeNumMessagesArr = [250, 304, 100, 678, 432, 763, 453, 294]
     
     
-    //keywordsArr.append(contentsOf: fakeKeywordsArr)
-    //noChatsWithKeyword.append(contentsOf: fakenoChatsWithKeyword)
+    fakeKeywordsArr = ["yolo", "Android Users", "new app", "CodePath", "Swift", "fix chat bugs", "presentation day", "iOS", "finals", "test"]
+    fakenoChatsWithKeyword = [1, 2, 1, 3, 1, 1, 1, 3, 4, 5]
+    
+//    for i in 0...(fakeKeywordsArr.count - 1) {
+//        keywordsArr.append(fakeKeywordsArr[i])
+//        noChatsWithKeyword.append(fakenoChatsWithKeyword[i])
+//    }
+    
     
     self.locationManager.requestAlwaysAuthorization()
     self.locationManager.requestWhenInUseAuthorization()

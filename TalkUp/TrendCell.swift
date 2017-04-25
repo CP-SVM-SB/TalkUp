@@ -27,7 +27,7 @@ class TrendCell: UITableViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
-    flameImageView.image = UIImage(named: "flame (2).png")
+    flameImageView.image = UIImage(named: "lightflame.png")
     flameImageView.tintColor = UIColor.lightGray
   }
   

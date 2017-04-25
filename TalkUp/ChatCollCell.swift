@@ -18,8 +18,8 @@ class ChatCollCell: UICollectionViewCell {
   override func awakeFromNib() {
     super.awakeFromNib()
     
-    profileImageView.layer.cornerRadius = 15
-    chatBubbleView.layer.cornerRadius = 10
+    profileImageView.layer.cornerRadius = profileImageView.frame.height / 2.0
+    chatBubbleView.layer.cornerRadius = 15
     profileImageView.clipsToBounds = true
     chatBubbleView.clipsToBounds = true
   }
