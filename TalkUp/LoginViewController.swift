@@ -71,6 +71,7 @@ class LoginViewController: UIViewController {
     
     userSettings?.profileImage = UIImage(named: anonUser.anonProfilePic)
     userSettings?.username = anonUser.anonUserName
+    userSettings?.imageTitle = anonUser.anonProfilePic
     print("YOUR USERNAME IS:", anonUser.anonUserName)
     print("YOUR PROFILEPIC IS:", anonUser.anonProfilePic)
 
@@ -122,6 +123,7 @@ class LoginViewController: UIViewController {
         var fontSize = Int()
         var username = String()
         var profileImage = UIImage()
+        var imageTitle = String()
         
         notificationsOn = false
         encryptMessages = false
@@ -129,8 +131,9 @@ class LoginViewController: UIViewController {
         fontSize = 15
         username = "empty"
         profileImage = UIImage(named: "Selected.png")!
+        imageTitle = "Selected.png"
         
-        return UserSettings.init(notificationsOn: notificationsOn, encryptMessages: encryptMessages, enableVM: enableVoiceMessaging, fontSize: fontSize, theme: setDefaultTheme(), username: username, profileImage: profileImage)
+      return UserSettings.init(notificationsOn: notificationsOn, encryptMessages: encryptMessages, enableVM: enableVoiceMessaging, fontSize: fontSize, theme: setDefaultTheme(), username: username, profileImage: profileImage, imageTitle: imageTitle)
     }
 
     func setDefaultTheme() -> Theme {

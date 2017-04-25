@@ -11,11 +11,13 @@ import UIKit
 class Message: NSObject {
     var text: String?
     var from: String?
+    var imageTitle: String?
     var timeStamp: String?
     
     override init() {
         text = nil
         from = nil
         timeStamp = nil
+        imageTitle = nil
     }
 }

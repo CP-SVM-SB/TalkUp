@@ -641,6 +641,7 @@ class ParseClient: NSObject {
         let messageSender = PFObject(className: "ChatMessage")
         messageSender["text"] = message.text
         messageSender["from"] = message.from
+        messageSender["image"] = message.imageTitle
         //messageSender["timeStamp"] = message.timeStamp
         
         messageSender.saveInBackground { (success: Bool, error: Error?) in
@@ -670,6 +671,7 @@ class ParseClient: NSObject {
                         let message = Message()
                         message.from = eachMessage["from"] as! String?
                         message.text = eachMessage["text"] as! String?
+                        message.imageTitle = eachMessage["image"] as! String?
                         message.timeStamp = " "
                             //eachMessage["_created_at"] as! String?
                         
