@@ -901,7 +901,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="noChats" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQA-JX-ZPe">
-                                                            <rect key="frame" x="261" y="21" width="69" height="14"/>
+                                                            <rect key="frame" x="181" y="18" width="69" height="14"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="italicSystem" pointSize="11"/>
                                                             <color key="textColor" red="0.51292736660000005" green="0.51484464419999998" blue="0.520596477" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
