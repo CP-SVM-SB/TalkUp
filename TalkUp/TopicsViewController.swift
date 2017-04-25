@@ -454,6 +454,9 @@ class TopicsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+    UserDefaults.standard.set(locValue.longitude, forKey: "longitude")
+    UserDefaults.standard.set(locValue.latitude, forKey: "latitude")
+    //print(UserDefaults.standard.string(forKey: "longitude")!)
     self.location.longitude = locValue.longitude
     self.location.latitude = locValue.latitude
     //print(self.location.latitude)

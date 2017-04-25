@@ -49,7 +49,8 @@ class ChatRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
     self.switch.isEnabled = true
     self.switch.isOn = false
     
-    
+    self.chat.location?.longitude = Double(UserDefaults.standard.string(forKey: "longitude")!)
+    self.chat.location?.latitude = Double(UserDefaults.standard.string(forKey: "latitude")!)
     print("CONFIRMATION: ", topicChatIndex)
     
     //make sure the location is saved before we find the close by chat
@@ -266,9 +267,9 @@ class ChatRoomViewController: UIViewController, UICollectionViewDelegate, UIColl
         
       })
     }
-    
-    self.performSegue(withIdentifier: "unwindToTopics", sender: self)
     self.leavingChat = true
+
+    self.performSegue(withIdentifier: "unwindToTopics", sender: self)
   }
   
   // ------------------------ PREPARE FOR SEGUE --------------------------
